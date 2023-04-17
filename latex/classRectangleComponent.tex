@@ -1,0 +1,131 @@
+\hypertarget{classRectangleComponent}{}\doxysection{Rectangle\+Component Class Reference}
+\label{classRectangleComponent}\index{RectangleComponent@{RectangleComponent}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRectangleComponent_ac674880c4b0f88affe80d8b69601c624}{Rectangle\+Component}} (\mbox{\hyperlink{classTransform}{Transform}} $\ast$transform)
+\begin{DoxyCompactList}\small\item\em Constructor\+: \mbox{\hyperlink{classTransform}{Transform}} component as parameter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRectangleComponent_a7c13625c6b262739064529c340e6c024}\label{classRectangleComponent_a7c13625c6b262739064529c340e6c024}} 
+\mbox{\hyperlink{classRectangleComponent_a7c13625c6b262739064529c340e6c024}{$\sim$\+Rectangle\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classRectangleComponent_a73e7ca54050c78bf3051e65d680f623f}\label{classRectangleComponent_a73e7ca54050c78bf3051e65d680f623f}} 
+void \mbox{\hyperlink{classRectangleComponent_a73e7ca54050c78bf3051e65d680f623f}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Empty method. Not needed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRectangleComponent_a372d4f7a40615cfea0f3ecb09b394a3d}{Render}} (std\+::uintptr\+\_\+t renderer\+Address, int cam\+OffsetX, int cam\+OffsetY)
+\begin{DoxyCompactList}\small\item\em Renders rectangle according to camera offset. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRectangleComponent_a7f769958f900e4e3122c9a7c8554acef}{set\+Dimensions}} (int w, int h)
+\begin{DoxyCompactList}\small\item\em Setter\+: sets width and height. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRectangleComponent_ab7a7c3de25627516fc848994c26e6119}{get\+Width}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns width. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRectangleComponent_aa89f546fde1cf4592a2e998bd657ab24}{get\+Height}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns height. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRectangleComponent_a212d5c35d26cf8ee27dd9b438aaa4ae6}{getX}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns x position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRectangleComponent_a8fc8ae2e72ae7ad5501f0d87728d67ea}{getY}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: return y position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRectangleComponent_a787df121cb515f58e80aad5baa891a2b}{get\+CenterX}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns x coordinate of center of rectangle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRectangleComponent_ab7a5a97a0de03be7648d06dce5f559fa}{get\+CenterY}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns y coordinate of center of rectangle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRectangleComponent_ac674880c4b0f88affe80d8b69601c624}\label{classRectangleComponent_ac674880c4b0f88affe80d8b69601c624}} 
+\index{RectangleComponent@{RectangleComponent}!RectangleComponent@{RectangleComponent}}
+\index{RectangleComponent@{RectangleComponent}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{RectangleComponent()}{RectangleComponent()}}
+{\footnotesize\ttfamily Rectangle\+Component\+::\+Rectangle\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTransform}{Transform}} $\ast$}]{\+\_\+transform }\end{DoxyParamCaption})}
+
+
+
+Constructor\+: \mbox{\hyperlink{classTransform}{Transform}} component as parameter. 
+
+Constructor that takes in a pointer to pre-\/existing \mbox{\hyperlink{classTransform}{Transform}} component 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRectangleComponent_a787df121cb515f58e80aad5baa891a2b}\label{classRectangleComponent_a787df121cb515f58e80aad5baa891a2b}} 
+\index{RectangleComponent@{RectangleComponent}!getCenterX@{getCenterX}}
+\index{getCenterX@{getCenterX}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{getCenterX()}{getCenterX()}}
+{\footnotesize\ttfamily int Rectangle\+Component\+::get\+CenterX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter\+: returns x coordinate of center of rectangle. 
+
+Getter method\+: returns x coordinate of center of rectangle based on \mbox{\hyperlink{classTransform}{Transform}} component\textquotesingle{}s x\+Pos. \mbox{\Hypertarget{classRectangleComponent_ab7a5a97a0de03be7648d06dce5f559fa}\label{classRectangleComponent_ab7a5a97a0de03be7648d06dce5f559fa}} 
+\index{RectangleComponent@{RectangleComponent}!getCenterY@{getCenterY}}
+\index{getCenterY@{getCenterY}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{getCenterY()}{getCenterY()}}
+{\footnotesize\ttfamily int Rectangle\+Component\+::get\+CenterY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter\+: returns y coordinate of center of rectangle. 
+
+Getter method\+: returns x coordinate of center of rectangle based on \mbox{\hyperlink{classTransform}{Transform}} component\textquotesingle{}s y\+Pos. \mbox{\Hypertarget{classRectangleComponent_aa89f546fde1cf4592a2e998bd657ab24}\label{classRectangleComponent_aa89f546fde1cf4592a2e998bd657ab24}} 
+\index{RectangleComponent@{RectangleComponent}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily int Rectangle\+Component\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter\+: returns height. 
+
+Getter method that returns height \mbox{\Hypertarget{classRectangleComponent_ab7a7c3de25627516fc848994c26e6119}\label{classRectangleComponent_ab7a7c3de25627516fc848994c26e6119}} 
+\index{RectangleComponent@{RectangleComponent}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily int Rectangle\+Component\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter\+: returns width. 
+
+Getter method that returns width \mbox{\Hypertarget{classRectangleComponent_a212d5c35d26cf8ee27dd9b438aaa4ae6}\label{classRectangleComponent_a212d5c35d26cf8ee27dd9b438aaa4ae6}} 
+\index{RectangleComponent@{RectangleComponent}!getX@{getX}}
+\index{getX@{getX}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily int Rectangle\+Component\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter\+: returns x position. 
+
+Getter method\+: returns x position (x\+Pos) from \mbox{\hyperlink{classTransform}{Transform}} component. \mbox{\Hypertarget{classRectangleComponent_a8fc8ae2e72ae7ad5501f0d87728d67ea}\label{classRectangleComponent_a8fc8ae2e72ae7ad5501f0d87728d67ea}} 
+\index{RectangleComponent@{RectangleComponent}!getY@{getY}}
+\index{getY@{getY}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily int Rectangle\+Component\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter\+: return y position. 
+
+Getter method\+: returns y position (y\+Pos) from \mbox{\hyperlink{classTransform}{Transform}} component. \mbox{\Hypertarget{classRectangleComponent_a372d4f7a40615cfea0f3ecb09b394a3d}\label{classRectangleComponent_a372d4f7a40615cfea0f3ecb09b394a3d}} 
+\index{RectangleComponent@{RectangleComponent}!Render@{Render}}
+\index{Render@{Render}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void Rectangle\+Component\+::\+Render (\begin{DoxyParamCaption}\item[{std\+::uintptr\+\_\+t}]{renderer\+Address,  }\item[{int}]{cam\+OffsetX,  }\item[{int}]{cam\+OffsetY }\end{DoxyParamCaption})}
+
+
+
+Renders rectangle according to camera offset. 
+
+Renders rectangle according to camera offset according to params cam\+OffsetX, cam\+OffsetY \mbox{\Hypertarget{classRectangleComponent_a7f769958f900e4e3122c9a7c8554acef}\label{classRectangleComponent_a7f769958f900e4e3122c9a7c8554acef}} 
+\index{RectangleComponent@{RectangleComponent}!setDimensions@{setDimensions}}
+\index{setDimensions@{setDimensions}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{setDimensions()}{setDimensions()}}
+{\footnotesize\ttfamily void Rectangle\+Component\+::set\+Dimensions (\begin{DoxyParamCaption}\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+
+
+Setter\+: sets width and height. 
+
+Setter method\+: sets width and height 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/Rectangle.\+hpp\item 
+Engine/src/Rectangle.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,209 @@
+\hypertarget{classTileMapComponent}{}\doxysection{Tile\+Map\+Component Class Reference}
+\label{classTileMapComponent}\index{TileMapComponent@{TileMapComponent}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTileMapComponent_a8daca76596f7812f20696faca2438300}{Tile\+Map\+Component}} (const std\+::string \&level\+Path)
+\begin{DoxyCompactList}\small\item\em Overloaded Constructor with param level\+Path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTileMapComponent_a3bc6ffd8e10a9bd1579ea35867e823f5}{Tile\+Map\+Component}} (int rows, int cols, int size)
+\begin{DoxyCompactList}\small\item\em Overloaded Constructor with rows, cols, and size as parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTileMapComponent_a3d8289074c6943aee6194df04a28cd5b}{$\sim$\+Tile\+Map\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTileMapComponent_a499b5deb3ae911b848b995244bf5ec8f}{Render}} (std\+::uintptr\+\_\+t renderer\+Address, int offsetX, int offsetY)
+\begin{DoxyCompactList}\small\item\em Renders all tiles according to camera offset. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structCollision}{Collision}} \mbox{\hyperlink{classTileMapComponent_a9827856ca055d728e0e53af5393de6f3}{check\+Collision}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$o)
+\begin{DoxyCompactList}\small\item\em Checks for collisions around \mbox{\hyperlink{classGameObject}{Game\+Object}}. Returns collision object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTileMapComponent_aa4e452228da006aaf64d287b8e098a71}{is\+On\+Ground}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$o)
+\begin{DoxyCompactList}\small\item\em Checks if rectangle is touching the top of a tile. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTileMapComponent_af85dca41b00eeec160a16cf8e18dfa16}{is\+On\+Ceiling}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$o)
+\begin{DoxyCompactList}\small\item\em Checks if rectangle is touching the bottom of a tile. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTileMapComponent_af679d9ce8c6987467bdba78a13d187ca}{is\+Touching\+Right\+Wall}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$o)
+\begin{DoxyCompactList}\small\item\em Checks if rectangle is touching tile to the right. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTileMapComponent_a1de729649331ec314f4a3952aecc5482}{is\+Touching\+Left\+Wall}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$o)
+\begin{DoxyCompactList}\small\item\em Checks if rectangle is touching tile to the left. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTileMapComponent_a1b7d92af202884138302e707b3c17f26}\label{classTileMapComponent_a1b7d92af202884138302e707b3c17f26}} 
+int \mbox{\hyperlink{classTileMapComponent_a1b7d92af202884138302e707b3c17f26}{get\+Rows}} ()
+\begin{DoxyCompactList}\small\item\em Getter method\+: returns m\+Rows. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTileMapComponent_a87d4f2d1294e0b2d9df6a25a1f4fa7ad}\label{classTileMapComponent_a87d4f2d1294e0b2d9df6a25a1f4fa7ad}} 
+int \mbox{\hyperlink{classTileMapComponent_a87d4f2d1294e0b2d9df6a25a1f4fa7ad}{get\+Cols}} ()
+\begin{DoxyCompactList}\small\item\em Getter method\+: returns m\+Cols. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTileMapComponent_a8412905d62e5cf7da2fb2101c588061b}\label{classTileMapComponent_a8412905d62e5cf7da2fb2101c588061b}} 
+int \mbox{\hyperlink{classTileMapComponent_a8412905d62e5cf7da2fb2101c588061b}{get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Getter method\+: returns m\+Size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTileMapComponent_a16b4fd4dcfffe45198e342394023a45b}{load\+Tileset}} (std\+::string tileset\+Path, std\+::uintptr\+\_\+t renderer\+Address)
+\begin{DoxyCompactList}\small\item\em Method loads tileset from tileset path. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTileMapComponent_aaf36f19d3a127c6ac68eb612fe430735}\label{classTileMapComponent_aaf36f19d3a127c6ac68eb612fe430735}} 
+void \mbox{\hyperlink{classTileMapComponent_aaf36f19d3a127c6ac68eb612fe430735}{Print\+Tiles}} ()
+\begin{DoxyCompactList}\small\item\em Prints all tiles in grid. For debugging. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTileMapComponent_afd6ccbefa9a84a5c7952073a16db4b26}{is\+Valid\+Tile}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Determines if tile is on grid. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTileMapComponent_ad022a0b212be9cb8a0ee94c265883b49}{tile\+At}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Returns number (name) of tile at position (row, col). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTileMapComponent_a92da27f9f4192e6b30a0db53debec527}{tile\+At\+XY}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Returns numer (name) of tile at (x, y) position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTileMapComponent_a6ad2d3d30f72e98899bc9a28e1aa94b2}{get\+Tile\+Idx}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Internal method. Returns index of tile by (row, col) position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTileMapComponent_afbf9599aeed89dac84fba702895d77a4}{set\+Tile}} (int row, int col, int type)
+\begin{DoxyCompactList}\small\item\em Setter\+: sets name/type of tile at (row, col) position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTileMapComponent_a8daca76596f7812f20696faca2438300}\label{classTileMapComponent_a8daca76596f7812f20696faca2438300}} 
+\index{TileMapComponent@{TileMapComponent}!TileMapComponent@{TileMapComponent}}
+\index{TileMapComponent@{TileMapComponent}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{TileMapComponent()}{TileMapComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Tile\+Map\+Component\+::\+Tile\+Map\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{level\+Path }\end{DoxyParamCaption})}
+
+
+
+Overloaded Constructor with param level\+Path. 
+
+Overloaded Constructor that takes in level\+Path string as parameter. Sets all member variables using \mbox{\hyperlink{classLevelReader}{Level\+Reader}}. \mbox{\Hypertarget{classTileMapComponent_a3bc6ffd8e10a9bd1579ea35867e823f5}\label{classTileMapComponent_a3bc6ffd8e10a9bd1579ea35867e823f5}} 
+\index{TileMapComponent@{TileMapComponent}!TileMapComponent@{TileMapComponent}}
+\index{TileMapComponent@{TileMapComponent}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{TileMapComponent()}{TileMapComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Tile\+Map\+Component\+::\+Tile\+Map\+Component (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{cols,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Overloaded Constructor with rows, cols, and size as parameters. 
+
+Overloaded Constructor that takes in rows, cols, size as parameters. Sets member variables and creates a temporary level for testing. \mbox{\Hypertarget{classTileMapComponent_a3d8289074c6943aee6194df04a28cd5b}\label{classTileMapComponent_a3d8289074c6943aee6194df04a28cd5b}} 
+\index{TileMapComponent@{TileMapComponent}!````~TileMapComponent@{$\sim$TileMapComponent}}
+\index{````~TileMapComponent@{$\sim$TileMapComponent}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{$\sim$TileMapComponent()}{~TileMapComponent()}}
+{\footnotesize\ttfamily Tile\+Map\+Component\+::$\sim$\+Tile\+Map\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deconstructor. 
+
+Deconstructor\+: destroys tileset\+Texture and calls IMG\+\_\+\+Quit() 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTileMapComponent_a9827856ca055d728e0e53af5393de6f3}\label{classTileMapComponent_a9827856ca055d728e0e53af5393de6f3}} 
+\index{TileMapComponent@{TileMapComponent}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structCollision}{Collision}} Tile\+Map\+Component\+::check\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+
+
+Checks for collisions around \mbox{\hyperlink{classGameObject}{Game\+Object}}. Returns collision object. 
+
+Gets tiles on object\textquotesingle{}s left, right, top, and bottom edges. Iterate from left to right and top to bottom of tiles covered to check for collisions. Returns a \mbox{\hyperlink{structCollision}{Collision}} object. \mbox{\Hypertarget{classTileMapComponent_a6ad2d3d30f72e98899bc9a28e1aa94b2}\label{classTileMapComponent_a6ad2d3d30f72e98899bc9a28e1aa94b2}} 
+\index{TileMapComponent@{TileMapComponent}!getTileIdx@{getTileIdx}}
+\index{getTileIdx@{getTileIdx}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{getTileIdx()}{getTileIdx()}}
+{\footnotesize\ttfamily int Tile\+Map\+Component\+::get\+Tile\+Idx (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Internal method. Returns index of tile by (row, col) position. 
+
+Internal method. Returns index of tile in m\+Tiles by inputs row and col. \mbox{\Hypertarget{classTileMapComponent_af85dca41b00eeec160a16cf8e18dfa16}\label{classTileMapComponent_af85dca41b00eeec160a16cf8e18dfa16}} 
+\index{TileMapComponent@{TileMapComponent}!isOnCeiling@{isOnCeiling}}
+\index{isOnCeiling@{isOnCeiling}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{isOnCeiling()}{isOnCeiling()}}
+{\footnotesize\ttfamily bool Tile\+Map\+Component\+::is\+On\+Ceiling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+
+
+Checks if rectangle is touching the bottom of a tile. 
+
+Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Rectangle is touching the bottom of a tile (ceiling). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} pointer as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_aa4e452228da006aaf64d287b8e098a71}\label{classTileMapComponent_aa4e452228da006aaf64d287b8e098a71}} 
+\index{TileMapComponent@{TileMapComponent}!isOnGround@{isOnGround}}
+\index{isOnGround@{isOnGround}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{isOnGround()}{isOnGround()}}
+{\footnotesize\ttfamily bool Tile\+Map\+Component\+::is\+On\+Ground (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+
+
+Checks if rectangle is touching the top of a tile. 
+
+Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Rectangle is touching the top of a tile (floor). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} pointer as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_a1de729649331ec314f4a3952aecc5482}\label{classTileMapComponent_a1de729649331ec314f4a3952aecc5482}} 
+\index{TileMapComponent@{TileMapComponent}!isTouchingLeftWall@{isTouchingLeftWall}}
+\index{isTouchingLeftWall@{isTouchingLeftWall}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{isTouchingLeftWall()}{isTouchingLeftWall()}}
+{\footnotesize\ttfamily bool Tile\+Map\+Component\+::is\+Touching\+Left\+Wall (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+
+
+Checks if rectangle is touching tile to the left. 
+
+Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Rectangle is touching a tile to the left (left wall). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_af679d9ce8c6987467bdba78a13d187ca}\label{classTileMapComponent_af679d9ce8c6987467bdba78a13d187ca}} 
+\index{TileMapComponent@{TileMapComponent}!isTouchingRightWall@{isTouchingRightWall}}
+\index{isTouchingRightWall@{isTouchingRightWall}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{isTouchingRightWall()}{isTouchingRightWall()}}
+{\footnotesize\ttfamily bool Tile\+Map\+Component\+::is\+Touching\+Right\+Wall (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$}]{o }\end{DoxyParamCaption})}
+
+
+
+Checks if rectangle is touching tile to the right. 
+
+Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Rectangle is touching a tile to the right (right wall). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_afd6ccbefa9a84a5c7952073a16db4b26}\label{classTileMapComponent_afd6ccbefa9a84a5c7952073a16db4b26}} 
+\index{TileMapComponent@{TileMapComponent}!isValidTile@{isValidTile}}
+\index{isValidTile@{isValidTile}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{isValidTile()}{isValidTile()}}
+{\footnotesize\ttfamily bool Tile\+Map\+Component\+::is\+Valid\+Tile (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Determines if tile is on grid. 
+
+Determines if tile is on grid by checking if row and col are valid. \mbox{\Hypertarget{classTileMapComponent_a16b4fd4dcfffe45198e342394023a45b}\label{classTileMapComponent_a16b4fd4dcfffe45198e342394023a45b}} 
+\index{TileMapComponent@{TileMapComponent}!loadTileset@{loadTileset}}
+\index{loadTileset@{loadTileset}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{loadTileset()}{loadTileset()}}
+{\footnotesize\ttfamily void Tile\+Map\+Component\+::load\+Tileset (\begin{DoxyParamCaption}\item[{std\+::string}]{tileset\+Path,  }\item[{std\+::uintptr\+\_\+t}]{renderer\+Address }\end{DoxyParamCaption})}
+
+
+
+Method loads tileset from tileset path. 
+
+Method loads tileset from param tileset\+Path. Must be called by user after \mbox{\hyperlink{classTileMapComponent}{Tile\+Map\+Component}} is initialized. Otherwise, it will cause a segmentation fault. \mbox{\Hypertarget{classTileMapComponent_a499b5deb3ae911b848b995244bf5ec8f}\label{classTileMapComponent_a499b5deb3ae911b848b995244bf5ec8f}} 
+\index{TileMapComponent@{TileMapComponent}!Render@{Render}}
+\index{Render@{Render}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void Tile\+Map\+Component\+::\+Render (\begin{DoxyParamCaption}\item[{std\+::uintptr\+\_\+t}]{renderer\+Address,  }\item[{int}]{cam\+OffsetX,  }\item[{int}]{cam\+OffsetY }\end{DoxyParamCaption})}
+
+
+
+Renders all tiles according to camera offset. 
+
+Renders all tiles according to camera offset. Blank tiles are now left blank. \mbox{\Hypertarget{classTileMapComponent_afbf9599aeed89dac84fba702895d77a4}\label{classTileMapComponent_afbf9599aeed89dac84fba702895d77a4}} 
+\index{TileMapComponent@{TileMapComponent}!setTile@{setTile}}
+\index{setTile@{setTile}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{setTile()}{setTile()}}
+{\footnotesize\ttfamily void Tile\+Map\+Component\+::set\+Tile (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+
+
+Setter\+: sets name/type of tile at (row, col) position. 
+
+Setter method that sets name (int) of tile at position according to row and col. \mbox{\Hypertarget{classTileMapComponent_ad022a0b212be9cb8a0ee94c265883b49}\label{classTileMapComponent_ad022a0b212be9cb8a0ee94c265883b49}} 
+\index{TileMapComponent@{TileMapComponent}!tileAt@{tileAt}}
+\index{tileAt@{tileAt}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{tileAt()}{tileAt()}}
+{\footnotesize\ttfamily int Tile\+Map\+Component\+::tile\+At (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Returns number (name) of tile at position (row, col). 
+
+Returns number (name) of tile at position according to row and col position. \mbox{\Hypertarget{classTileMapComponent_a92da27f9f4192e6b30a0db53debec527}\label{classTileMapComponent_a92da27f9f4192e6b30a0db53debec527}} 
+\index{TileMapComponent@{TileMapComponent}!tileAtXY@{tileAtXY}}
+\index{tileAtXY@{tileAtXY}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{tileAtXY()}{tileAtXY()}}
+{\footnotesize\ttfamily int Tile\+Map\+Component\+::tile\+At\+XY (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Returns numer (name) of tile at (x, y) position. 
+
+Returns number (name) of tile at position according to x and y position. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/Tile\+Map\+Component.\+hpp\item 
+Engine/src/Tile\+Map\+Component.\+cpp\end{DoxyCompactItemize}

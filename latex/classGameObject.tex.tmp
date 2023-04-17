@@ -1,0 +1,139 @@
+\hypertarget{classGameObject}{}\doxysection{Game\+Object Class Reference}
+\label{classGameObject}\index{GameObject@{GameObject}}
+
+
+Collaboration diagram for Game\+Object\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameObject_ad0cd825a6ebe734da205f07370c2c93f}{Game\+Object}} (std\+::uintptr\+\_\+t renderer\+Address)
+\begin{DoxyCompactList}\small\item\em Constructor which takes in an std\+::uintptr\+\_\+t for a renderer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGameObject_a0348e3ee2e83d56eafca7a3547f432c4}{Game\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameObject_ab82dfdb656f9051c0587e6593b2dda97}\label{classGameObject_ab82dfdb656f9051c0587e6593b2dda97}} 
+\mbox{\hyperlink{classGameObject_ab82dfdb656f9051c0587e6593b2dda97}{$\sim$\+Game\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGameObject_a1bd14aa169f501f94f1721943d716535}\label{classGameObject_a1bd14aa169f501f94f1721943d716535}} 
+void \mbox{\hyperlink{classGameObject_a1bd14aa169f501f94f1721943d716535}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Empty method for now. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameObject_a7a2cc7a40ecf7d5ea6ef05c855e6c592}{Render}} (int cam\+OffsetX, int cam\+OffsetY)
+\begin{DoxyCompactList}\small\item\em Render calls \mbox{\hyperlink{classGameObject_a7a2cc7a40ecf7d5ea6ef05c855e6c592}{Render()}} for m\+Rectangle and m\+Tile\+Map\+Component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameObject_a1afaba9c1b30489d74bc1ebafd30bc40}{add\+Transform\+Component}} (\mbox{\hyperlink{classTransform}{Transform}} $\ast$transform)
+\begin{DoxyCompactList}\small\item\em Adds \mbox{\hyperlink{classTransform}{Transform}} component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameObject_afcd03e8053cc3f93f075474c0fbc2f94}{add\+Rectangle\+Component}} (\mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}} $\ast$rectangle)
+\begin{DoxyCompactList}\small\item\em Adds \mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameObject_a47b19fa8a27b2c2524d7cbab7ecfe956}{add\+Physics\+Component}} (\mbox{\hyperlink{classPhysicsComponent}{Physics\+Component}} $\ast$physics\+Component)
+\begin{DoxyCompactList}\small\item\em Adds \mbox{\hyperlink{classPhysicsComponent}{Physics\+Component}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGameObject_a7852de41c01bdae09ce4be8a1ea07208}{add\+Tile\+Map\+Component}} (\mbox{\hyperlink{classTileMapComponent}{Tile\+Map\+Component}} $\ast$tile\+Map\+Component)
+\begin{DoxyCompactList}\small\item\em Adds \mbox{\hyperlink{classTileMapComponent}{Tile\+Map\+Component}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGameObject_ade5a086f3964e626b244b6ad9f965dc8}\label{classGameObject_ade5a086f3964e626b244b6ad9f965dc8}} 
+\mbox{\hyperlink{classTransform}{Transform}} $\ast$ {\bfseries m\+Transform} = nullptr
+\item 
+\mbox{\Hypertarget{classGameObject_a60b96fbc940432d9ab128c45b88c14a5}\label{classGameObject_a60b96fbc940432d9ab128c45b88c14a5}} 
+\mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}} $\ast$ {\bfseries m\+Rectangle} = nullptr
+\item 
+\mbox{\Hypertarget{classGameObject_a5bc00f339d836fe9db2728f610e8b03c}\label{classGameObject_a5bc00f339d836fe9db2728f610e8b03c}} 
+\mbox{\hyperlink{classPhysicsComponent}{Physics\+Component}} $\ast$ {\bfseries m\+Physics\+Component} = nullptr
+\item 
+\mbox{\Hypertarget{classGameObject_a4a0af400cc84372f343f8f6c12200dc2}\label{classGameObject_a4a0af400cc84372f343f8f6c12200dc2}} 
+\mbox{\hyperlink{classTileMapComponent}{Tile\+Map\+Component}} $\ast$ {\bfseries m\+Tile\+Map\+Component} = nullptr
+\item 
+\mbox{\Hypertarget{classGameObject_a6d33250764c410de9b87a4297af89a5f}\label{classGameObject_a6d33250764c410de9b87a4297af89a5f}} 
+SDL\+\_\+\+Renderer $\ast$ {\bfseries m\+Renderer}
+\item 
+\mbox{\Hypertarget{classGameObject_a1516683aceb45be653abc3dc045aa3a3}\label{classGameObject_a1516683aceb45be653abc3dc045aa3a3}} 
+int {\bfseries x\+Vel} = 0
+\item 
+\mbox{\Hypertarget{classGameObject_ad68daf258d37a1b959cd7bac8664e5d6}\label{classGameObject_ad68daf258d37a1b959cd7bac8664e5d6}} 
+int {\bfseries y\+Vel} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGameObject_ad0cd825a6ebe734da205f07370c2c93f}\label{classGameObject_ad0cd825a6ebe734da205f07370c2c93f}} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{std\+::uintptr\+\_\+t}]{renderer\+Address }\end{DoxyParamCaption})}
+
+
+
+Constructor which takes in an std\+::uintptr\+\_\+t for a renderer. 
+
+Overloaded Constructor which take in an address to an existing renderer
+
+@parim\mbox{[}in\mbox{]} renderer\+Address Pointer to existing renderer
+
+Overloaded Constructor which takes in an address to an existing renderer \mbox{\Hypertarget{classGameObject_a0348e3ee2e83d56eafca7a3547f432c4}\label{classGameObject_a0348e3ee2e83d56eafca7a3547f432c4}} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Simple Constructor\+: no params 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGameObject_a47b19fa8a27b2c2524d7cbab7ecfe956}\label{classGameObject_a47b19fa8a27b2c2524d7cbab7ecfe956}} 
+\index{GameObject@{GameObject}!addPhysicsComponent@{addPhysicsComponent}}
+\index{addPhysicsComponent@{addPhysicsComponent}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{addPhysicsComponent()}{addPhysicsComponent()}}
+{\footnotesize\ttfamily void Game\+Object\+::add\+Physics\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPhysicsComponent}{Physics\+Component}} $\ast$}]{physics\+Component }\end{DoxyParamCaption})}
+
+
+
+Adds \mbox{\hyperlink{classPhysicsComponent}{Physics\+Component}}. 
+
+Adds \mbox{\hyperlink{classPhysicsComponent}{Physics\+Component}} to \mbox{\hyperlink{classGameObject}{Game\+Object}} as m\+Physics\+Component \mbox{\Hypertarget{classGameObject_afcd03e8053cc3f93f075474c0fbc2f94}\label{classGameObject_afcd03e8053cc3f93f075474c0fbc2f94}} 
+\index{GameObject@{GameObject}!addRectangleComponent@{addRectangleComponent}}
+\index{addRectangleComponent@{addRectangleComponent}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{addRectangleComponent()}{addRectangleComponent()}}
+{\footnotesize\ttfamily void Game\+Object\+::add\+Rectangle\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}} $\ast$}]{rectangle }\end{DoxyParamCaption})}
+
+
+
+Adds \mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}}. 
+
+Adds pre-\/existing \mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}} to \mbox{\hyperlink{classGameObject}{Game\+Object}} as m\+Rectangle \mbox{\Hypertarget{classGameObject_a7852de41c01bdae09ce4be8a1ea07208}\label{classGameObject_a7852de41c01bdae09ce4be8a1ea07208}} 
+\index{GameObject@{GameObject}!addTileMapComponent@{addTileMapComponent}}
+\index{addTileMapComponent@{addTileMapComponent}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{addTileMapComponent()}{addTileMapComponent()}}
+{\footnotesize\ttfamily void Game\+Object\+::add\+Tile\+Map\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTileMapComponent}{Tile\+Map\+Component}} $\ast$}]{tile\+Map\+Component }\end{DoxyParamCaption})}
+
+
+
+Adds \mbox{\hyperlink{classTileMapComponent}{Tile\+Map\+Component}}. 
+
+Adds \mbox{\hyperlink{classTileMapComponent}{Tile\+Map\+Component}} to \mbox{\hyperlink{classGameObject}{Game\+Object}} as m\+Tile\+Map\+Component \mbox{\Hypertarget{classGameObject_a1afaba9c1b30489d74bc1ebafd30bc40}\label{classGameObject_a1afaba9c1b30489d74bc1ebafd30bc40}} 
+\index{GameObject@{GameObject}!addTransformComponent@{addTransformComponent}}
+\index{addTransformComponent@{addTransformComponent}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{addTransformComponent()}{addTransformComponent()}}
+{\footnotesize\ttfamily void Game\+Object\+::add\+Transform\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTransform}{Transform}} $\ast$}]{transform }\end{DoxyParamCaption})}
+
+
+
+Adds \mbox{\hyperlink{classTransform}{Transform}} component. 
+
+Adds pre-\/existing \mbox{\hyperlink{classTransform}{Transform}} component to \mbox{\hyperlink{classGameObject}{Game\+Object}} as m\+Transform \mbox{\Hypertarget{classGameObject_a7a2cc7a40ecf7d5ea6ef05c855e6c592}\label{classGameObject_a7a2cc7a40ecf7d5ea6ef05c855e6c592}} 
+\index{GameObject@{GameObject}!Render@{Render}}
+\index{Render@{Render}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void Game\+Object\+::\+Render (\begin{DoxyParamCaption}\item[{int}]{cam\+OffsetX,  }\item[{int}]{cam\+OffsetY }\end{DoxyParamCaption})}
+
+
+
+Render calls \mbox{\hyperlink{classGameObject_a7a2cc7a40ecf7d5ea6ef05c855e6c592}{Render()}} for m\+Rectangle and m\+Tile\+Map\+Component. 
+
+Render calls \mbox{\hyperlink{classGameObject_a7a2cc7a40ecf7d5ea6ef05c855e6c592}{Render()}} for m\+Rectangle and m\+Tile\+Map\+Component according to camera offset 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/Game\+Object.\+hpp\item 
+Engine/src/Game\+Object.\+cpp\end{DoxyCompactItemize}

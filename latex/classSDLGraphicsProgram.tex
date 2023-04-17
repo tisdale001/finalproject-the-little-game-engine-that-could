@@ -1,0 +1,140 @@
+\hypertarget{classSDLGraphicsProgram}{}\doxysection{SDLGraphics\+Program Class Reference}
+\label{classSDLGraphicsProgram}\index{SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSDLGraphicsProgram_a976683178e086cd2a1a801fd9c501a7b}{SDLGraphics\+Program}} (int w, int h)
+\begin{DoxyCompactList}\small\item\em Constructor\+: sets up initial graphics window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSDLGraphicsProgram_a2504412e7eaa011a1116447eb4d5ec00}{$\sim$\+SDLGraphics\+Program}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSDLGraphicsProgram_a828a2cdbf400c7de23f8bd4cce77468f}{clear}} (Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+\begin{DoxyCompactList}\small\item\em Clears the screen using rgba values as input. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSDLGraphicsProgram_a1b2040042b2fc4bda09f365d7885e9a3}\label{classSDLGraphicsProgram_a1b2040042b2fc4bda09f365d7885e9a3}} 
+void \mbox{\hyperlink{classSDLGraphicsProgram_a1b2040042b2fc4bda09f365d7885e9a3}{flip}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSDLGraphicsProgram_a1b2040042b2fc4bda09f365d7885e9a3}{flip()}} function swaps out the previous frame in double-\/buffering system \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSDLGraphicsProgram_a299c62853b3f28fc3930880fc4c128ba}{delay}} (int milliseconds)
+\begin{DoxyCompactList}\small\item\em Method calls SDL\+\_\+\+Delay. Takes in milliseconds as parameter. \end{DoxyCompactList}\item 
+std\+::vector$<$ bool $>$ \mbox{\hyperlink{classSDLGraphicsProgram_a2d8d637b56afd6694965249acf6e0be1}{get\+Input}} ()
+\begin{DoxyCompactList}\small\item\em Method records and returns keyboard state as member variable \char`\"{}inputs\char`\"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSDLGraphicsProgram_ae987598512cf5f05fb0374e7946f8143}{set\+Render\+Color}} (Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+\begin{DoxyCompactList}\small\item\em Setter\+: sets render draw color by rgba input params. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Window $\ast$ \mbox{\hyperlink{classSDLGraphicsProgram_a42e9554ec5b497551530bd5a8ca9585f}{get\+SDLWindow}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns pointer g\+Window. \end{DoxyCompactList}\item 
+std\+::uintptr\+\_\+t \mbox{\hyperlink{classSDLGraphicsProgram_abf37d67442ddc8644c5029e90026a27e}{get\+SDLRenderer}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns pointer g\+Renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSDLGraphicsProgram_a16d2650fd0229073b5de1922fa0156fb}{Draw\+Rectangle}} (int x, int y, int w, int h)
+\begin{DoxyCompactList}\small\item\em Creates rectangle according to dimensions as inputs on g\+Renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSDLGraphicsProgram_aa61f0672d7f5ad701c2fb71b312064c8}{set\+Title}} (const std\+::string \&title)
+\begin{DoxyCompactList}\small\item\em Setter\+: sets title of window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSDLGraphicsProgram_a976683178e086cd2a1a801fd9c501a7b}\label{classSDLGraphicsProgram_a976683178e086cd2a1a801fd9c501a7b}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{SDLGraphicsProgram()}{SDLGraphicsProgram()}}
+{\footnotesize\ttfamily SDLGraphics\+Program\+::\+SDLGraphics\+Program (\begin{DoxyParamCaption}\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+
+
+Constructor\+: sets up initial graphics window. 
+
+Constructor. Takes screen width and height as parameters. Creates graphcis window and renderer and initializes \char`\"{}keys\char`\"{} to reveive keyboard input. \mbox{\Hypertarget{classSDLGraphicsProgram_a2504412e7eaa011a1116447eb4d5ec00}\label{classSDLGraphicsProgram_a2504412e7eaa011a1116447eb4d5ec00}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!````~SDLGraphicsProgram@{$\sim$SDLGraphicsProgram}}
+\index{````~SDLGraphicsProgram@{$\sim$SDLGraphicsProgram}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{$\sim$SDLGraphicsProgram()}{~SDLGraphicsProgram()}}
+{\footnotesize\ttfamily SDLGraphics\+Program\+::$\sim$\+SDLGraphics\+Program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deconstructor. 
+
+Deconstructor\+: destroys window and renderer and calls SDL\+\_\+\+Quit() 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSDLGraphicsProgram_a828a2cdbf400c7de23f8bd4cce77468f}\label{classSDLGraphicsProgram_a828a2cdbf400c7de23f8bd4cce77468f}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!clear@{clear}}
+\index{clear@{clear}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void SDLGraphics\+Program\+::clear (\begin{DoxyParamCaption}\item[{Uint8}]{r,  }\item[{Uint8}]{g,  }\item[{Uint8}]{b,  }\item[{Uint8}]{a }\end{DoxyParamCaption})}
+
+
+
+Clears the screen using rgba values as input. 
+
+Clears the screen according to rgba values. Calls to SDL\+\_\+\+Set\+Render\+Draw\+Color() and SDL\+\_\+\+Render\+Clear(). \mbox{\Hypertarget{classSDLGraphicsProgram_a299c62853b3f28fc3930880fc4c128ba}\label{classSDLGraphicsProgram_a299c62853b3f28fc3930880fc4c128ba}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!delay@{delay}}
+\index{delay@{delay}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{delay()}{delay()}}
+{\footnotesize\ttfamily void SDLGraphics\+Program\+::delay (\begin{DoxyParamCaption}\item[{int}]{milliseconds }\end{DoxyParamCaption})}
+
+
+
+Method calls SDL\+\_\+\+Delay. Takes in milliseconds as parameter. 
+
+Method creates a delay in terms of milliseconds. Used to create a pause for frame-\/capping. \mbox{\Hypertarget{classSDLGraphicsProgram_a16d2650fd0229073b5de1922fa0156fb}\label{classSDLGraphicsProgram_a16d2650fd0229073b5de1922fa0156fb}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!DrawRectangle@{DrawRectangle}}
+\index{DrawRectangle@{DrawRectangle}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{DrawRectangle()}{DrawRectangle()}}
+{\footnotesize\ttfamily void SDLGraphics\+Program\+::\+Draw\+Rectangle (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+
+
+
+Creates rectangle according to dimensions as inputs on g\+Renderer. 
+
+Creates a rectangle according to x/y position, witdth and height as inputs on g\+Renderer \mbox{\Hypertarget{classSDLGraphicsProgram_a2d8d637b56afd6694965249acf6e0be1}\label{classSDLGraphicsProgram_a2d8d637b56afd6694965249acf6e0be1}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!getInput@{getInput}}
+\index{getInput@{getInput}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{getInput()}{getInput()}}
+{\footnotesize\ttfamily std\+::vector$<$ bool $>$ SDLGraphics\+Program\+::get\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method records and returns keyboard state as member variable \char`\"{}inputs\char`\"{}. 
+
+Method records and then returns keyboard state as member variable \char`\"{}inputs\char`\"{}, which is a vector of acceptable keyboard entries according to enum \char`\"{}\+Key\char`\"{}. \mbox{\Hypertarget{classSDLGraphicsProgram_abf37d67442ddc8644c5029e90026a27e}\label{classSDLGraphicsProgram_abf37d67442ddc8644c5029e90026a27e}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!getSDLRenderer@{getSDLRenderer}}
+\index{getSDLRenderer@{getSDLRenderer}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{getSDLRenderer()}{getSDLRenderer()}}
+{\footnotesize\ttfamily std\+::uintptr\+\_\+t SDLGraphics\+Program\+::get\+SDLRenderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter\+: returns pointer g\+Renderer. 
+
+Getter method that returns pointer g\+Renderer \mbox{\Hypertarget{classSDLGraphicsProgram_a42e9554ec5b497551530bd5a8ca9585f}\label{classSDLGraphicsProgram_a42e9554ec5b497551530bd5a8ca9585f}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!getSDLWindow@{getSDLWindow}}
+\index{getSDLWindow@{getSDLWindow}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{getSDLWindow()}{getSDLWindow()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Window $\ast$ SDLGraphics\+Program\+::get\+SDLWindow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter\+: returns pointer g\+Window. 
+
+Getter method that returns pointer to SDLWindow (g\+Window). \mbox{\Hypertarget{classSDLGraphicsProgram_ae987598512cf5f05fb0374e7946f8143}\label{classSDLGraphicsProgram_ae987598512cf5f05fb0374e7946f8143}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!setRenderColor@{setRenderColor}}
+\index{setRenderColor@{setRenderColor}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{setRenderColor()}{setRenderColor()}}
+{\footnotesize\ttfamily void SDLGraphics\+Program\+::set\+Render\+Color (\begin{DoxyParamCaption}\item[{Uint8}]{r,  }\item[{Uint8}]{g,  }\item[{Uint8}]{b,  }\item[{Uint8}]{a }\end{DoxyParamCaption})}
+
+
+
+Setter\+: sets render draw color by rgba input params. 
+
+Setter method\+: sets render draw color according to rgba inputs \mbox{\Hypertarget{classSDLGraphicsProgram_aa61f0672d7f5ad701c2fb71b312064c8}\label{classSDLGraphicsProgram_aa61f0672d7f5ad701c2fb71b312064c8}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!setTitle@{setTitle}}
+\index{setTitle@{setTitle}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{setTitle()}{setTitle()}}
+{\footnotesize\ttfamily void SDLGraphics\+Program\+::set\+Title (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{title }\end{DoxyParamCaption})}
+
+
+
+Setter\+: sets title of window. 
+
+Setter method\+: sets title of SDLWindow 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/Engine.\+hpp\item 
+Engine/src/Engine.\+cpp\end{DoxyCompactItemize}

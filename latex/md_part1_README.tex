@@ -1,0 +1,65 @@
+This is it--the final course project!\hypertarget{md_part1_README_autotoc_md6}{}\doxysection{Final Project -\/ Description}\label{md_part1_README_autotoc_md6}
+
+
+The industry is getting positive buzz as \href{https://en.wikipedia.org/wiki/Nolan_Bushnell}{\texttt{ Nolan Bushnell}} and \href{https://en.wikipedia.org/wiki/Shigeru_Miyamoto}{\texttt{ Shigeru Miyamoto}} have been talking about your game development skills. But dynamics change rapidly in the game industry--you have decided to form a new game studio of your own. From your previous projects, your team has developed a nice codebase with your own intellectual property, and has decided to form a \textquotesingle{}game making\textquotesingle{} studio around this technology. Building an impressive piece of middleware (i.\+e. a tool or technology that is not a game) to showcase at the giant tradeshows (\href{http://east.paxsite.com/}{\texttt{ PAX East}}, \href{https://www.gdconf.com/}{\texttt{ GDC}}, and \href{https://www.e3expo.com/}{\texttt{ E3}}, etc.) is your next task!\hypertarget{md_part1_README_autotoc_md7}{}\doxysection{Final Project Option(s)}\label{md_part1_README_autotoc_md7}
+\hypertarget{md_part1_README_autotoc_md8}{}\doxysubsection{Option 1 -\/ Game Maker}\label{md_part1_README_autotoc_md8}
+For your final project, you will make a \textquotesingle{}game maker\textquotesingle{}. That is, you will build a tool that someone with no C++ knowledge can use. Our pybind11 lab is a good starting point, though you are allowed to explore other technologies like \href{https://www.lua.org/}{\texttt{ lua}} or \href{https://www.angelcode.com/angelscript/}{\texttt{ Angelscript}}. For this project, you will build a game engine and associated components (i.\+e. 2D API, 3D API, Physics, etc.) for your games and a GUI environment for building your game.
+
+{\bfseries{You will also}} implement part of at least 1 classic or original game we have not previously implemented (e.\+g. pacman, asteroids, snake, super mario, etc.) using your engine to demonstrate how your engine is used.\hypertarget{md_part1_README_autotoc_md9}{}\doxysubsubsection{Some notes on building a game maker}\label{md_part1_README_autotoc_md9}
+
+\begin{DoxyEnumerate}
+\item Very likely you will need to integrate some GUI library into your system to make it useable.
+\begin{DoxyItemize}
+\item Think about this early--even draw a picture of what you think it should look like.
+\item Think about if this GUI needs to be in Python or in the C++ code.
+\end{DoxyItemize}
+\item {\itshape Think} data-\/driven
+\begin{DoxyItemize}
+\item This means your C++ handles your engine, and your scripting language should handle the game logic.
+\end{DoxyItemize}
+\item You should be able to utilize many of the game programming patterns with this system. ~\newline
+
+\item You need to implement at least one classic or original game using your game maker.
+\begin{DoxyItemize}
+\item The game need not span hours, but should at least demonstrate that a game with objectives can be played and won.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_part1_README_autotoc_md10}{}\doxysubsubsection{Examples}\label{md_part1_README_autotoc_md10}
+See below some example game making tools for inspiration\+:
+
+
+\begin{DoxyItemize}
+\item Look on the left panel to see the API for the Love2D engine\+:
+\begin{DoxyItemize}
+\item \href{https://love2d.org/wiki/Main_Page}{\texttt{ https\+://love2d.\+org/wiki/\+Main\+\_\+\+Page}}
+\end{DoxyItemize}
+\item Look at Gamemakers API for inspiration of what commands are exposed.
+\begin{DoxyItemize}
+\item \href{http://docs2.yoyogames.com/}{\texttt{ http\+://docs2.\+yoyogames.\+com/}}
+\end{DoxyItemize}
+\item Here is an example showing integrating an API (through a console interface) with a script language to make changes and build a game in realtime.
+\begin{DoxyItemize}
+\item \href{https://www.youtube.com/watch?v=b8RyQSvmrEU}{\texttt{ https\+://www.\+youtube.\+com/watch?v=b8\+Ry\+QSvmr\+EU}}
+\end{DoxyItemize}
+\item Here is the GODDOT engine. I would look to Go\+Dot and Game\+Maker as inspiration.
+\begin{DoxyItemize}
+\item \href{https://www.youtube.com/watch?v=5ZuQIbMEjLw}{\texttt{ https\+://www.\+youtube.\+com/watch?v=5\+Zu\+QIb\+MEj\+Lw}}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_part1_README_autotoc_md11}{}\doxysubsection{Option 2 -\/ Pitch the Professor}\label{md_part1_README_autotoc_md11}
+On occassion someone taking this class has a different idea of something they are excited about tangentially related. If the game maker option does not satisfy you--$\ast$$\ast$talk to the instructor if there is something you are more excited about$\ast$$\ast$ (i.\+e. you {\bfseries{must}} get approval from me first). Generally speaking, most folks should be attempting or targeting projects closer to option 1\textquotesingle{}s for the final project, and the more likely I am to agree to alternative accomadations is within the week the project is releasted.\hypertarget{md_part1_README_autotoc_md12}{}\doxysubsubsection{Alternate Pitch 1 -\/ Engine API Tech Demo (2\+D or 3\+D)}\label{md_part1_README_autotoc_md12}
+You may implement an API (e.\+g. a physics engine, or a sound engine) that could be plugged into another technology. For your final project you will then build a high powered tech demo showing off this API. This tech demo would be a short showcase of your engine API showcaseing your technology with signficant engineering, such as advanced spatial partioning data structures, a concurrent job system, or a custom renderer. This option may be viable for folks with lots of previous experience in another tool (e.\+g. OGRE3D) or technology (e.\+g. Open\+GL or Vulkan) and want to build on top of it.
+
+I {\bfseries{will not}} accept any project that utilizes other game engines like Unity3D however.\hypertarget{md_part1_README_autotoc_md15}{}\doxysection{Constraints on Option 1 or option 2}\label{md_part1_README_autotoc_md15}
+For any option you choose, you have the following constraints\+:
+
+
+\begin{DoxyEnumerate}
+\item Your team must build the majority of your technology.
+\begin{DoxyItemize}
+\item If you use 3rd party code (Say a compression library for example--which would be fine), then cite your source.
+\end{DoxyItemize}
+\item It is expected you may reuse some code from previous projects.
+\item 3rd party libraries for a physics engine are okay if you want to incorporate it into Option 1 for example (If you are implementing a physics engine from scratch in option 2, then you may not use a previously built physics engine.)
+\item You cannot build a tech demo with Unity3D or Unreal Engine.
+\end{DoxyEnumerate}
+
+Note--if you have not taken computer graphics, you should not be attempting to learn 3D graphics during this duration. It is highly recommended (and to some extent expected) that most students will work on 2D projects leveraging their previous codebase. 
