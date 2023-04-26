@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['centercamera_80',['CenterCamera',['../classCenterCamera.html',1,'']]],
-  ['collision_81',['Collision',['../structCollision.html',1,'']]],
-  ['currenttile_82',['currentTile',['../classeditor_1_1currentTile.html',1,'editor']]]
+  ['enemy_131',['Enemy',['../classPlatformerReplayDemo_1_1Enemy.html',1,'PlatformerReplayDemo']]]
 ];

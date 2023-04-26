@@ -4,7 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node24 [label="IntEnum",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node24 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node0 [label="pong.Direction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classpong_1_1Direction.html",tooltip=" "];
+  Node0 [label="PhysicsComponent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPhysicsComponent.html",tooltip=" "];
 }

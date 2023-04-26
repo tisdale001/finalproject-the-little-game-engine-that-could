@@ -1,0 +1,50 @@
+\hypertarget{classSurfaceResourceManager}{}\doxysection{Surface\+Resource\+Manager Class Reference}
+\label{classSurfaceResourceManager}\index{SurfaceResourceManager@{SurfaceResourceManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSurfaceResourceManager_a13bfac49264c45a163cdd4ea3856f256}\label{classSurfaceResourceManager_a13bfac49264c45a163cdd4ea3856f256}} 
+void \mbox{\hyperlink{classSurfaceResourceManager_a13bfac49264c45a163cdd4ea3856f256}{shut\+Down}} ()
+\begin{DoxyCompactList}\small\item\em Memory management. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSurfaceResourceManager_ad6c441ff7b2e5ee925f71571fdb1fdeb}{Load\+Resource}} (std\+::string image\+\_\+filename)
+\begin{DoxyCompactList}\small\item\em Loads resource only once from param image\+\_\+filename. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSurfaceResourceManager_a37cb6e2ca28737063c21cd17d3613ecc}\label{classSurfaceResourceManager_a37cb6e2ca28737063c21cd17d3613ecc}} 
+SDL\+\_\+\+Surface $\ast$ \mbox{\hyperlink{classSurfaceResourceManager_a37cb6e2ca28737063c21cd17d3613ecc}{Get\+Resource}} (std\+::string image\+\_\+filename)
+\begin{DoxyCompactList}\small\item\em Getter\+: returns m\+Sprite\+Sheet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSurfaceResourceManager_a21d6554e0c4aecce4949a513737511b8}{Remove\+Resource}} (std\+::string image\+\_\+filename)
+\begin{DoxyCompactList}\small\item\em Removes resource from Manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSurfaceResourceManager_a26f9434fe795e2dd08afcff5126423af}\label{classSurfaceResourceManager_a26f9434fe795e2dd08afcff5126423af}} 
+static \mbox{\hyperlink{classSurfaceResourceManager}{Surface\+Resource\+Manager}} \& \mbox{\hyperlink{classSurfaceResourceManager_a26f9434fe795e2dd08afcff5126423af}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Returns instance of \mbox{\hyperlink{classSurfaceResourceManager}{Surface\+Resource\+Manager}}\+: Singleton pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSurfaceResourceManager_ad6c441ff7b2e5ee925f71571fdb1fdeb}\label{classSurfaceResourceManager_ad6c441ff7b2e5ee925f71571fdb1fdeb}} 
+\index{SurfaceResourceManager@{SurfaceResourceManager}!LoadResource@{LoadResource}}
+\index{LoadResource@{LoadResource}!SurfaceResourceManager@{SurfaceResourceManager}}
+\doxysubsubsection{\texorpdfstring{LoadResource()}{LoadResource()}}
+{\footnotesize\ttfamily void Surface\+Resource\+Manager\+::\+Load\+Resource (\begin{DoxyParamCaption}\item[{std\+::string}]{image\+\_\+filename }\end{DoxyParamCaption})}
+
+
+
+Loads resource only once from param image\+\_\+filename. 
+
+Loads resource onlly once to m\+Sprite\+Sheet. \mbox{\Hypertarget{classSurfaceResourceManager_a21d6554e0c4aecce4949a513737511b8}\label{classSurfaceResourceManager_a21d6554e0c4aecce4949a513737511b8}} 
+\index{SurfaceResourceManager@{SurfaceResourceManager}!RemoveResource@{RemoveResource}}
+\index{RemoveResource@{RemoveResource}!SurfaceResourceManager@{SurfaceResourceManager}}
+\doxysubsubsection{\texorpdfstring{RemoveResource()}{RemoveResource()}}
+{\footnotesize\ttfamily void Surface\+Resource\+Manager\+::\+Remove\+Resource (\begin{DoxyParamCaption}\item[{std\+::string}]{image\+\_\+filename }\end{DoxyParamCaption})}
+
+
+
+Removes resource from Manager. 
+
+Removes resource, param image\+\_\+filename, from manager by calling erase() on m\+Surface\+Map. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/Surface\+Resource\+Manager.\+hpp\item 
+Engine/src/Surface\+Resource\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,5 +1,13 @@
 \hypertarget{classSideScrollerCamera}{}\doxysection{Side\+Scroller\+Camera Class Reference}
 \label{classSideScrollerCamera}\index{SideScrollerCamera@{SideScrollerCamera}}
+
+
+Inheritance diagram for Side\+Scroller\+Camera\+:
+% FIG 0
+
+
+Collaboration diagram for Side\+Scroller\+Camera\+:
+% FIG 1
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,12 +21,6 @@ void \mbox{\hyperlink{classSideScrollerCamera_a66962f687e593380d4f29b4f9fcca3a8}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSideScrollerCamera_a32eda88560a8c3437d17eb1d6733a984}\label{classSideScrollerCamera_a32eda88560a8c3437d17eb1d6733a984}} 
-int {\bfseries x}
-\item 
-\mbox{\Hypertarget{classSideScrollerCamera_a1b652ca98e623d2ebfa89aaa20e42467}\label{classSideScrollerCamera_a1b652ca98e623d2ebfa89aaa20e42467}} 
-int {\bfseries y}
-\item 
 \mbox{\Hypertarget{classSideScrollerCamera_a06ff5f98e1fa28d3775d5173b8f7a59d}\label{classSideScrollerCamera_a06ff5f98e1fa28d3775d5173b8f7a59d}} 
 int {\bfseries camera\+Width}
 \item 
@@ -30,6 +32,9 @@ int {\bfseries level\+Width}
 \item 
 \mbox{\Hypertarget{classSideScrollerCamera_aa94f713e622ddd99f6dae41a3543a451}\label{classSideScrollerCamera_aa94f713e622ddd99f6dae41a3543a451}} 
 int {\bfseries level\+Height}
+\item 
+\mbox{\Hypertarget{classSideScrollerCamera_abd48d7ece058ba246b3997be6cb092fb}\label{classSideScrollerCamera_abd48d7ece058ba246b3997be6cb092fb}} 
+\mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}} $\ast$ {\bfseries target}
 \end{DoxyCompactItemize}
 
 
@@ -44,20 +49,24 @@ int {\bfseries level\+Height}
 
 Constructor. 
 
-Constructor that takes in demensions and, for now, a \mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}} as the main character 
+Constructor that takes in dimensions and, for now, a \mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}} as the main character 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classSideScrollerCamera_a66962f687e593380d4f29b4f9fcca3a8}\label{classSideScrollerCamera_a66962f687e593380d4f29b4f9fcca3a8}} 
 \index{SideScrollerCamera@{SideScrollerCamera}!Update@{Update}}
 \index{Update@{Update}!SideScrollerCamera@{SideScrollerCamera}}
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
-{\footnotesize\ttfamily void Side\+Scroller\+Camera\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Side\+Scroller\+Camera\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
 Update function that offsets camera x position. 
 
 Update function offsets camera x value according to target (main character). Uses std\+::clamp() to not pan off the level on either side. This creates the side scroller functionality of the camera. 
+
+Implements \mbox{\hyperlink{classICamera}{ICamera}}.
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -11,17 +11,18 @@
 #include <unordered_map>
 #include <string>
 
-class SurfaceResourceManager{
+class SurfaceResourceManager {
 public:
 
     static SurfaceResourceManager& instance();
 
     void shutDown();
     
-    // TODO: Refactor to be a static function
     void LoadResource(std::string image_filename);
-    // TODO: Refactor to be a static function
+    
     SDL_Surface* GetResource(std::string image_filename);
+
+    void RemoveResource(std::string image_filename);
 
 private:
     // Private constructor

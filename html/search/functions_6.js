@@ -1,5 +1,11 @@
 var searchData=
 [
-  ['levelreader_133',['LevelReader',['../classLevelReader.html#ae1b1300f29a1ea20ea0f6f984793bf27',1,'LevelReader']]],
-  ['loadtileset_134',['loadTileset',['../classTileMapComponent.html#a16b4fd4dcfffe45198e342394023a45b',1,'TileMapComponent']]]
+  ['identify_190',['identify',['../classSprite.html#a59e4c9fded13348aa7ad6e3588cc9397',1,'Sprite']]],
+  ['instance_191',['instance',['../classSoundResourceManager.html#acf5fd444ef13514766a662b2f7e4f1ff',1,'SoundResourceManager::instance()'],['../classSurfaceResourceManager.html#a26f9434fe795e2dd08afcff5126423af',1,'SurfaceResourceManager::instance()'],['../classTextureResourceManager.html#ab65fb424f7e707a4b470fcfbad1b2c36',1,'TextureResourceManager::instance()']]],
+  ['isonceiling_192',['isOnCeiling',['../classTileMapComponent.html#af85dca41b00eeec160a16cf8e18dfa16',1,'TileMapComponent']]],
+  ['isonground_193',['isOnGround',['../classTileMapComponent.html#aa4e452228da006aaf64d287b8e098a71',1,'TileMapComponent']]],
+  ['istouchingleftwall_194',['isTouchingLeftWall',['../classTileMapComponent.html#a1de729649331ec314f4a3952aecc5482',1,'TileMapComponent']]],
+  ['istouchingrightwall_195',['isTouchingRightWall',['../classTileMapComponent.html#af679d9ce8c6987467bdba78a13d187ca',1,'TileMapComponent']]],
+  ['istouchingtype_196',['isTouchingType',['../classTileMapComponent.html#a061cf7bcddd5b17058fed26812d5f757',1,'TileMapComponent']]],
+  ['isvalidtile_197',['isValidTile',['../classTileMapComponent.html#afd6ccbefa9a84a5c7952073a16db4b26',1,'TileMapComponent']]]
 ];

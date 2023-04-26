@@ -3,22 +3,76 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classMusic_a6b5169519d9c4bfb9b86145036d3e7a4}\label{classMusic_a6b5169519d9c4bfb9b86145036d3e7a4}} 
-void {\bfseries Set\+Music} (char $\ast$file\+Name)
-\item 
-\mbox{\Hypertarget{classMusic_a63f07af5f02b5925c8ecfc6f63c0830c}\label{classMusic_a63f07af5f02b5925c8ecfc6f63c0830c}} 
-void {\bfseries Play\+Music} ()
-\item 
-\mbox{\Hypertarget{classMusic_a0b2f0aca2cef03b1e7cd49da32e02ec0}\label{classMusic_a0b2f0aca2cef03b1e7cd49da32e02ec0}} 
-void {\bfseries Pause\+Music} ()
-\item 
-\mbox{\Hypertarget{classMusic_aafd002c3f1a82204a9816a4120571813}\label{classMusic_aafd002c3f1a82204a9816a4120571813}} 
-void {\bfseries Un\+Pause\+Music} ()
-\item 
-\mbox{\Hypertarget{classMusic_a6da154a31c905782e58fc339d33dc99d}\label{classMusic_a6da154a31c905782e58fc339d33dc99d}} 
-void {\bfseries Stop\+Music} ()
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classMusic_ab5143f67c021bc77894c8e91de2b916b}\label{classMusic_ab5143f67c021bc77894c8e91de2b916b}} 
+\mbox{\hyperlink{classMusic_ab5143f67c021bc77894c8e91de2b916b}{Music}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMusic_a0b4f3b9a018207e0c08003505f1f87fe}\label{classMusic_a0b4f3b9a018207e0c08003505f1f87fe}} 
+\mbox{\hyperlink{classMusic_a0b4f3b9a018207e0c08003505f1f87fe}{$\sim$\+Music}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMusic_a6b5169519d9c4bfb9b86145036d3e7a4}{Set\+Music}} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Setter\+: sets music\+File with param file\+Name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMusic_a63f07af5f02b5925c8ecfc6f63c0830c}{Play\+Music}} ()
+\begin{DoxyCompactList}\small\item\em Play music. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMusic_a0b2f0aca2cef03b1e7cd49da32e02ec0}{Pause\+Music}} ()
+\begin{DoxyCompactList}\small\item\em Pause music. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMusic_aafd002c3f1a82204a9816a4120571813}{Un\+Pause\+Music}} ()
+\begin{DoxyCompactList}\small\item\em Unpause music. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMusic_a6da154a31c905782e58fc339d33dc99d}{Stop\+Music}} ()
+\begin{DoxyCompactList}\small\item\em Stop music. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMusic_a0b2f0aca2cef03b1e7cd49da32e02ec0}\label{classMusic_a0b2f0aca2cef03b1e7cd49da32e02ec0}} 
+\index{Music@{Music}!PauseMusic@{PauseMusic}}
+\index{PauseMusic@{PauseMusic}!Music@{Music}}
+\doxysubsubsection{\texorpdfstring{PauseMusic()}{PauseMusic()}}
+{\footnotesize\ttfamily void Music\+::\+Pause\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pause music. 
+
+Method pauses music contained in music\+File. Performs null check. \mbox{\Hypertarget{classMusic_a63f07af5f02b5925c8ecfc6f63c0830c}\label{classMusic_a63f07af5f02b5925c8ecfc6f63c0830c}} 
+\index{Music@{Music}!PlayMusic@{PlayMusic}}
+\index{PlayMusic@{PlayMusic}!Music@{Music}}
+\doxysubsubsection{\texorpdfstring{PlayMusic()}{PlayMusic()}}
+{\footnotesize\ttfamily void Music\+::\+Play\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Play music. 
+
+Method plays music contained in music\+File. Performs null check. \mbox{\Hypertarget{classMusic_a6b5169519d9c4bfb9b86145036d3e7a4}\label{classMusic_a6b5169519d9c4bfb9b86145036d3e7a4}} 
+\index{Music@{Music}!SetMusic@{SetMusic}}
+\index{SetMusic@{SetMusic}!Music@{Music}}
+\doxysubsubsection{\texorpdfstring{SetMusic()}{SetMusic()}}
+{\footnotesize\ttfamily void Music\+::\+Set\+Music (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Setter\+: sets music\+File with param file\+Name. 
+
+Setter method that uses the \mbox{\hyperlink{classSoundResourceManager}{Sound\+Resource\+Manager}} to set music for music\+File. \mbox{\Hypertarget{classMusic_a6da154a31c905782e58fc339d33dc99d}\label{classMusic_a6da154a31c905782e58fc339d33dc99d}} 
+\index{Music@{Music}!StopMusic@{StopMusic}}
+\index{StopMusic@{StopMusic}!Music@{Music}}
+\doxysubsubsection{\texorpdfstring{StopMusic()}{StopMusic()}}
+{\footnotesize\ttfamily void Music\+::\+Stop\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stop music. 
+
+Method stops music conatined in music\+File. Performs null check. \mbox{\Hypertarget{classMusic_aafd002c3f1a82204a9816a4120571813}\label{classMusic_aafd002c3f1a82204a9816a4120571813}} 
+\index{Music@{Music}!UnPauseMusic@{UnPauseMusic}}
+\index{UnPauseMusic@{UnPauseMusic}!Music@{Music}}
+\doxysubsubsection{\texorpdfstring{UnPauseMusic()}{UnPauseMusic()}}
+{\footnotesize\ttfamily void Music\+::\+Un\+Pause\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unpause music. 
+
+Method unpauses music contained in music\+File. Performs null check. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

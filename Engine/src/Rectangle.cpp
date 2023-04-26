@@ -24,7 +24,7 @@ void RectangleComponent::Update() {}
 */
 void RectangleComponent::Render(std::uintptr_t rendererAddress, int camOffsetX, int camOffsetY) {
     SDL_Renderer* renderer = reinterpret_cast<SDL_Renderer*>(rendererAddress);
-    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+    SDL_SetRenderDrawColor(renderer, redValue, greenValue, blueValue, alphaValue);
     SDL_Rect fillRect = {transform->xPos - camOffsetX, transform->yPos - camOffsetY, width, height};
     SDL_RenderFillRect(renderer, &fillRect);
 }
@@ -91,8 +91,19 @@ int RectangleComponent::getCenterX() {
 
 /** @brief Getter: returns y coordinate of center of rectangle.
  * 
- * Getter method: returns x coordinate of center of rectangle based on Transform component's yPos.
+ * Getter method: returns y coordinate of center of rectangle based on Transform component's yPos.
 */
 int RectangleComponent::getCenterY() {
     return transform->yPos + height / 2;
+}
+
+/** @brief Collision check for two rectangle components
+ * 
+ *  Return if this rectangle overlaps with rectangle r2
+*/
+bool RectangleComponent::checkCollision(RectangleComponent* r2) {
+    return getX() < r2->getX() + r2->getWidth() &&
+            getX() + getWidth() > r2->getX() &&
+            getY() < r2->getY() + r2->getHeight() &&
+            getHeight() + getY() > r2->getY();
 }

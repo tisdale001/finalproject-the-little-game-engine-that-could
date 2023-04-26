@@ -1,6 +1,26 @@
 var searchData=
 [
-  ['update_150',['Update',['../classGameObject.html#a1bd14aa169f501f94f1721943d716535',1,'GameObject::Update()'],['../classRectangleComponent.html#a73e7ca54050c78bf3051e65d680f623f',1,'RectangleComponent::Update()'],['../classSideScrollerCamera.html#a66962f687e593380d4f29b4f9fcca3a8',1,'SideScrollerCamera::Update()'],['../classTransform.html#a3256c0fb53d0b341ad8d80fe61e5fb2d',1,'Transform::Update()']]],
-  ['updatex_151',['UpdateX',['../classPhysicsComponent.html#a3f803d84470239ad236d67490ff7ca5f',1,'PhysicsComponent']]],
-  ['updatey_152',['UpdateY',['../classPhysicsComponent.html#ae666c6dd893dcf21fcfc74f067c257b9',1,'PhysicsComponent']]]
+  ['sdlgraphicsprogram_217',['SDLGraphicsProgram',['../classSDLGraphicsProgram.html#a976683178e086cd2a1a801fd9c501a7b',1,'SDLGraphicsProgram']]],
+  ['send_218',['send',['../classSprite.html#aa3fb02a1a2803913aa66e977bcd5457a',1,'Sprite']]],
+  ['setblendmodealpha_219',['setBlendModeAlpha',['../classSDLGraphicsProgram.html#ae4d04fb97d67f8720ba5c0079cd0e697',1,'SDLGraphicsProgram']]],
+  ['setblendmodenone_220',['setBlendModeNone',['../classSDLGraphicsProgram.html#a8bb53d934ca1282ac2e128ba8df5b3ba',1,'SDLGraphicsProgram']]],
+  ['setcolor_221',['setColor',['../classRectangleComponent.html#a8db09367619b1d721a0483f3f92a043f',1,'RectangleComponent']]],
+  ['setdimensions_222',['setDimensions',['../classRectangleComponent.html#a7f769958f900e4e3122c9a7c8554acef',1,'RectangleComponent']]],
+  ['setmusic_223',['SetMusic',['../classMusic.html#a6b5169519d9c4bfb9b86145036d3e7a4',1,'Music']]],
+  ['setposition_224',['setPosition',['../classSprite.html#afc761454b32195a380cb72f7f394448c',1,'Sprite::setPosition()'],['../classTransform.html#a594289e128ba95dca9d67385ba55f6dd',1,'Transform::setPosition()']]],
+  ['setrectangledimensions_225',['setRectangleDimensions',['../classSprite.html#a74d328a2fdfc2cd088ffa2b69ad10096',1,'Sprite']]],
+  ['setrendercolor_226',['setRenderColor',['../classSDLGraphicsProgram.html#ae987598512cf5f05fb0374e7946f8143',1,'SDLGraphicsProgram']]],
+  ['setsound_227',['SetSound',['../classSound.html#a1cd9f140d36f50d684ebbee0507398e8',1,'Sound']]],
+  ['setspritesheetdimensions_228',['setSpriteSheetDimensions',['../classSprite.html#acb1351e8e30e2138bfc7cd8bca72f223',1,'Sprite']]],
+  ['settile_229',['setTile',['../classTileMapComponent.html#afbf9599aeed89dac84fba702895d77a4',1,'TileMapComponent']]],
+  ['settitle_230',['setTitle',['../classSDLGraphicsProgram.html#aa61f0672d7f5ad701c2fb71b312064c8',1,'SDLGraphicsProgram']]],
+  ['shutdown_231',['shutDown',['../classSoundResourceManager.html#a505f04a3c44f8133de1712d83338937a',1,'SoundResourceManager::shutDown()'],['../classSurfaceResourceManager.html#a13bfac49264c45a163cdd4ea3856f256',1,'SurfaceResourceManager::shutDown()'],['../classTextureResourceManager.html#af9b81cdbd3e1721a1519675b3107c709',1,'TextureResourceManager::shutDown()']]],
+  ['shutdownmanager_232',['shutDownManager',['../classSprite.html#a38969f966cf3264d58a2b7b736c92fd7',1,'Sprite']]],
+  ['sidescrollercamera_233',['SideScrollerCamera',['../classSideScrollerCamera.html#a993786fb4e2f20597426ce1ff024eeae',1,'SideScrollerCamera']]],
+  ['sound_234',['Sound',['../classSound.html#a539c205cdf06fe2c621fd77c37bcfac9',1,'Sound']]],
+  ['sprite_235',['Sprite',['../classSprite.html#a2bfe8f8a73e557712035642d2b18a22a',1,'Sprite']]],
+  ['spritecentercamera_236',['SpriteCenterCamera',['../classSpriteCenterCamera.html#a038ab6b028476421169085052528893a',1,'SpriteCenterCamera']]],
+  ['spritesidescrollercamera_237',['SpriteSideScrollerCamera',['../classSpriteSideScrollerCamera.html#a7eec97698c3781b91b39e08b0c1acefc',1,'SpriteSideScrollerCamera']]],
+  ['staticcamera_238',['StaticCamera',['../classStaticCamera.html#a01ddbb6753cf6209b7a3ae743d7870de',1,'StaticCamera']]],
+  ['stopmusic_239',['StopMusic',['../classMusic.html#a6da154a31c905782e58fc339d33dc99d',1,'Music']]]
 ];

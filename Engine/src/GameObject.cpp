@@ -23,8 +23,6 @@ GameObject::~GameObject() {}
  * 
 */
 void GameObject::Update() {
-    // TODO: check collision in between?
-    // TODO: update physics?
     // if (mPhysicsComponent != nullptr) {
     //     mPhysicsComponent->Update(*this);
     // }
@@ -34,7 +32,7 @@ void GameObject::Update() {
  * 
  * Render calls Render() for mRectangle and mTileMapComponent according to camera offset
 */
-void GameObject::Render(std::uintptr_t rendererAddress) { // TODO: Figure out why we can't use
+void GameObject::Render(std::uintptr_t rendererAddress) {
     if (mCamera != nullptr) {
         if (mRectangle != nullptr) {
             mRectangle->Render(rendererAddress, mCamera->GetXOffset(), mCamera->GetYOffset());
@@ -48,8 +46,6 @@ void GameObject::Render(std::uintptr_t rendererAddress) { // TODO: Figure out wh
     }
 }
 
-// TODO: addComponent functions are temporary, we should use a template function
-// to replace this or maybe a map?
 /** @brief Adds Transform component
  * 
  * Adds pre-existing Transform component to GameObject as mTransform
@@ -91,6 +87,10 @@ void GameObject::addCamera(ICamera* camera) {
     mCamera = camera;
 }
 
+/** @brief Adds Sprite Component
+ * 
+ * Adds Sprite pointer to GameObject as mSprite
+*/
 void GameObject::addSpriteComponent(Sprite *sprite) {
     mSprite = sprite;
 }

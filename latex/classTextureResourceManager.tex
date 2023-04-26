@@ -1,0 +1,50 @@
+\hypertarget{classTextureResourceManager}{}\doxysection{Texture\+Resource\+Manager Class Reference}
+\label{classTextureResourceManager}\index{TextureResourceManager@{TextureResourceManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTextureResourceManager_af9b81cdbd3e1721a1519675b3107c709}\label{classTextureResourceManager_af9b81cdbd3e1721a1519675b3107c709}} 
+void \mbox{\hyperlink{classTextureResourceManager_af9b81cdbd3e1721a1519675b3107c709}{shut\+Down}} ()
+\begin{DoxyCompactList}\small\item\em Memory management. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTextureResourceManager_affdc9cc645923725ac43f92f2dd47efe}{Load\+Resource}} (SDL\+\_\+\+Surface $\ast$surface, SDL\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Loads resource only once. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTextureResourceManager_ab3c2237400162d63144ae6735682f660}\label{classTextureResourceManager_ab3c2237400162d63144ae6735682f660}} 
+SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{classTextureResourceManager_ab3c2237400162d63144ae6735682f660}{Get\+Resource}} (SDL\+\_\+\+Surface $\ast$surface)
+\begin{DoxyCompactList}\small\item\em Getter\+: returns m\+Texture. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTextureResourceManager_a41799fce45ce407ef0f1e4ae463900d6}{Remove\+Resource}} (SDL\+\_\+\+Surface $\ast$surface)
+\begin{DoxyCompactList}\small\item\em Removes a resource from Manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTextureResourceManager_ab65fb424f7e707a4b470fcfbad1b2c36}\label{classTextureResourceManager_ab65fb424f7e707a4b470fcfbad1b2c36}} 
+static \mbox{\hyperlink{classTextureResourceManager}{Texture\+Resource\+Manager}} \& \mbox{\hyperlink{classTextureResourceManager_ab65fb424f7e707a4b470fcfbad1b2c36}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Returns instance of \mbox{\hyperlink{classTextureResourceManager}{Texture\+Resource\+Manager}}\+: Singleton pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTextureResourceManager_affdc9cc645923725ac43f92f2dd47efe}\label{classTextureResourceManager_affdc9cc645923725ac43f92f2dd47efe}} 
+\index{TextureResourceManager@{TextureResourceManager}!LoadResource@{LoadResource}}
+\index{LoadResource@{LoadResource}!TextureResourceManager@{TextureResourceManager}}
+\doxysubsubsection{\texorpdfstring{LoadResource()}{LoadResource()}}
+{\footnotesize\ttfamily void Texture\+Resource\+Manager\+::\+Load\+Resource (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{surface,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Loads resource only once. 
+
+Loads resource only once\+: m\+Texture. \mbox{\Hypertarget{classTextureResourceManager_a41799fce45ce407ef0f1e4ae463900d6}\label{classTextureResourceManager_a41799fce45ce407ef0f1e4ae463900d6}} 
+\index{TextureResourceManager@{TextureResourceManager}!RemoveResource@{RemoveResource}}
+\index{RemoveResource@{RemoveResource}!TextureResourceManager@{TextureResourceManager}}
+\doxysubsubsection{\texorpdfstring{RemoveResource()}{RemoveResource()}}
+{\footnotesize\ttfamily void Texture\+Resource\+Manager\+::\+Remove\+Resource (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Surface $\ast$}]{surface }\end{DoxyParamCaption})}
+
+
+
+Removes a resource from Manager. 
+
+Removes a resource from Manager by calling erase(surface) on m\+Texture\+Map. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/Texture\+Resource\+Manager.\+hpp\item 
+Engine/src/Texture\+Resource\+Manager.\+cpp\end{DoxyCompactItemize}

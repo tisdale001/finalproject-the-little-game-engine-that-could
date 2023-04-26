@@ -1,11 +1,9 @@
 #include "SpriteSideScrollerCamera.hpp"
 #include <algorithm>
 
-// TODO: This should be abstracted into a base class/interface
-// TODO: Setting y to bottom of level by default but we should have a setY in a function or the constructor
 /** @brief Constructor
  * 
- * Constructor that takes in demensions and, for now, a RectangleComponent as the main character
+ * Constructor that takes in dimensions and, for now, a RectangleComponent as the main character
  * 
 */
 SpriteSideScrollerCamera::SpriteSideScrollerCamera(int camWidth, int camHeight, int lvlWidth, int lvlHeight, Sprite* sp):
@@ -15,7 +13,7 @@ SpriteSideScrollerCamera::SpriteSideScrollerCamera(int camWidth, int camHeight, 
     levelHeight(lvlHeight),
     target(sp) {
         x = std::clamp(sp->getCenterX() - cameraWidth/2, 0, levelWidth - cameraWidth);
-        y = lvlHeight - cameraHeight;
+        y = lvlHeight - cameraHeight; // Set to bottom of level by default
     }
 /** @brief Deconstructor
  * 

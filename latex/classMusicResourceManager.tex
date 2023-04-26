@@ -1,0 +1,38 @@
+\hypertarget{classMusicResourceManager}{}\doxysection{Music\+Resource\+Manager Class Reference}
+\label{classMusicResourceManager}\index{MusicResourceManager@{MusicResourceManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMusicResourceManager_a65ed64d45f4a3d4728ea4c8e7bd8d7ed}\label{classMusicResourceManager_a65ed64d45f4a3d4728ea4c8e7bd8d7ed}} 
+void \mbox{\hyperlink{classMusicResourceManager_a65ed64d45f4a3d4728ea4c8e7bd8d7ed}{shut\+Down}} ()
+\begin{DoxyCompactList}\small\item\em Memory management. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMusicResourceManager_a3004c4aa088999092ce77cb163d5117b}{Load\+Resource}} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Loads each resource only once by param file\+Name. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMusicResourceManager_a039468fb0a28ba8b84aa21dcdb3daeb4}\label{classMusicResourceManager_a039468fb0a28ba8b84aa21dcdb3daeb4}} 
+Mix\+\_\+\+Music $\ast$ \mbox{\hyperlink{classMusicResourceManager_a039468fb0a28ba8b84aa21dcdb3daeb4}{Get\+Resource}} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Getter\+: returns m\+Music. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMusicResourceManager_af713f8c6a18ff835597b3348f0af64e9}\label{classMusicResourceManager_af713f8c6a18ff835597b3348f0af64e9}} 
+static \mbox{\hyperlink{classMusicResourceManager}{Music\+Resource\+Manager}} \& \mbox{\hyperlink{classMusicResourceManager_af713f8c6a18ff835597b3348f0af64e9}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Returns instance of \mbox{\hyperlink{classMusicResourceManager}{Music\+Resource\+Manager}}\+: Singleton pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMusicResourceManager_a3004c4aa088999092ce77cb163d5117b}\label{classMusicResourceManager_a3004c4aa088999092ce77cb163d5117b}} 
+\index{MusicResourceManager@{MusicResourceManager}!LoadResource@{LoadResource}}
+\index{LoadResource@{LoadResource}!MusicResourceManager@{MusicResourceManager}}
+\doxysubsubsection{\texorpdfstring{LoadResource()}{LoadResource()}}
+{\footnotesize\ttfamily void Music\+Resource\+Manager\+::\+Load\+Resource (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Loads each resource only once by param file\+Name. 
+
+Loads each resource only once. Displays error messages if load fails and displays message if resource already loaded. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/Music\+Resource\+Manager.\+hpp\item 
+Engine/src/Music\+Resource\+Manager.\+cpp\end{DoxyCompactItemize}

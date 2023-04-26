@@ -3,13 +3,40 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSound_a1cd9f140d36f50d684ebbee0507398e8}\label{classSound_a1cd9f140d36f50d684ebbee0507398e8}} 
-void {\bfseries Set\+Sound} (char $\ast$file\+Name)
-\item 
-\mbox{\Hypertarget{classSound_a7f9c91aa25f50fb3276e7d4b4af5cac1}\label{classSound_a7f9c91aa25f50fb3276e7d4b4af5cac1}} 
-void {\bfseries Play\+Sound} ()
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classSound_a539c205cdf06fe2c621fd77c37bcfac9}\label{classSound_a539c205cdf06fe2c621fd77c37bcfac9}} 
+\mbox{\hyperlink{classSound_a539c205cdf06fe2c621fd77c37bcfac9}{Sound}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSound_a0907389078bf740be2a5763366ad3376}\label{classSound_a0907389078bf740be2a5763366ad3376}} 
+\mbox{\hyperlink{classSound_a0907389078bf740be2a5763366ad3376}{$\sim$\+Sound}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSound_a1cd9f140d36f50d684ebbee0507398e8}{Set\+Sound}} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Setter\+: sets sound\+File according to param file\+Name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSound_a7f9c91aa25f50fb3276e7d4b4af5cac1}{Play\+Sound}} ()
+\begin{DoxyCompactList}\small\item\em Play sound. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSound_a7f9c91aa25f50fb3276e7d4b4af5cac1}\label{classSound_a7f9c91aa25f50fb3276e7d4b4af5cac1}} 
+\index{Sound@{Sound}!PlaySound@{PlaySound}}
+\index{PlaySound@{PlaySound}!Sound@{Sound}}
+\doxysubsubsection{\texorpdfstring{PlaySound()}{PlaySound()}}
+{\footnotesize\ttfamily void Sound\+::\+Play\+Sound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Play sound. 
+
+Method plays sound by calling Mix\+\_\+\+Play\+Channel(). Performs null check. \mbox{\Hypertarget{classSound_a1cd9f140d36f50d684ebbee0507398e8}\label{classSound_a1cd9f140d36f50d684ebbee0507398e8}} 
+\index{Sound@{Sound}!SetSound@{SetSound}}
+\index{SetSound@{SetSound}!Sound@{Sound}}
+\doxysubsubsection{\texorpdfstring{SetSound()}{SetSound()}}
+{\footnotesize\ttfamily void Sound\+::\+Set\+Sound (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Setter\+: sets sound\+File according to param file\+Name. 
+
+Setter method that uses the \mbox{\hyperlink{classSoundResourceManager}{Sound\+Resource\+Manager}} to set sound\+File according to param file\+Name. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

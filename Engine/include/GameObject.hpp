@@ -17,7 +17,7 @@
 #include "TileMapComponent.hpp"
 #include "Sprite.hpp"
 
-class TileMapComponent; // TODO: remove?
+class TileMapComponent;
 
 class GameObject {
     public:
@@ -32,23 +32,19 @@ class GameObject {
 
         void Render(std::uintptr_t rendererAddress);
 
-        // TODO: addComponent functions are temporary, we should use a template function
-        // to replace this or maybe a map?
         void addTransformComponent(Transform* transform);
         void addRectangleComponent(RectangleComponent* rectangle);
         void addPhysicsComponent(PhysicsComponent* physicsComponent);
         void addTileMapComponent(TileMapComponent* tileMapComponent);
         void addSpriteComponent(Sprite *sprite);
         void addCamera(ICamera* camera);
-        // void addTileMapComponent(std::shared_ptr<TileMapComponent> tileMapComponent);
 
         Transform* mTransform = nullptr;
         RectangleComponent* mRectangle = nullptr;
         PhysicsComponent* mPhysicsComponent = nullptr;
         TileMapComponent* mTileMapComponent = nullptr;
-        Sprite *mSprite = nullptr;
+        Sprite* mSprite = nullptr;
         ICamera* mCamera = nullptr;
-        // std::shared_ptr<TileMapComponent> mTileMapComponent = nullptr;
         std::uintptr_t mRenderer;
         int xVel = 0;
         int yVel = 0;

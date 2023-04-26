@@ -22,7 +22,5 @@ class SideScrollerCamera : public ICamera {
         int cameraHeight;
         int levelWidth;
         int levelHeight;
-
-    private:
         RectangleComponent* target;
 };

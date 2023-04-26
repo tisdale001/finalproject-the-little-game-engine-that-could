@@ -20,12 +20,11 @@
 namespace py = pybind11;
 
 /** @brief Pybind module for all methods in Engine.
- * 
+ *
 */
-PYBIND11_MODULE(engine, e) { // TODO: Remove unused or private functions from bindings after game is complete
+PYBIND11_MODULE(engine, e) {
     e.doc() = "Game Engine Library";
 
-    // py::class_<Transform, std::shared_ptr<Transform>>(e, "Transform")
     py::class_<Transform>(e, "Transform")
         .def(py::init())
         .def_readwrite("xPos", &Transform::xPos)
@@ -44,12 +43,14 @@ PYBIND11_MODULE(engine, e) { // TODO: Remove unused or private functions from bi
         .def("update", &Sprite::update)
         .def("render", &Sprite::render)
         .def("loadImage", &Sprite::loadImage)
-        .def("setRectangleDimensions", &Sprite::setRectangleDimensions)
-        .def("setSpriteSheetDimensions", &Sprite::setSpriteSheetDimensions);
+    	.def("loadImageForPreview", &Sprite::loadImageForPreview)
+	    .def("setRectangleDimensions", &Sprite::setRectangleDimensions)
+        .def("setSpriteSheetDimensions", &Sprite::setSpriteSheetDimensions)
+        .def("removeFromResourceManager", &Sprite::removeSpriteFromManager)
+        .def("shutDownManager", &Sprite::shutDownManager);
 
-    // py::class_<RectangleComponent, std::shared_ptr<RectangleComponent>>(e, "RectangleComponent")
     py::class_<RectangleComponent>(e, "RectangleComponent")
-        .def(py::init<Transform*>()) // TODO: test if ref parameter accepts shared pointer
+        .def(py::init<Transform*>())
         .def("getWidth", &RectangleComponent::getWidth)
         .def("getHeight", &RectangleComponent::getHeight)
         .def("getX", &RectangleComponent::getX)
@@ -58,6 +59,7 @@ PYBIND11_MODULE(engine, e) { // TODO: Remove unused or private functions from bi
         .def("getCenterY", &RectangleComponent::getCenterY)
         .def("setDimensions", &RectangleComponent::setDimensions)
         .def("setColor", &RectangleComponent::setColor)
+        .def("checkCollision", &RectangleComponent::checkCollision)
         .def("Render", &RectangleComponent::Render);
 
     py::class_<Collision>(e, "Collision")
@@ -68,9 +70,9 @@ PYBIND11_MODULE(engine, e) { // TODO: Remove unused or private functions from bi
         .def_readwrite("firstTileRow", &Collision::firstTileRow)
         .def_readwrite("firstTileColumn", &Collision::firstTileColumn);
 
-    // py::class_<TileMapComponent, std::shared_ptr<TileMapComponent>>(e, "TileMapComponent")
     py::class_<TileMapComponent>(e, "TileMapComponent")
         .def(py::init<const std::string&>())
+        .def("ExtendTilemap", &TileMapComponent::ExtendTilemap)
         .def("Render", &TileMapComponent::Render)
         .def("checkCollision", &TileMapComponent::checkCollision)
         .def("isOnGround", &TileMapComponent::isOnGround)
@@ -89,7 +91,6 @@ PYBIND11_MODULE(engine, e) { // TODO: Remove unused or private functions from bi
         .def("getTileIdx", &TileMapComponent::getTileIdx)
         .def("setTile", &TileMapComponent::setTile);
 
-    // py::class_<GameObject, std::shared_ptr<GameObject>>(e, "GameObject")
     py::class_<GameObject>(e, "GameObject")
         .def(py::init<>())
         .def("addCamera", &GameObject::addCamera)
@@ -122,7 +123,7 @@ PYBIND11_MODULE(engine, e) { // TODO: Remove unused or private functions from bi
         .def_readwrite("cameraHeight", &CenterCamera::cameraHeight)
         .def_readwrite("levelWidth", &CenterCamera::levelWidth)
         .def_readwrite("levelHeight", &CenterCamera::levelHeight);
-    
+
     py::class_<SideScrollerCamera, ICamera>(e, "SideScrollerCamera")
         .def(py::init<int, int, int, int, RectangleComponent*>())
         .def("Update", &SideScrollerCamera::Update)
@@ -131,13 +132,15 @@ PYBIND11_MODULE(engine, e) { // TODO: Remove unused or private functions from bi
         .def_readwrite("cameraWidth", &SideScrollerCamera::cameraWidth)
         .def_readwrite("cameraHeight", &SideScrollerCamera::cameraHeight)
         .def_readwrite("levelWidth", &SideScrollerCamera::levelWidth)
-        .def_readwrite("levelHeight", &SideScrollerCamera::levelHeight);
+        .def_readwrite("levelHeight", &SideScrollerCamera::levelHeight)
+        .def_readwrite("target", &SideScrollerCamera::target);
 
-    py::class_<StaticCamera, ICamera>(e, "StaticCamera") // TODO: expose getX/YOffset functions?
+    py::class_<StaticCamera, ICamera>(e, "StaticCamera")
         .def(py::init())
+        .def("Update", &StaticCamera::Update)
         .def_readwrite("x", &StaticCamera::x)
         .def_readwrite("y", &StaticCamera::y);
-    
+
     py::class_<SpriteCenterCamera>(e, "SpriteCenterCamera")
         .def(py::init<int, int, int, int, Sprite*>())
         .def("Update", &SpriteCenterCamera::Update)
@@ -147,7 +150,7 @@ PYBIND11_MODULE(engine, e) { // TODO: Remove unused or private functions from bi
         .def_readwrite("cameraHeight", &SpriteCenterCamera::cameraHeight)
         .def_readwrite("levelWidth", &SpriteCenterCamera::levelWidth)
         .def_readwrite("levelHeight", &SpriteCenterCamera::levelHeight);
-    
+
     py::class_<SpriteSideScrollerCamera>(e, "SpriteSideScrollerCamera")
         .def(py::init<int, int, int, int, Sprite*>())
         .def("Update", &SpriteSideScrollerCamera::Update)
@@ -162,7 +165,7 @@ PYBIND11_MODULE(engine, e) { // TODO: Remove unused or private functions from bi
         .def(py::init<>())
         .def("SetSound", &Sound::SetSound)
         .def("PlaySound", &Sound::PlaySound);
-    
+
     py::class_<Music>(e, "Music")
         .def(py::init<>())
         .def("SetMusic", &Music::SetMusic)
@@ -210,5 +213,7 @@ PYBIND11_MODULE(engine, e) { // TODO: Remove unused or private functions from bi
         .def("Render", &SDLGraphicsProgram::Render)
         .def("getTimeMS", &SDLGraphicsProgram::getTimeMS)
         .def("setTitle", &SDLGraphicsProgram::setTitle)
-        .def("getInputAtFrame", &SDLGraphicsProgram::getInputAtFrame);
+        .def("getInputAtFrame", &SDLGraphicsProgram::getInputAtFrame)
+        .def("setBlendModeNone", &SDLGraphicsProgram::setBlendModeNone)
+        .def("setBlendModeAlpha", &SDLGraphicsProgram::setBlendModeAlpha);
 }

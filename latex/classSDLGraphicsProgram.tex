@@ -25,7 +25,22 @@ std\+::uintptr\+\_\+t \mbox{\hyperlink{classSDLGraphicsProgram_abf37d67442ddc864
 void \mbox{\hyperlink{classSDLGraphicsProgram_a16d2650fd0229073b5de1922fa0156fb}{Draw\+Rectangle}} (int x, int y, int w, int h)
 \begin{DoxyCompactList}\small\item\em Creates rectangle according to dimensions as inputs on g\+Renderer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSDLGraphicsProgram_aa61f0672d7f5ad701c2fb71b312064c8}{set\+Title}} (const std\+::string \&title)
-\begin{DoxyCompactList}\small\item\em Setter\+: sets title of window. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Setter\+: sets title of window. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSDLGraphicsProgram_a6a136feac195e5f78a8661a695e67801}\label{classSDLGraphicsProgram_a6a136feac195e5f78a8661a695e67801}} 
+void \mbox{\hyperlink{classSDLGraphicsProgram_a6a136feac195e5f78a8661a695e67801}{add\+Game\+Object}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$obj)
+\begin{DoxyCompactList}\small\item\em Adds \mbox{\hyperlink{classGameObject}{Game\+Object}} to game\+Objects vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSDLGraphicsProgram_afb653f6f329cb7ddfbb5332a5ea1bbda}{Render}} ()
+\begin{DoxyCompactList}\small\item\em Calls \mbox{\hyperlink{classSDLGraphicsProgram_afb653f6f329cb7ddfbb5332a5ea1bbda}{Render()}} for all Game\+Objects in game\+Objects vector. \end{DoxyCompactList}\item 
+Uint32 \mbox{\hyperlink{classSDLGraphicsProgram_a7ed6bc89d18079672b43567f8c4a53a8}{get\+Time\+MS}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: get time. \end{DoxyCompactList}\item 
+std\+::vector$<$ bool $>$ \& \mbox{\hyperlink{classSDLGraphicsProgram_a0502035e5af83509a4c85d5d89b69592}{get\+Input\+At\+Frame}} (int frame)
+\begin{DoxyCompactList}\small\item\em Getter\+: gets vector of booleans for param frame. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSDLGraphicsProgram_a8bb53d934ca1282ac2e128ba8df5b3ba}\label{classSDLGraphicsProgram_a8bb53d934ca1282ac2e128ba8df5b3ba}} 
+void \mbox{\hyperlink{classSDLGraphicsProgram_a8bb53d934ca1282ac2e128ba8df5b3ba}{set\+Blend\+Mode\+None}} ()
+\begin{DoxyCompactList}\small\item\em Sets renderer to default blend mode Set renderer to SDL\+\_\+\+BLENDMODE\+\_\+\+NONE (no transparency) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSDLGraphicsProgram_ae4d04fb97d67f8720ba5c0079cd0e697}\label{classSDLGraphicsProgram_ae4d04fb97d67f8720ba5c0079cd0e697}} 
+void \mbox{\hyperlink{classSDLGraphicsProgram_ae4d04fb97d67f8720ba5c0079cd0e697}{set\+Blend\+Mode\+Alpha}} ()
+\begin{DoxyCompactList}\small\item\em Sets renderer to alpha blend mode Set renderer to SDL\+\_\+\+BLENDMODE\+\_\+\+BLEND (transparency supported) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -92,7 +107,17 @@ Creates a rectangle according to x/y position, witdth and height as inputs on g\
 
 Method records and returns keyboard state as member variable \char`\"{}inputs\char`\"{}. 
 
-Method records and then returns keyboard state as member variable \char`\"{}inputs\char`\"{}, which is a vector of acceptable keyboard entries according to enum \char`\"{}\+Key\char`\"{}. \mbox{\Hypertarget{classSDLGraphicsProgram_abf37d67442ddc8644c5029e90026a27e}\label{classSDLGraphicsProgram_abf37d67442ddc8644c5029e90026a27e}} 
+Method records and then returns keyboard state as member variable \char`\"{}inputs\char`\"{}, which is a vector of acceptable keyboard entries according to enum \char`\"{}\+Key\char`\"{}. \mbox{\Hypertarget{classSDLGraphicsProgram_a0502035e5af83509a4c85d5d89b69592}\label{classSDLGraphicsProgram_a0502035e5af83509a4c85d5d89b69592}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!getInputAtFrame@{getInputAtFrame}}
+\index{getInputAtFrame@{getInputAtFrame}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{getInputAtFrame()}{getInputAtFrame()}}
+{\footnotesize\ttfamily std\+::vector$<$ bool $>$ \& SDLGraphics\+Program\+::get\+Input\+At\+Frame (\begin{DoxyParamCaption}\item[{int}]{frame }\end{DoxyParamCaption})}
+
+
+
+Getter\+: gets vector of booleans for param frame. 
+
+Getter method that returns boolean vector that represents the input associated to frame number. Gets vector from input\+Record. \mbox{\Hypertarget{classSDLGraphicsProgram_abf37d67442ddc8644c5029e90026a27e}\label{classSDLGraphicsProgram_abf37d67442ddc8644c5029e90026a27e}} 
 \index{SDLGraphicsProgram@{SDLGraphicsProgram}!getSDLRenderer@{getSDLRenderer}}
 \index{getSDLRenderer@{getSDLRenderer}!SDLGraphicsProgram@{SDLGraphicsProgram}}
 \doxysubsubsection{\texorpdfstring{getSDLRenderer()}{getSDLRenderer()}}
@@ -112,7 +137,27 @@ Getter method that returns pointer g\+Renderer \mbox{\Hypertarget{classSDLGraphi
 
 Getter\+: returns pointer g\+Window. 
 
-Getter method that returns pointer to SDLWindow (g\+Window). \mbox{\Hypertarget{classSDLGraphicsProgram_ae987598512cf5f05fb0374e7946f8143}\label{classSDLGraphicsProgram_ae987598512cf5f05fb0374e7946f8143}} 
+Getter method that returns pointer to SDLWindow (g\+Window). \mbox{\Hypertarget{classSDLGraphicsProgram_a7ed6bc89d18079672b43567f8c4a53a8}\label{classSDLGraphicsProgram_a7ed6bc89d18079672b43567f8c4a53a8}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!getTimeMS@{getTimeMS}}
+\index{getTimeMS@{getTimeMS}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{getTimeMS()}{getTimeMS()}}
+{\footnotesize\ttfamily Uint32 SDLGraphics\+Program\+::get\+Time\+MS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter\+: get time. 
+
+Getter method that gets time in milliseconds by calling SDL\+\_\+\+Get\+Ticks(). \mbox{\Hypertarget{classSDLGraphicsProgram_afb653f6f329cb7ddfbb5332a5ea1bbda}\label{classSDLGraphicsProgram_afb653f6f329cb7ddfbb5332a5ea1bbda}} 
+\index{SDLGraphicsProgram@{SDLGraphicsProgram}!Render@{Render}}
+\index{Render@{Render}!SDLGraphicsProgram@{SDLGraphicsProgram}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void SDLGraphics\+Program\+::\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calls \mbox{\hyperlink{classSDLGraphicsProgram_afb653f6f329cb7ddfbb5332a5ea1bbda}{Render()}} for all Game\+Objects in game\+Objects vector. 
+
+Iterates through all Game\+Objects and calls \mbox{\hyperlink{classSDLGraphicsProgram_afb653f6f329cb7ddfbb5332a5ea1bbda}{Render()}} on each. \mbox{\Hypertarget{classSDLGraphicsProgram_ae987598512cf5f05fb0374e7946f8143}\label{classSDLGraphicsProgram_ae987598512cf5f05fb0374e7946f8143}} 
 \index{SDLGraphicsProgram@{SDLGraphicsProgram}!setRenderColor@{setRenderColor}}
 \index{setRenderColor@{setRenderColor}!SDLGraphicsProgram@{SDLGraphicsProgram}}
 \doxysubsubsection{\texorpdfstring{setRenderColor()}{setRenderColor()}}

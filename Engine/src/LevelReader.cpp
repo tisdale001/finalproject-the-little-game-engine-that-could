@@ -33,7 +33,7 @@ void LevelReader::loadLevel(const std::string& levelPath) {
     while (fileReader >> tileType) {
         tiles.push_back(tileType);
     }
-    std::cout << "Rows: " << rows << " Cols: " << cols << " Size: " << tiles.size() << std::endl;
+    // std::cout << "Rows: " << rows << " Cols: " << cols << " Size: " << tiles.size() << std::endl;
 }
 
 /** @brief Getter: returns rows

@@ -11,7 +11,6 @@
 
 #include "Transform.hpp"
 
-// TODO: setImage function?
 class RectangleComponent {
     public:
         RectangleComponent(Transform* transform);
@@ -37,6 +36,8 @@ class RectangleComponent {
         int getCenterX();
 
         int getCenterY();
+
+        bool checkCollision(RectangleComponent* r2);
 
     private:
         int width;

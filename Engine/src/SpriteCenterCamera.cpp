@@ -1,6 +1,9 @@
 #include "SpriteCenterCamera.hpp"
 #include <algorithm>
 
+/** @brief Constructor
+ * 
+*/
 SpriteCenterCamera::SpriteCenterCamera(int camWidth, int camHeight, int lvlWidth, int lvlHeight, Sprite* sp):
     cameraWidth(camWidth),
     cameraHeight(camHeight),
@@ -11,8 +14,14 @@ SpriteCenterCamera::SpriteCenterCamera(int camWidth, int camHeight, int lvlWidth
         y = std::clamp(sp->getCenterY() - cameraHeight/2, 0, levelHeight - cameraHeight);
     }
 
+/** @brief Deconstructor
+ * 
+*/
 SpriteCenterCamera::~SpriteCenterCamera() {}
 
+/** @brief Updates camera position, centering on target while staying within level bounds
+ * 
+*/
 void SpriteCenterCamera::Update() {
     x = target->getCenterX() - cameraWidth/2;
     y = target->getCenterY() - cameraHeight/2;

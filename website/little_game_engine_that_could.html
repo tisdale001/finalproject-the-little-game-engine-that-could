@@ -7,43 +7,111 @@
 <body>
     <div style="border:blueviolet; border-style:dotted; margin-top: 30px;">
         <h1 style="margin-left: 10px;">Video Presentation</h1>
-        <iframe style="margin-left: 10px" width="560" height="315" src="https://www.youtube.com/watch?v=aCpBzdciU0o" frameborder="1" allowfullscreen></iframe>
+        <iframe style="margin-left: 10px" width="560" height="315" src="https://www.youtube.com/embed/Xta-EmNFA_Y" frameborder="1" allowfullscreen></iframe>
       
     </div>
 
     <div style="border:blue; border-style:dotted; margin-top: 20px;">
         <h1 style="margin-left: 10px;">Screenshots</h1>
-        <img src="game_engines.jpeg" height="400px" style="margin-left:10px"/>
-        <img src="TopGameEngines.png" height="400px" style="margin-left:10px"/>
+        <img src="game1.png" height="300px" style="margin-left:10px; margin-top: 10px;"/>
+        <img src="game2.png" height="300px" style="margin-left:10px; margin-top: 10px;"/>
+        <img src="editor.png" height="300px" style="margin-left:10px; margin-top: 10px;"/>
+        <img src="SpritePreviewer.png" height="300px" style="margin-left:10px; margin-top: 10px;"/>
+        <img src="replay.png" height="300px" style="margin-left:10px; margin-top: 10px;"/>
+        <img src="PlatformerReplayDemo.png" height="300px" style="margin-left:10px; margin-top: 10px;"/>
     </div>
 
     <div style="border:green; border-style:dotted; margin-top: 20px;">
         <h1 style="margin-left: 10px;">Documentation</h1>
         <h3 style="margin-left:10px">Doxygen files</h3>
         <div style="margin-bottom:10px">
-            <a href="../html/index.html"
-                style="margin-left: 10px; ">
-                Click for Doxygen Documentation
+            <a href="../html/index.html" style="margin-left: 10px; ">
+                Doxygen generated documentation
             </a>
         </div>
     </div>
 
     <div style="border:yellow; border-style:dotted; margin-top: 20px;">
         <h1 style="margin-left: 10px;">Engine Architecture</h1>
+        <img src="EngineArchitecture.png" height="600px" style="margin-left:10px; margin-bottom:10px;"/>
     </div>
 
     <div style="border:orange; border-style:dotted; margin-top: 20px;">
-        <h1 style="margin-left: 10px;">Link to binary file</h1>
-        <div style="margin-bottom:10px">
-            <a href="https://github.com/Spring23BuildingGameEngines/finalproject-the-little-game-engine-that-could/tree/temp-master"
+        <h1 style="margin-left: 10px;">Binary file and compile instructions</h1>
+        <div style="margin-top: 10px; margin-left: 10px">
+            <p>To run binary file</p>
+            <pre>
+                <code>
+                    $ cd finalproject-the-little-game-engine-that-could/Engine
+                    $ ./dist/gravity_guy
+                    $ ./dist/gravity_guy_PCG
+                    $ ./dist/PlatformerReplayDemo
+                </code>
+            </pre>
+            <p>To compile on Linux</p>
+            <pre>
+                <code>
+                    $ sudo apt-get update
+                    $ sudo apt-get install libsdl2-dev
+                    $ sudo apt-get install libsdl2-mixer-dev
+                    $ sudo apt-get install libsdl2-image-dev
+                    $ sudo apt install python3-tk
+                </code>
+                <code>
+                    $ cd finalproject-the-little-game-engine-that-could/Engine 
+                    $ python3 linuxbuild.py
+                </code>
+                <code>
+                    $ python3 gravity_guy.py
+                    $ python3 gravity_guy_PCG.py
+                    $ python3 PlatformerReplayDemo.py
+                </code>
+            </pre>
+        </div>
+        <div style="margin-bottom:10px; margin-top: 10px;">
+            <div style="margin-left: 10px">
+                <p>
+                    Link to binary file (gravity_guy):
+                </p>
+            </div>
+            <a href="https://github.com/Spring23BuildingGameEngines/finalproject-the-little-game-engine-that-could/tree/lucian-branch/Engine/dist"
                 style="margin-left: 10px; ">
-                https://github.com/Spring23BuildingGameEngines/finalproject-the-little-game-engine-that-could/tree/temp-master
+                https://github.com/Spring23BuildingGameEngines/finalproject-the-little-game-engine-that-could/tree/lucian-branch/Engine/dist
             </a>
         </div>
     </div>
 
     <div style="border:red; border-style:dotted; margin-top: 20px;">
         <h1 style="margin-left: 10px;">Post mortem</h1>
+        <div style="max-width: 1000px; margin-left: 10px; margin-right: 10px">
+            <p style="text-indent: 25px">
+                If we had eight more weeks to work on this project, there are many things that we would like to work on. 
+                There are some features that we started working on, such as input playback and procedural generation, which
+                we wanted to explore furhter. Procedural generation is a great feature for a “runner” game like Gravity Guy,
+                where gameplay can last indefinitely. The content generation prototype we were able to implement generates
+                random levels using prefabricated level chunks, splicing them together to create unique levels. We would have
+                liked to delve more into this feature, because there is a lot more that can be done there. The replay and
+                playback systems could also be expanded more for some cool game ideas which we could have iterated on.
+            </p>
+            <p style="text-indent: 25px">
+                The main feature that we didn’t prove in our demo game, was the ability to introduce “enemy” game objects, mainly 
+                because Gravity Guy doesn’t rely on enemies to destroy or avoid. The original game is more of an obstacle course and 
+                a race against time. We coded the ability to add many GameObjects, of course, but the handling of them would be in the 
+                Python game logic. It just wasn’t necessary for the game we chose to demonstrate. During the first week of our extra time, 
+                we could easily create another (possibly side-scroller) game to feature this ability. Spatial partitioning would be another 
+                ability to quickly demonstrate in a game with many GameObjects. We would have liked to have created a game that required this.
+            </p>
+            <p style="text-indent: 25px">
+                Finally, we agree as a team that the use of python tkinter for our editor was a design flaw. We made a choice to 
+                start the project with tkinter because we wanted to get up and running as quickly as possible, so that we would have 
+                time to begin on the actual game creation and finish all the requirements of the project. Tkinter is slow and 
+                cumbersome. We could build a much better, and more professional, GUI from C++ libraries, and it would then be possible 
+                to link the editor with the engine and the scripting logic to add the feature of being able to play the level as you 
+                build it. If we had another eight weeks, we agree that we would start from scratch and build the editor in C++.
+            </p>
+        </div>
+        
     </div>
+    
 
 </body>

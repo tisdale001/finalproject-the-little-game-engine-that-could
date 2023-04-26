@@ -18,10 +18,11 @@ public:
 
     void shutDown();
     
-    // TODO: Refactor to be a static function
     void LoadResource(SDL_Surface* surface, SDL_Renderer* renderer);
-    // TODO: Refactor to be a static function
+    
     SDL_Texture* GetResource(SDL_Surface* surface);
+
+    void RemoveResource(SDL_Surface* surface);
 
 private:
     // Private constructor

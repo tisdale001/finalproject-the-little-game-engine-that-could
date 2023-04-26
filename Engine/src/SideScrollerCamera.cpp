@@ -1,11 +1,9 @@
 #include "SideScrollerCamera.hpp"
 #include <algorithm>
 
-// TODO: This should be abstracted into a base class/interface
-// TODO: Setting y to bottom of level by default but we should have a setY in a function or the constructor
 /** @brief Constructor
  * 
- * Constructor that takes in demensions and, for now, a RectangleComponent as the main character
+ * Constructor that takes in dimensions and, for now, a RectangleComponent as the main character
  * 
 */
 SideScrollerCamera::SideScrollerCamera(int camWidth, int camHeight, int lvlWidth, int lvlHeight, RectangleComponent* r):
@@ -15,7 +13,7 @@ SideScrollerCamera::SideScrollerCamera(int camWidth, int camHeight, int lvlWidth
     levelHeight(lvlHeight),
     target(r) {
         x = std::clamp(r->getCenterX() - cameraWidth/2, 0, levelWidth - cameraWidth);
-        y = lvlHeight - cameraHeight;
+        y = lvlHeight - cameraHeight; // Set to bottom of level by default
     }
 /** @brief Deconstructor
  * 

@@ -18,18 +18,16 @@ class SoundResourceManager{
 
         void shutDown();
         
-        // TODO: Refactor to be a static function
-        void LoadResource(char* fileName);
-        // TODO: Refactor to be a static function
-        Mix_Chunk* GetResource(char* fileName);
+        Mix_Chunk* LoadSoundResource(char* fileName);
+        
+        Mix_Music* LoadMusicResource(char* fileName);
 
     private:
         // Private constructor
         SoundResourceManager();
 
         std::unordered_map<char*, Mix_Chunk*> mSoundMap;
-
-        Mix_Chunk* mSound;
+        std::unordered_map<char*, Mix_Music*> mMusicMap;
 };
 
 

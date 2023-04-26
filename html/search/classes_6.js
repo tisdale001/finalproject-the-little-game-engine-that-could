@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['paddle_89',['Paddle',['../classpong_1_1Paddle.html',1,'pong']]],
-  ['physicscomponent_90',['PhysicsComponent',['../classPhysicsComponent.html',1,'']]],
-  ['ponggame_91',['PongGame',['../classpong_1_1PongGame.html',1,'pong']]]
+  ['physicscomponent_139',['PhysicsComponent',['../classPhysicsComponent.html',1,'']]],
+  ['player_140',['Player',['../classPlatformerReplayDemo_1_1Player.html',1,'PlatformerReplayDemo']]]
 ];

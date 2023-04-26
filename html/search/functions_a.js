@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['tileat_146',['tileAt',['../classTileMapComponent.html#ad022a0b212be9cb8a0ee94c265883b49',1,'TileMapComponent']]],
-  ['tileatxy_147',['tileAtXY',['../classTileMapComponent.html#a92da27f9f4192e6b30a0db53debec527',1,'TileMapComponent']]],
-  ['tilemapcomponent_148',['TileMapComponent',['../classTileMapComponent.html#a8daca76596f7812f20696faca2438300',1,'TileMapComponent::TileMapComponent(const std::string &amp;levelPath)'],['../classTileMapComponent.html#a3bc6ffd8e10a9bd1579ea35867e823f5',1,'TileMapComponent::TileMapComponent(int rows, int cols, int size)']]],
-  ['transform_149',['Transform',['../classTransform.html#aa08ca4266efabc768973cdeea51945ab',1,'Transform']]]
+  ['receive_211',['receive',['../classSprite.html#a4d0a0c776c4cd240c0f7a0970d23f7b0',1,'Sprite']]],
+  ['rectanglecomponent_212',['RectangleComponent',['../classRectangleComponent.html#ac674880c4b0f88affe80d8b69601c624',1,'RectangleComponent']]],
+  ['removeresource_213',['RemoveResource',['../classSurfaceResourceManager.html#a21d6554e0c4aecce4949a513737511b8',1,'SurfaceResourceManager::RemoveResource()'],['../classTextureResourceManager.html#a41799fce45ce407ef0f1e4ae463900d6',1,'TextureResourceManager::RemoveResource()']]],
+  ['removespritefrommanager_214',['removeSpriteFromManager',['../classSprite.html#a0ec419f0f8ad92bc2022c775c59055c6',1,'Sprite']]],
+  ['render_215',['Render',['../classSDLGraphicsProgram.html#afb653f6f329cb7ddfbb5332a5ea1bbda',1,'SDLGraphicsProgram::Render()'],['../classGameObject.html#a2064fc3b9c544fd1476e82b5e2693180',1,'GameObject::Render()'],['../classRectangleComponent.html#a372d4f7a40615cfea0f3ecb09b394a3d',1,'RectangleComponent::Render()'],['../classTileMapComponent.html#a499b5deb3ae911b848b995244bf5ec8f',1,'TileMapComponent::Render()']]],
+  ['render_216',['render',['../classSprite.html#a1114c639467b7cfc8368619794d7c35f',1,'Sprite']]]
 ];

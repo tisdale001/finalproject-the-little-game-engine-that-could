@@ -1,26 +1,39 @@
 from lib import engine
 
-class Vec2D:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
 
+# Represents a Gravity Guy Game
 class Game:
+    # Initialize Game
     def __init__(self, windowWidth, windowHeight):
+        # SDL Setup
         self.sdl = engine.SDLGraphicsProgram(windowWidth, windowHeight)
         self.windowWidth = windowWidth
         self.windowHeight = windowHeight
-        self.entities = [] # Entities to render
+        # Tilemap Setup
+        self.tilemap = engine.TileMapComponent("Assets/Levels/MarioTiles/gravity-guy-test-2.lvl")
+        self.tilemap.loadTileset("Assets/tilesets/mario-like-tileset-32x32.png", self.sdl.getSDLRenderer())
+        self.tileSize = self.tilemap.getSize()
+        # Level size
+        self.lvlWidth = self.tilemap.getCols() * self.tileSize
+        self.lvlHeight = self.tilemap.getRows() * self.tileSize
+        # Physics Setup
+        self.physics = engine.PhysicsComponent()
+        # Entities to render
+        self.entities = [] 
 
+        # Player Object Setup
         self.player = engine.GameObject()
-        self.playerRunSpeed = 8
-        self.playerJumpSpeed = 12
-        self.player.xVel = self.playerRunSpeed
-        self.player.yVel = self.playerJumpSpeed
+        # Player Transform Component
+        self.playerTransform = engine.Transform()
+        self.player.addTransformComponent(self.playerTransform)
+        self.playerTransform.xPos = 100
+        self.playerTransform.yPos = 100
 
-        self.transform = engine.Transform()
-        self.player.addTransformComponent(self.transform)
-        self.transform.setPosition(100, 100)
+        # # Player Rectangle Component
+        # self.playerRectangle = engine.RectangleComponent(self.playerTransform)
+        # self.playerRectangle.setDimensions(50, 50)
+        # self.playerRectangle.setColor(150, 255, 255, 255)
+        # self.player.addRectangleComponent(self.playerRectangle)
 
         self.maxFrameDict = {}
         '''
@@ -34,84 +47,75 @@ class Game:
         numPixelsToTrimFromWidth : this parameter tells how many pixels are to be taken off each sprite image, in case
         there is extra space between images.
         '''
-        self.run_right_sprite = engine.Sprite(self.transform, True)
+        self.run_right_sprite = engine.Sprite(self.playerTransform, True)
         self.run_right_sprite.setRectangleDimensions(32, 48)
         self.run_right_sprite.setSpriteSheetDimensions(48, 48, 6, 6, 16)
         self.run_right_sprite.loadImage("Assets/spritesheets/Cyborg_run_right.bmp", self.sdl.getSDLRenderer())
         self.player.addSpriteComponent(self.run_right_sprite)
-        self.maxFrameDict[str(self.run_right_sprite)] = 6
+        self.maxFrameDict[str(self.run_right_sprite)] = 5
 
-        self.run_left_sprite = engine.Sprite(self.transform, False)
+        self.run_left_sprite = engine.Sprite(self.playerTransform, False)
         self.run_left_sprite.setRectangleDimensions(32, 48)
         self.run_left_sprite.setSpriteSheetDimensions(48, 48, 6, 6, 16)
         self.run_left_sprite.loadImage("Assets/spritesheets/Cyborg_run_left.bmp", self.sdl.getSDLRenderer())
-        self.maxFrameDict[str(self.run_left_sprite)] = 6
+        self.maxFrameDict[str(self.run_left_sprite)] = 5
 
-        self.run_right_on_ceiling = engine.Sprite(self.transform, True)
+        self.run_right_on_ceiling = engine.Sprite(self.playerTransform, True)
         self.run_right_on_ceiling.setRectangleDimensions(32, 48)
         self.run_right_on_ceiling.setSpriteSheetDimensions(48, 48, 6, 6, 16)
         self.run_right_on_ceiling.loadImage("Assets/spritesheets/Cyborg_run_ceiling_and_right.bmp", self.sdl.getSDLRenderer())
-        self.maxFrameDict[str(self.run_right_on_ceiling)] = 6
+        self.maxFrameDict[str(self.run_right_on_ceiling)] = 5
 
-        self.run_left_on_ceiling = engine.Sprite(self.transform, False)
+        self.run_left_on_ceiling = engine.Sprite(self.playerTransform, False)
         self.run_left_on_ceiling.setRectangleDimensions(32, 48)
         self.run_left_on_ceiling.setSpriteSheetDimensions(48, 48, 6, 6, 16)
         self.run_left_on_ceiling.loadImage("Assets/spritesheets/Cyborg_run_ceiling_and_left.bmp", self.sdl.getSDLRenderer())
-        self.maxFrameDict[str(self.run_left_on_ceiling)] = 6
+        self.maxFrameDict[str(self.run_left_on_ceiling)] = 5
 
-        self.idle_right = engine.Sprite(self.transform, True)
+        self.idle_right = engine.Sprite(self.playerTransform, True)
         self.idle_right.setRectangleDimensions(26, 48)
         self.idle_right.setSpriteSheetDimensions(48, 48, 4, 4, 24)
         self.idle_right.loadImage("Assets/spritesheets/Cyborg_idle_right.bmp", self.sdl.getSDLRenderer())
-        self.maxFrameDict[str(self.idle_right)] = 4
+        self.maxFrameDict[str(self.idle_right)] = 3
 
-        self.idle_left = engine.Sprite(self.transform, False)
+        self.idle_left = engine.Sprite(self.playerTransform, False)
         self.idle_left.setRectangleDimensions(26, 48)
         self.idle_left.setSpriteSheetDimensions(48, 48, 4, 4, 24)
         self.idle_left.loadImage("Assets/spritesheets/Cyborg_idle_left.bmp", self.sdl.getSDLRenderer())
-        self.maxFrameDict[str(self.idle_left)] = 4
+        self.maxFrameDict[str(self.idle_left)] = 3
 
-        self.idle_right_on_ceiling = engine.Sprite(self.transform, True)
+        self.idle_right_on_ceiling = engine.Sprite(self.playerTransform, True)
         self.idle_right_on_ceiling.setRectangleDimensions(26, 48)
         self.idle_right_on_ceiling.setSpriteSheetDimensions(48, 48, 4, 4, 24)
         self.idle_right_on_ceiling.loadImage("Assets/spritesheets/Cyborg_idle_right_on_ceiling.bmp", self.sdl.getSDLRenderer())
-        self.maxFrameDict[str(self.idle_right_on_ceiling)] = 4
+        self.maxFrameDict[str(self.idle_right_on_ceiling)] = 3
 
-        self.idle_left_on_ceiling = engine.Sprite(self.transform, False)
+        self.idle_left_on_ceiling = engine.Sprite(self.playerTransform, False)
         self.idle_left_on_ceiling.setRectangleDimensions(26, 48)
         self.idle_left_on_ceiling.setSpriteSheetDimensions(48, 48, 4, 4, 24)
         self.idle_left_on_ceiling.loadImage("Assets/spritesheets/Cyborg_idle_left_on_ceiling.bmp", self.sdl.getSDLRenderer())
-        self.maxFrameDict[str(self.idle_left_on_ceiling)] = 4
+        self.maxFrameDict[str(self.idle_left_on_ceiling)] = 3
 
-        self.climb_up = engine.Sprite(self.transform, True)
+        self.climb_up = engine.Sprite(self.playerTransform, True)
         self.climb_up.setRectangleDimensions(26, 48)
         self.climb_up.setSpriteSheetDimensions(48, 48, 6, 6, 24)
         self.climb_up.loadImage("Assets/spritesheets/Cyborg_climb.bmp", self.sdl.getSDLRenderer())
-        self.maxFrameDict[str(self.climb_up)] = 6
+        self.maxFrameDict[str(self.climb_up)] = 5
 
-        self.climb_down = engine.Sprite(self.transform, True)
+        self.climb_down = engine.Sprite(self.playerTransform, True)
         self.climb_down.setRectangleDimensions(26, 48)
         self.climb_down.setSpriteSheetDimensions(48, 48, 6, 6, 24)
         self.climb_down.loadImage("Assets/spritesheets/Cyborg_climb_down.bmp", self.sdl.getSDLRenderer())
-        self.maxFrameDict[str(self.climb_down)] = 6
+        self.maxFrameDict[str(self.climb_down)] = 5
 
-        # self.rectangle = engine.RectangleComponent(self.transform)
-        # self.rectangle.setDimensions(50, 50)
-        # self.player.addRectangleComponent(self.rectangle)
-
-        self.tilemap = engine.TileMapComponent("Assets/Levels/MarioTiles/gravity-guy-test-1.lvl")
-        self.tilemap.loadTileset("Assets/tilesets/mario-like-tileset-32x32.png", self.sdl.getSDLRenderer())
+        # Player Tilemap Component
         self.player.addTileMapComponent(self.tilemap)
-        self.tileSize = self.tilemap.getSize()
-
-        self.physics = engine.PhysicsComponent()
+        # Player Physics Component
         self.player.addPhysicsComponent(self.physics)
 
-        self.lvlWidth = self.tilemap.getCols() * self.tileSize
-        self.lvlHeight = self.tilemap.getRows() * self.tileSize
+        # Camera Setup
         self.camera = engine.SpriteSideScrollerCamera(self.windowWidth, self.windowHeight, self.lvlWidth, 
                                                 self.lvlHeight, self.player.mSprite)
-
         self.cameraOffsetX = 0
         self.cameraOffsetY = 0
 
@@ -121,33 +125,71 @@ class Game:
         self.currentFrame = 0
         self.currentMaxFrame = self.maxFrameDict[str(self.run_right_sprite)]
 
-        # climbing variables for climbing logic
+        # Climbing variables
         self.isClimbingRight = False
         self.isClimbingLeft = False
         self.curYDirection = 1 # must be 1 or -1
         self.curXDirection = 1 # must be 1 or -1
-        self.climbingSpeed = 6
+        self.climbingSpeed = 4
         self.fallingSpeed = 1
-        
 
-    def runLoop(self):
-        inputs = self.sdl.getInput()
-        while not inputs[engine.QUIT_EVENT]:
-            self.update(inputs := self.sdl.getInput())
-            self.render()
-            self.sdl.delay(25) # Needs frame rate limiting code from test_game.cpp
+        # Sounds
+        self.music = engine.Music()
+        self.music.SetMusic("Assets/Sounds/SteamtechMayhem.wav")
+        self.gameOverSound = engine.Sound()
+        self.gameOverSound.SetSound("Assets/Sounds/GameOver.wav")
+        self.winSound = engine.Sound()
+        self.winSound.SetSound("Assets/Sounds/Win.wav")
+        self.jumpSound = engine.Sound()
+        self.jumpSound.SetSound("Assets/Sounds/Jump.wav")
+        self.speedUpSound = engine.Sound()
+        self.speedUpSound.SetSound("Assets/Sounds/SpeedUp.wav")
 
-    def update(self, inputs):
-        if inputs[engine.ESCAPE_PRESSED]:
-            inputs[engine.QUIT_EVENT] = True
-        # if inputs[engine.W_PRESSED]:
-        #     pass
-        # if inputs[engine.S_PRESSED]:
-        #     pass
-        # if inputs[engine.UP_PRESSED]:
-        #     pass
-        # if inputs[engine.DOWN_PRESSED]:
-        #     pass
+        # Gravity Guy Settings
+        self.playerRunSpeed = 3
+        self.playerJumpSpeed = 6
+        self.autoRun = False
+        self.spaceTapErrorLenience = 0.1
+        # Game Variables
+        self.player.xVel = self.playerRunSpeed
+        self.player.yVel = self.playerJumpSpeed
+        self.timeSinceSpaceTapped = 99
+        self.alreadySpedUp = False
+        # Frame capping variables
+        targetFPS = 45
+        self.maxTicksPerFrame = int(1000 / targetFPS); # 16.66ms per frame
+        self.frameStartTime = 0
+        self.frame_count = 0
+        self.startTime = self.sdl.getTimeMS()
+        self.frameUpdateDelay = 0
+        self.maxFrameUpdateDelay = 2
+
+    # Handles player left and right movement from input
+    def handlePlayerMove(self, inputs):
+        if self.autoRun:
+            self.curXDirection = 1
+            self.player.xVel = self.playerRunSpeed
+            self.player.yVel = self.playerJumpSpeed * self.curYDirection
+            if self.isClimbingRight:
+                self.player.yVel = self.climbingSpeed * (- self.curYDirection)
+                if self.curYDirection > 0:
+                    # gravity is down, change to climb_up sprite
+                    self.player.addSpriteComponent(self.climb_up)
+                    self.currentMaxFrame = self.maxFrameDict[str(self.climb_up)]
+                else:
+                    # gravity is up, change to climb_down sprite
+                    self.player.addSpriteComponent(self.climb_down)
+                    self.currentMaxFrame = self.maxFrameDict[str(self.climb_down)]
+            else:
+                if self.curYDirection > 0:
+                    # change to running right
+                    self.player.addSpriteComponent(self.run_right_sprite)
+                    self.currentMaxFrame = self.maxFrameDict[str(self.run_right_sprite)]
+                else:
+                    # change to running right on ceiling
+                    self.player.addSpriteComponent(self.run_right_on_ceiling)
+                    self.currentMaxFrame = self.maxFrameDict[str(self.run_right_on_ceiling)]
+            return
         if inputs[engine.LEFT_PRESSED] or inputs[engine.A_PRESSED]:
             self.curXDirection = -1
             self.player.xVel = - self.playerRunSpeed
@@ -219,29 +261,39 @@ class Game:
 
             if self.isClimbingLeft or self.isClimbingRight:
                 self.player.yVel = self.curYDirection * self.fallingSpeed
-            
-            
-        if inputs[engine.SPACE_PRESSED]:
-            if self.tilemap.isOnCeiling(self.player) or self.tilemap.isOnGround(self.player):
-                # self.player.yVel = - self.player.yVel
-                self.curYDirection *= -1
-                self.player.yVel = self.playerJumpSpeed * self.curYDirection
-            elif self.isClimbingRight or self.isClimbingLeft:
-                if self.player.yVel > 0:
-                    self.player.yVel = self.climbingSpeed
-                    self.curYDirection = 1
-                elif self.player.yVel < 0:
-                    self.player.yVel = - self.climbingSpeed
-                    self.curYDirection = -1
-                else:
-                    # yVel == 0, falling speed acording to curYDirection
-                    self.player.yVel = self.fallingSpeed * self.curYDirection
-        # update player xPos
-        self.physics.UpdateX(self.player)
-        collision = self.tilemap.checkCollision(self.player)
+
+    # Handles player jump logic
+    def handlePlayerJump(self, inputs):
+        # Increment time since space tapped
+        self.timeSinceSpaceTapped += 1 / 60
+        # Detect if space was tapped
+        if inputs[engine.SPACE_TAPPED]:
+            self.timeSinceSpaceTapped = 0
+        # If space hasn't been tapped recently (wiggle room time), no jump
+        if self.timeSinceSpaceTapped > self.spaceTapErrorLenience:
+            return
+        # If space has been tapped within the time, then perform jump if possible
+        self.timeSinceSpaceTapped = 99
+        if self.tilemap.isOnCeiling(self.player) or self.tilemap.isOnGround(self.player):
+            self.jumpSound.PlaySound()
+            self.curYDirection *= -1
+            self.player.yVel = self.playerJumpSpeed * self.curYDirection
+        elif self.isClimbingRight or self.isClimbingLeft:
+            if self.player.yVel > 0:
+                self.player.yVel = self.climbingSpeed
+                self.curYDirection = 1
+            elif self.player.yVel < 0:
+                self.player.yVel = - self.climbingSpeed
+                self.curYDirection = -1
+            else:
+                # yVel == 0, falling speed acording to curYDirection
+                self.player.yVel = self.fallingSpeed * self.curYDirection
+
+    # Handles player wall climbing
+    def handlePlayerWallClimbing(self, inputs, collision):
         if collision.isColliding and self.player.xVel > 0:
             # hit right wall: set xPos to correct x according to row, col
-            self.transform.xPos = self.tileSize * collision.col - self.player.mSprite.getWidth()
+            self.playerTransform.xPos = self.tileSize * collision.firstTileColumn - self.player.mSprite.getWidth()
             # change isClimbingRight only once
             if not self.isClimbingRight:
                 self.isClimbingRight = True
@@ -251,7 +303,7 @@ class Game:
             self.isClimbingLeft = False
         elif collision.isColliding and self.player.xVel < 0:
             # hit left wall
-            self.transform.xPos = self.tileSize * (collision.col + 1)
+            self.playerTransform.xPos = self.tileSize * (collision.firstTileColumn + 1)
             # change isClimbingLeft only once
             if not self.isClimbingLeft:
                 self.isClimbingLeft = True
@@ -264,11 +316,9 @@ class Game:
             self.isClimbingRight = False
             if self.player.xVel < 0:
                 # player jumped off wall
-                # self.curYDirection *= -1
                 self.player.yVel = self.playerJumpSpeed * self.curYDirection
             elif self.player.xVel > 0:
                 # player reached top of wall
-                # self.curYDirection *= -1
                 self.player.yVel = self.playerJumpSpeed * self.curYDirection
             else:
                 # player is not pushing left or right
@@ -278,56 +328,161 @@ class Game:
             self.isClimbingLeft = False
             if self.player.xVel > 0:
                 # player jumped off wall
-                # self.curYDirection *= -1
                 self.player.yVel = self.playerJumpSpeed * self.curYDirection
             elif self.player.xVel < 0:
                 # player reached top of wall
-                # self.curYDirection *= -1
                 self.player.yVel = self.playerJumpSpeed * self.curYDirection
             else:
                 # player is not pushing left or right
                 self.player.yVel = 0
                 self.curYDirection *= -1
-        # update player yPos
-        self.physics.UpdateY(self.player)
-        # check if off screen
-        if self.transform.yPos <= 0 or self.transform.yPos >= self.lvlHeight - self.player.mSprite.getHeight():
-            # death: respawn
-            self.transform.xPos = 100
-            self.transform.yPos = 100
+
+    # Handles game over
+    def playerGameOver(self):
+        self.gameOverSound.PlaySound()
+        # Reset player position
+        self.playerTransform.xPos = 100
+        self.playerTransform.yPos = 100
+        self.camera.Update()
+        self.StartGame()
+
+    # Handles player win
+    def playerWin(self):
+        self.winSound.PlaySound()
+        # Reset player position
+        self.playerTransform.xPos = 100
+        self.playerTransform.yPos = 100
+        self.camera.Update()
+        self.StartGame()
+
+    # Checks for collisions with a spike (any tile with ID 10)
+    def touchingSpikeCheck(self, collision):
+        if self.tilemap.isTouchingType(collision, 10):
+            self.playerGameOver()
+
+    # Checks for collisions with a speed up tile (any tile with ID 42)
+    def touchingSpeedUpCheck(self, collision):
+        if self.tilemap.isTouchingType(collision, 42) and not self.alreadySpedUp:
+            self.speedUpSound.PlaySound()
+            self.alreadySpedUp = True
+            if self.playerRunSpeed < 20:
+                self.playerRunSpeed += 2
+                self.playerJumpSpeed += 2
+        elif not self.tilemap.isTouchingType(collision, 42):
+            self.alreadySpedUp = False
+
+    # Checks for collisions with a spike (any tile with ID 27)
+    def touchingWinCheck(self, collision):
+        if self.tilemap.isTouchingType(collision, 27):
+            self.playerWin()
+
+    # Handles all unique collision checks
+    def handleCollisionTypes(self, collision):
+        # self.touchingEnemyCheck()
+        self.touchingSpikeCheck(collision)
+        self.touchingWinCheck(collision)
+
+    # Handles all player associated updates
+    def playerUpdate(self, inputs):
+        # Player left and right movement
+        self.handlePlayerMove(inputs)
+        # Player jump
+        self.handlePlayerJump(inputs)
+        # Physics update on player xPos
+        self.physics.UpdateX(self.player)
+        # Collision update
         collision = self.tilemap.checkCollision(self.player)
+        # Wall climb
+        self.handlePlayerWallClimbing(inputs, collision)
+        # Collision Checks
+        self.handleCollisionTypes(collision)
+        # Physics update on player yPos
+        self.physics.UpdateY(self.player)
+        # Collision update
+        collision = self.tilemap.checkCollision(self.player)
+        # Collision Checks
+        self.handleCollisionTypes(collision)
+        # Check for speedup collision
+        self.touchingSpeedUpCheck(collision)
+        # Ceiling or floor collision check
         if collision.isColliding and self.player.yVel < 0:
             # hit ceiling: set yPos to correct y according to row, col
-            self.transform.yPos = self.tileSize * (collision.row + 1)
+            self.playerTransform.yPos = self.tileSize * (collision.firstTileRow + 1)
         elif collision.isColliding and self.player.yVel > 0:
             # hit floor
-            self.transform.yPos = self.tileSize * (collision.row) - self.player.mSprite.getHeight()
-
+            self.playerTransform.yPos = self.tileSize * (collision.firstTileRow) - self.player.mSprite.getHeight()
+        # check if off screen
+        if self.playerTransform.yPos <= 0 or self.playerTransform.yPos >= self.lvlHeight - self.player.mSprite.getHeight():
+            self.playerGameOver()
+        
         # update frame
-        if self.currentFrame >= self.currentMaxFrame:
-            self.currentFrame = 0
+        if self.currentFrame > self.currentMaxFrame:
+            self.currentFrame = 1
+        if self.frameUpdateDelay > self.maxFrameUpdateDelay:
+            self.frameUpdateDelay = 0
+            if self.currentFrame > self.currentMaxFrame-1:
+                self.currentFrame = 1
+            else:
+                self.currentFrame += 1
         else:
-            self.currentFrame += 1
+            self.frameUpdateDelay += 1
         self.player.mSprite.update(0, 0, self.currentFrame)
 
+    # Update
+    def Update(self, inputs):
+        # Quit check
+        if inputs[engine.ESCAPE_PRESSED]:
+            inputs[engine.QUIT_EVENT] = True
+        # Player Update
+        self.playerUpdate(inputs)
         # update camera
         self.camera.Update()
 
-
-    def render(self):
+    # Render
+    def Render(self):
         self.sdl.clear(32, 32, 32, 255) # Set background to gray
-        # for entity in self.entities:
-        #     entity.draw(self.sdl)
         self.tilemap.Render(self.sdl.getSDLRenderer(), self.camera.x, self.camera.y)
         self.player.mSprite.render(self.sdl.getSDLRenderer(), self.camera.x, self.camera.y)
+        # self.enemyRectangle.Render(self.sdl.getSDLRenderer(), self.camera.x, self.camera.y)
         self.sdl.flip()
 
-    
+    # Starts or re-starts the game
+    def StartGame(self):
+        self.playerRunSpeed = 8
+        self.playerJumpSpeed = 12
+        self.curYDirection = 1 # must be 1 or -1
+        self.curXDirection = 1 # must be 1 or -1
+        self.player.xVel = self.playerRunSpeed
+        self.player.yVel = self.playerJumpSpeed
+        self.timeSinceSpaceTapped = 99
+        self.alreadySpedUp = False
 
+    # Delay game loop to reach target fps
+    def limitFPS(self):
+        frameTicks = self.sdl.getTimeMS() - self.frameStartTime
+        if frameTicks < self.maxTicksPerFrame:
+            self.sdl.delay(self.maxTicksPerFrame - frameTicks)
+        self.frame_count += 1
+        timeElapsed = self.sdl.getTimeMS() - self.startTime
+        fps = self.frame_count / (timeElapsed / 1000)
+        # self.sdl.setTitle("%.2f"%(fps))
+
+    # Main Loop
+    def RunLoop(self):
+        inputs = self.sdl.getInput()
+        self.music.PlayMusic()
+        while not inputs[engine.QUIT_EVENT]:
+            self.frameStartTime = self.sdl.getTimeMS()
+            self.Update(inputs := self.sdl.getInput())
+            self.Render()
+            self.limitFPS()
+# Main
 def main():
     game = Game(960, 540)
-    game.runLoop()
+    print("GRAVITY GUY\n\nCONTROLS:\nLeft arrow or A - Move left\nRight arrow or D - Move right\nSpace - invert gravity\nESC - exit\nBlue Tiles are dangerous, pink tiles speed you up.\n")
+    game.StartGame()
+    game.RunLoop()
 
-
+# Run Main
 if __name__ == "__main__":
     main()

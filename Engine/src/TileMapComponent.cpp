@@ -8,8 +8,6 @@
 #include "TileMapComponent.hpp"
 #include "LevelReader.hpp"
 
-// TODO: add checks somewhere to handle character or tile check out of bounds
-// We can try updating in multiple steps per frame if needed or try a better AABB resolution algorithm
 /** @brief Overloaded Constructor with param levelPath
  * 
  * Overloaded Constructor that takes in levelPath string as parameter. Sets all member variables using LevelReader.
@@ -82,7 +80,34 @@ TileMapComponent::TileMapComponent(int rows, int cols, int size) {
 */
 TileMapComponent::~TileMapComponent() {
     SDL_DestroyTexture(tilesetTexture);
-    IMG_Quit(); // TODO: SDL image code should be in a separate class when we have more than 1 tilemap
+    IMG_Quit();
+}
+
+/** @brief extends the tilemap given a level
+ * 
+ * extends the current tilemap given a level's file path, must be same height.
+*/
+void TileMapComponent::ExtendTilemap(const std::string& levelPath) {
+    LevelReader levelReader(levelPath);
+    if (mSize != levelReader.getTileSize() || mTilesetRows != levelReader.getTilesetRows() ) { 
+        //|| mTilesetCols != levelReader.getTilesetCols()
+        // std::cout << "ExtendTilemap mismatched tileset" << std::endl;
+        return;
+    }
+    int addedRows = levelReader.getRows();
+    int addedCols = levelReader.getCols();
+    std::vector<int> newTiles = levelReader.getTiles();
+    int oldRows = mRows;
+    int oldCols = mCols;
+    //mRows = oldRows + addedRows;
+    mCols = oldCols + addedCols;
+    mTiles.resize(mRows * mCols);
+
+    for (int row = 0; row < addedRows; row++) {
+        for (int col = 0; col < addedCols; col++) {
+            mTiles.insert(mTiles.begin() + getTileIdx(row, col+oldCols), newTiles[col+row*addedCols]);
+        }
+    }
 }
 
 /** @brief Method loads tileset from tileset path
@@ -183,7 +208,7 @@ Collision TileMapComponent::checkCollision(GameObject* o) {
         for (int col = leftTile; col <= rightTile; col++) {
             for (int row = topTile; row <= bottomTile; row++) {
                 int tileIdx = tileAt(row, col);
-                if (tileIdx >= 0) { // TODO: test >-
+                if (tileIdx >= 0) {
                     if (!collision.isColliding) {
                         collision.isColliding = true;
                         collision.firstTileRow = row;
@@ -202,10 +227,9 @@ Collision TileMapComponent::checkCollision(GameObject* o) {
 }
 
 
-// TODO: We need to define in the level file or through some other way what tile numbers are collidable
-/** @brief Checks if rectangle is touching the top of a tile.
+/** @brief Checks if sprite or rectangle is touching the top of a tile.
  * 
- * Checks if GameObject's mRectangle is touching the top of a tile (floor). Takes in GameObject pointer
+ * Checks if GameObject's mSprite or mRectangle is touching the top of a tile (floor). Takes in GameObject pointer
  * as parameter. Returns bool.
 */
 bool TileMapComponent::isOnGround(GameObject* o) {
@@ -239,9 +263,9 @@ bool TileMapComponent::isOnGround(GameObject* o) {
     
 }
 
-/** @brief Checks if rectangle is touching the bottom of a tile.
+/** @brief Checks if sprite or rectangle is touching the bottom of a tile.
  * 
- * Checks if GameObject's mRectangle is touching the bottom of a tile (ceiling). Takes in GameObject pointer
+ * Checks if GameObject's mSprite or mRectangle is touching the bottom of a tile (ceiling). Takes in GameObject pointer
  * as parameter. Returns bool.
 */
 bool TileMapComponent::isOnCeiling(GameObject * o) {
@@ -276,10 +300,9 @@ bool TileMapComponent::isOnCeiling(GameObject * o) {
 }
 
 
-// TODO: We need to define in the level file or through some other way what tile numbers are collidable
-/** @brief Checks if rectangle is touching tile to the right.
+/** @brief Checks if sprite or rectangle is touching tile to the right.
  * 
- * Checks if GameObject's mRectangle is touching a tile to the right (right wall). Takes in GameObject
+ * Checks if GameObject's mSprite or mRectangle is touching a tile to the right (right wall). Takes in GameObject
  * as parameter. Returns bool.
 */
 bool TileMapComponent::isTouchingRightWall(GameObject* o) {
@@ -314,9 +337,9 @@ bool TileMapComponent::isTouchingRightWall(GameObject* o) {
     return false;
     
 }
-/** @brief Checks if rectangle is touching tile to the left.
+/** @brief Checks if sprite or rectangle is touching tile to the left.
  * 
- * Checks if GameObject's mRectangle is touching a tile to the left (left wall). Takes in GameObject
+ * Checks if GameObject's mSprite or mRectangle is touching a tile to the left (left wall). Takes in GameObject
  * as parameter. Returns bool.
 */
 bool TileMapComponent::isTouchingLeftWall(GameObject* o) {
@@ -442,8 +465,8 @@ void TileMapComponent::PrintTiles() {
     std::cout << "Printing Tiles" << std::endl;
     for (int row = 0; row < mRows; row++) {
         for (int col = 0; col < mCols; col++) {
-            std::cout << tileAt(row, col) << "\t";
+            std::cout << tileAt(row, col) << "   ";
         }
-        std::cout << std::endl;
+        std::cout << "|||" << std::endl;
     }
 }

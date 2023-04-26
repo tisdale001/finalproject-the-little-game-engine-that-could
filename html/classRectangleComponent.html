@@ -88,6 +88,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a7f769958f900e4e3122c9a7c8554acef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRectangleComponent.html#a7f769958f900e4e3122c9a7c8554acef">setDimensions</a> (int w, int h)</td></tr>
 <tr class="memdesc:a7f769958f900e4e3122c9a7c8554acef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter: sets width and height.  <a href="classRectangleComponent.html#a7f769958f900e4e3122c9a7c8554acef">More...</a><br /></td></tr>
 <tr class="separator:a7f769958f900e4e3122c9a7c8554acef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8db09367619b1d721a0483f3f92a043f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRectangleComponent.html#a8db09367619b1d721a0483f3f92a043f">setColor</a> (int r, int g, int b, int a)</td></tr>
+<tr class="memdesc:a8db09367619b1d721a0483f3f92a043f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter: sets color values.  <a href="classRectangleComponent.html#a8db09367619b1d721a0483f3f92a043f">More...</a><br /></td></tr>
+<tr class="separator:a8db09367619b1d721a0483f3f92a043f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7a7c3de25627516fc848994c26e6119"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRectangleComponent.html#ab7a7c3de25627516fc848994c26e6119">getWidth</a> ()</td></tr>
 <tr class="memdesc:ab7a7c3de25627516fc848994c26e6119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter: returns width.  <a href="classRectangleComponent.html#ab7a7c3de25627516fc848994c26e6119">More...</a><br /></td></tr>
 <tr class="separator:ab7a7c3de25627516fc848994c26e6119"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,6 +109,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ab7a5a97a0de03be7648d06dce5f559fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRectangleComponent.html#ab7a5a97a0de03be7648d06dce5f559fa">getCenterY</a> ()</td></tr>
 <tr class="memdesc:ab7a5a97a0de03be7648d06dce5f559fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter: returns y coordinate of center of rectangle.  <a href="classRectangleComponent.html#ab7a5a97a0de03be7648d06dce5f559fa">More...</a><br /></td></tr>
 <tr class="separator:ab7a5a97a0de03be7648d06dce5f559fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a3514f79830d645055be306655d0e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRectangleComponent.html#a71a3514f79830d645055be306655d0e7">checkCollision</a> (<a class="el" href="classRectangleComponent.html">RectangleComponent</a> *r2)</td></tr>
+<tr class="memdesc:a71a3514f79830d645055be306655d0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structCollision.html">Collision</a> check for two rectangle components.  <a href="classRectangleComponent.html#a71a3514f79830d645055be306655d0e7">More...</a><br /></td></tr>
+<tr class="separator:a71a3514f79830d645055be306655d0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac674880c4b0f88affe80d8b69601c624"></a>
@@ -130,6 +136,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a71a3514f79830d645055be306655d0e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a3514f79830d645055be306655d0e7">&#9670;&nbsp;</a></span>checkCollision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RectangleComponent::checkCollision </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classRectangleComponent.html">RectangleComponent</a> *&#160;</td>
+          <td class="paramname"><em>r2</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="structCollision.html">Collision</a> check for two rectangle components. </p>
+<p>Return if this rectangle overlaps with rectangle r2 </p>
+
+</div>
+</div>
 <a id="a787df121cb515f58e80aad5baa891a2b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a787df121cb515f58e80aad5baa891a2b">&#9670;&nbsp;</a></span>getCenterX()</h2>
 
@@ -166,7 +193,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 
 <p>Getter: returns y coordinate of center of rectangle. </p>
-<p>Getter method: returns x coordinate of center of rectangle based on <a class="el" href="classTransform.html">Transform</a> component's yPos. </p>
+<p>Getter method: returns y coordinate of center of rectangle based on <a class="el" href="classTransform.html">Transform</a> component's yPos. </p>
 
 </div>
 </div>
@@ -284,6 +311,49 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Renders rectangle according to camera offset. </p>
 <p>Renders rectangle according to camera offset according to params camOffsetX, camOffsetY </p>
+
+</div>
+</div>
+<a id="a8db09367619b1d721a0483f3f92a043f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8db09367619b1d721a0483f3f92a043f">&#9670;&nbsp;</a></span>setColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RectangleComponent::setColor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter: sets color values. </p>
+<p>Setter method: sets color values </p>
 
 </div>
 </div>

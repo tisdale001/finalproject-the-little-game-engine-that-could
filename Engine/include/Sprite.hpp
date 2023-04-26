@@ -56,6 +56,12 @@ public:
      */
     void loadImage(std::string filePath, std::uintptr_t rendererAddress);
 
+    /**
+     * Alternative way of loading a sprite mainly for preview purposes.
+     *
+     */ 
+    void loadImageForPreview(std::string filePath, std::uintptr_t rendererAddress);
+
 	/**
 	 * Sets the dimensions of the rectangle the sprite is drawn on.
 	 *
@@ -98,6 +104,10 @@ public:
 
 	Transform* mTransform = nullptr;
 
+	void removeSpriteFromManager();
+
+	void shutDownManager();
+
 private:
     int mPositionX, mPositionY;
 	unsigned int    mCurrentFrame, mLastFrame, mNumPixelsToTrimFromWidth;
@@ -105,6 +115,8 @@ private:
     // An SDL Surface contains pixel data to draw an image
 	SDL_Surface*    mSpriteSheet =  nullptr;
 	SDL_Texture*    mTexture     =  nullptr;
+
+	std::string mFilePath;
 
 	SDL_Rect        mSrc, mDest;
 

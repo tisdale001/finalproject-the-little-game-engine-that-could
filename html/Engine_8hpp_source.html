@@ -69,23 +69,23 @@ $(function() {
 <div class="title">Engine.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SDLGRAPHICSPROGRAM </span><span class="comment">// TODO: pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SDLGRAPHICSPROGRAM</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span> <span class="comment">// TODO: is this needed?</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#if defined(LINUX) || defined(MINGW)</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">    #include &lt;SDL2/SDL.h&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#else </span><span class="comment">// This works for Mac</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">    #include &lt;SDL.h&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;glad/glad.h&gt;</span> <span class="comment">// TODO: glad needed?</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if defined(LINUX) || defined(MINGW)</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">    #include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#else </span><span class="comment">// This works for Mac</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">    #include &lt;SDL.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="classGameObject.html">GameObject</a>;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">enum</span> Key {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    W_PRESSED = 0,</div>
@@ -99,72 +99,95 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    SPACE_PRESSED = 8,</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    ESCAPE_PRESSED = 9,</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    QUIT_EVENT = 10,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    TOTAL_KEYS</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// Purpose:</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classSDLGraphicsProgram.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSDLGraphicsProgram.html">SDLGraphicsProgram</a> {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Constructor</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classSDLGraphicsProgram.html#a976683178e086cd2a1a801fd9c501a7b">SDLGraphicsProgram</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Destructor</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classSDLGraphicsProgram.html#a2504412e7eaa011a1116447eb4d5ec00">~SDLGraphicsProgram</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// Clears the screen</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#a828a2cdbf400c7de23f8bd4cce77468f">clear</a>(Uint8 r, Uint8 g, Uint8 b, Uint8 a);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// Flips to new buffer</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#a1b2040042b2fc4bda09f365d7885e9a3">flip</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Delay rendering</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#a299c62853b3f28fc3930880fc4c128ba">delay</a>(<span class="keywordtype">int</span> milliseconds);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// Read and return state of input keys</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::vector&lt;bool&gt; <a class="code" href="classSDLGraphicsProgram.html#a2d8d637b56afd6694965249acf6e0be1">getInput</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Set color of gRenderer</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#ae987598512cf5f05fb0374e7946f8143">setRenderColor</a>(Uint8 r, Uint8 g, Uint8 b, Uint8 a);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// Get Pointer to Window</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    SDL_Window* <a class="code" href="classSDLGraphicsProgram.html#a42e9554ec5b497551530bd5a8ca9585f">getSDLWindow</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// Get Pointer to Renderer</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::uintptr_t <a class="code" href="classSDLGraphicsProgram.html#abf37d67442ddc8644c5029e90026a27e">getSDLRenderer</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// std::shared_ptr&lt;SDL_Renderer&gt; getSDLRenderer();</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// Draw a simple filled rectangle</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#a16d2650fd0229073b5de1922fa0156fb">DrawRectangle</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// Set title of SDL window</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#aa61f0672d7f5ad701c2fb71b312064c8">setTitle</a>(<span class="keyword">const</span> std::string &amp;title);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">// Screen dimension constants</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">int</span> screenHeight;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">int</span> screenWidth;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// The window we&#39;ll be rendering to</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    SDL_Window* gWindow;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// Our renderer</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    SDL_Renderer* gRenderer;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// std::shared_ptr&lt;SDL_Renderer&gt; gRenderer;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// Read events in getInput SDL_PollEvent</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    SDL_Event event;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// Store state of all inputs</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">const</span> Uint8* keys;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// Store state of game inputs</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    std::vector&lt;bool&gt; inputs = std::vector&lt;bool&gt;(TOTAL_KEYS, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    W_TAPPED = 11,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    S_TAPPED = 12,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    UP_TAPPED = 13,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    DOWN_TAPPED = 14,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    A_TAPPED = 15,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    D_TAPPED = 16,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    LEFT_TAPPED = 18,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    RIGHT_TAPPED = 18,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    SPACE_TAPPED = 19,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ESCAPE_TAPPED = 20,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    TOTAL_KEYS</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// Purpose:</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classSDLGraphicsProgram.html">   45</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSDLGraphicsProgram.html">SDLGraphicsProgram</a> {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// Constructor</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classSDLGraphicsProgram.html#a976683178e086cd2a1a801fd9c501a7b">SDLGraphicsProgram</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Destructor</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classSDLGraphicsProgram.html#a2504412e7eaa011a1116447eb4d5ec00">~SDLGraphicsProgram</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// Clears the screen</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#a828a2cdbf400c7de23f8bd4cce77468f">clear</a>(Uint8 r, Uint8 g, Uint8 b, Uint8 a);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// Flips to new buffer</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#a1b2040042b2fc4bda09f365d7885e9a3">flip</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// Delay rendering</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#a299c62853b3f28fc3930880fc4c128ba">delay</a>(<span class="keywordtype">int</span> milliseconds);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// Read and return state of input keys</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::vector&lt;bool&gt; <a class="code" href="classSDLGraphicsProgram.html#a2d8d637b56afd6694965249acf6e0be1">getInput</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// Set color of gRenderer</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#ae987598512cf5f05fb0374e7946f8143">setRenderColor</a>(Uint8 r, Uint8 g, Uint8 b, Uint8 a);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// Get Pointer to Window</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    SDL_Window* <a class="code" href="classSDLGraphicsProgram.html#a42e9554ec5b497551530bd5a8ca9585f">getSDLWindow</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// Get Pointer to Renderer</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::uintptr_t <a class="code" href="classSDLGraphicsProgram.html#abf37d67442ddc8644c5029e90026a27e">getSDLRenderer</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// std::shared_ptr&lt;SDL_Renderer&gt; getSDLRenderer();</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// Draw a simple filled rectangle</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#a16d2650fd0229073b5de1922fa0156fb">DrawRectangle</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">// Set title of SDL window</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#aa61f0672d7f5ad701c2fb71b312064c8">setTitle</a>(<span class="keyword">const</span> std::string &amp;title);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// Add GameObject to gameObjects vector for auto update and render</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#a6a136feac195e5f78a8661a695e67801">addGameObject</a>(<a class="code" href="classGameObject.html">GameObject</a>* obj);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// Render each GameObject</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#afb653f6f329cb7ddfbb5332a5ea1bbda">Render</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// Get time in milliseconds since SDL library initialization</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    Uint32 <a class="code" href="classSDLGraphicsProgram.html#a7ed6bc89d18079672b43567f8c4a53a8">getTimeMS</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Return status of each input in Keys at frame</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    std::vector&lt;bool&gt;&amp; <a class="code" href="classSDLGraphicsProgram.html#a0502035e5af83509a4c85d5d89b69592">getInputAtFrame</a>(<span class="keywordtype">int</span> frame);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// Set to renderer to default blend mode - no transparency</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#a8bb53d934ca1282ac2e128ba8df5b3ba">setBlendModeNone</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">// Set to blend mode alpha - transparency</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSDLGraphicsProgram.html#ae4d04fb97d67f8720ba5c0079cd0e697">setBlendModeAlpha</a>();</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html"><div class="ttname"><a href="classSDLGraphicsProgram.html">SDLGraphicsProgram</a></div><div class="ttdef"><b>Definition:</b> Engine.hpp:35</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_a16d2650fd0229073b5de1922fa0156fb"><div class="ttname"><a href="classSDLGraphicsProgram.html#a16d2650fd0229073b5de1922fa0156fb">SDLGraphicsProgram::DrawRectangle</a></div><div class="ttdeci">void DrawRectangle(int x, int y, int w, int h)</div><div class="ttdoc">Creates rectangle according to dimensions as inputs on gRenderer.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:162</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_a1b2040042b2fc4bda09f365d7885e9a3"><div class="ttname"><a href="classSDLGraphicsProgram.html#a1b2040042b2fc4bda09f365d7885e9a3">SDLGraphicsProgram::flip</a></div><div class="ttdeci">void flip()</div><div class="ttdoc">flip() function swaps out the previous frame in double-buffering system</div><div class="ttdef"><b>Definition:</b> Engine.cpp:101</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_a2504412e7eaa011a1116447eb4d5ec00"><div class="ttname"><a href="classSDLGraphicsProgram.html#a2504412e7eaa011a1116447eb4d5ec00">SDLGraphicsProgram::~SDLGraphicsProgram</a></div><div class="ttdeci">~SDLGraphicsProgram()</div><div class="ttdoc">Deconstructor.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:74</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_a299c62853b3f28fc3930880fc4c128ba"><div class="ttname"><a href="classSDLGraphicsProgram.html#a299c62853b3f28fc3930880fc4c128ba">SDLGraphicsProgram::delay</a></div><div class="ttdeci">void delay(int milliseconds)</div><div class="ttdoc">Method calls SDL_Delay. Takes in milliseconds as parameter.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:109</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_a2d8d637b56afd6694965249acf6e0be1"><div class="ttname"><a href="classSDLGraphicsProgram.html#a2d8d637b56afd6694965249acf6e0be1">SDLGraphicsProgram::getInput</a></div><div class="ttdeci">std::vector&lt; bool &gt; getInput()</div><div class="ttdoc">Method records and returns keyboard state as member variable &quot;inputs&quot;.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:127</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_a42e9554ec5b497551530bd5a8ca9585f"><div class="ttname"><a href="classSDLGraphicsProgram.html#a42e9554ec5b497551530bd5a8ca9585f">SDLGraphicsProgram::getSDLWindow</a></div><div class="ttdeci">SDL_Window * getSDLWindow()</div><div class="ttdoc">Getter: returns pointer gWindow.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:152</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_a828a2cdbf400c7de23f8bd4cce77468f"><div class="ttname"><a href="classSDLGraphicsProgram.html#a828a2cdbf400c7de23f8bd4cce77468f">SDLGraphicsProgram::clear</a></div><div class="ttdeci">void clear(Uint8 r, Uint8 g, Uint8 b, Uint8 a)</div><div class="ttdoc">Clears the screen using rgba values as input.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:90</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_a976683178e086cd2a1a801fd9c501a7b"><div class="ttname"><a href="classSDLGraphicsProgram.html#a976683178e086cd2a1a801fd9c501a7b">SDLGraphicsProgram::SDLGraphicsProgram</a></div><div class="ttdeci">SDLGraphicsProgram(int w, int h)</div><div class="ttdoc">Constructor: sets up initial graphics window.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:16</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_aa61f0672d7f5ad701c2fb71b312064c8"><div class="ttname"><a href="classSDLGraphicsProgram.html#aa61f0672d7f5ad701c2fb71b312064c8">SDLGraphicsProgram::setTitle</a></div><div class="ttdeci">void setTitle(const std::string &amp;title)</div><div class="ttdoc">Setter: sets title of window.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:171</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_abf37d67442ddc8644c5029e90026a27e"><div class="ttname"><a href="classSDLGraphicsProgram.html#abf37d67442ddc8644c5029e90026a27e">SDLGraphicsProgram::getSDLRenderer</a></div><div class="ttdeci">std::uintptr_t getSDLRenderer()</div><div class="ttdoc">Getter: returns pointer gRenderer.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:117</div></div>
-<div class="ttc" id="aclassSDLGraphicsProgram_html_ae987598512cf5f05fb0374e7946f8143"><div class="ttname"><a href="classSDLGraphicsProgram.html#ae987598512cf5f05fb0374e7946f8143">SDLGraphicsProgram::setRenderColor</a></div><div class="ttdeci">void setRenderColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)</div><div class="ttdoc">Setter: sets render draw color by rgba input params.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:179</div></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// Screen dimension constants</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">int</span> screenHeight;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">int</span> screenWidth;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// The window we&#39;ll be rendering to</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    SDL_Window* gWindow;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// Our renderer</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    SDL_Renderer* gRenderer;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">// std::shared_ptr&lt;SDL_Renderer&gt; gRenderer;</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">// Read events in getInput SDL_PollEvent</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    SDL_Event event;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">// Store state of all inputs</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">const</span> Uint8* keys;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">// Store state of game inputs</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    std::vector&lt;bool&gt; inputs = std::vector&lt;bool&gt;(TOTAL_KEYS, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    std::vector&lt;std::vector&lt;bool&gt;&gt; inputRecord;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    std::vector&lt;GameObject*&gt; gameObjects;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;};</div>
+<div class="ttc" id="aclassGameObject_html"><div class="ttname"><a href="classGameObject.html">GameObject</a></div><div class="ttdef"><b>Definition:</b> GameObject.hpp:22</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html"><div class="ttname"><a href="classSDLGraphicsProgram.html">SDLGraphicsProgram</a></div><div class="ttdef"><b>Definition:</b> Engine.hpp:45</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a0502035e5af83509a4c85d5d89b69592"><div class="ttname"><a href="classSDLGraphicsProgram.html#a0502035e5af83509a4c85d5d89b69592">SDLGraphicsProgram::getInputAtFrame</a></div><div class="ttdeci">std::vector&lt; bool &gt; &amp; getInputAtFrame(int frame)</div><div class="ttdoc">Getter: gets vector of booleans for param frame.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:229</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a16d2650fd0229073b5de1922fa0156fb"><div class="ttname"><a href="classSDLGraphicsProgram.html#a16d2650fd0229073b5de1922fa0156fb">SDLGraphicsProgram::DrawRectangle</a></div><div class="ttdeci">void DrawRectangle(int x, int y, int w, int h)</div><div class="ttdoc">Creates rectangle according to dimensions as inputs on gRenderer.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:179</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a1b2040042b2fc4bda09f365d7885e9a3"><div class="ttname"><a href="classSDLGraphicsProgram.html#a1b2040042b2fc4bda09f365d7885e9a3">SDLGraphicsProgram::flip</a></div><div class="ttdeci">void flip()</div><div class="ttdoc">flip() function swaps out the previous frame in double-buffering system</div><div class="ttdef"><b>Definition:</b> Engine.cpp:103</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a2504412e7eaa011a1116447eb4d5ec00"><div class="ttname"><a href="classSDLGraphicsProgram.html#a2504412e7eaa011a1116447eb4d5ec00">SDLGraphicsProgram::~SDLGraphicsProgram</a></div><div class="ttdeci">~SDLGraphicsProgram()</div><div class="ttdoc">Deconstructor.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:76</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a299c62853b3f28fc3930880fc4c128ba"><div class="ttname"><a href="classSDLGraphicsProgram.html#a299c62853b3f28fc3930880fc4c128ba">SDLGraphicsProgram::delay</a></div><div class="ttdeci">void delay(int milliseconds)</div><div class="ttdoc">Method calls SDL_Delay. Takes in milliseconds as parameter.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:111</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a2d8d637b56afd6694965249acf6e0be1"><div class="ttname"><a href="classSDLGraphicsProgram.html#a2d8d637b56afd6694965249acf6e0be1">SDLGraphicsProgram::getInput</a></div><div class="ttdeci">std::vector&lt; bool &gt; getInput()</div><div class="ttdoc">Method records and returns keyboard state as member variable &quot;inputs&quot;.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:129</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a42e9554ec5b497551530bd5a8ca9585f"><div class="ttname"><a href="classSDLGraphicsProgram.html#a42e9554ec5b497551530bd5a8ca9585f">SDLGraphicsProgram::getSDLWindow</a></div><div class="ttdeci">SDL_Window * getSDLWindow()</div><div class="ttdoc">Getter: returns pointer gWindow.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:169</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a6a136feac195e5f78a8661a695e67801"><div class="ttname"><a href="classSDLGraphicsProgram.html#a6a136feac195e5f78a8661a695e67801">SDLGraphicsProgram::addGameObject</a></div><div class="ttdeci">void addGameObject(GameObject *obj)</div><div class="ttdoc">Adds GameObject to gameObjects vector.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:203</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a7ed6bc89d18079672b43567f8c4a53a8"><div class="ttname"><a href="classSDLGraphicsProgram.html#a7ed6bc89d18079672b43567f8c4a53a8">SDLGraphicsProgram::getTimeMS</a></div><div class="ttdeci">Uint32 getTimeMS()</div><div class="ttdoc">Getter: get time.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:221</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a828a2cdbf400c7de23f8bd4cce77468f"><div class="ttname"><a href="classSDLGraphicsProgram.html#a828a2cdbf400c7de23f8bd4cce77468f">SDLGraphicsProgram::clear</a></div><div class="ttdeci">void clear(Uint8 r, Uint8 g, Uint8 b, Uint8 a)</div><div class="ttdoc">Clears the screen using rgba values as input.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:92</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a8bb53d934ca1282ac2e128ba8df5b3ba"><div class="ttname"><a href="classSDLGraphicsProgram.html#a8bb53d934ca1282ac2e128ba8df5b3ba">SDLGraphicsProgram::setBlendModeNone</a></div><div class="ttdeci">void setBlendModeNone()</div><div class="ttdoc">Sets renderer to default blend mode Set renderer to SDL_BLENDMODE_NONE (no transparency)</div><div class="ttdef"><b>Definition:</b> Engine.cpp:236</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_a976683178e086cd2a1a801fd9c501a7b"><div class="ttname"><a href="classSDLGraphicsProgram.html#a976683178e086cd2a1a801fd9c501a7b">SDLGraphicsProgram::SDLGraphicsProgram</a></div><div class="ttdeci">SDLGraphicsProgram(int w, int h)</div><div class="ttdoc">Constructor: sets up initial graphics window.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:18</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_aa61f0672d7f5ad701c2fb71b312064c8"><div class="ttname"><a href="classSDLGraphicsProgram.html#aa61f0672d7f5ad701c2fb71b312064c8">SDLGraphicsProgram::setTitle</a></div><div class="ttdeci">void setTitle(const std::string &amp;title)</div><div class="ttdoc">Setter: sets title of window.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:188</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_abf37d67442ddc8644c5029e90026a27e"><div class="ttname"><a href="classSDLGraphicsProgram.html#abf37d67442ddc8644c5029e90026a27e">SDLGraphicsProgram::getSDLRenderer</a></div><div class="ttdeci">std::uintptr_t getSDLRenderer()</div><div class="ttdoc">Getter: returns pointer gRenderer.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:119</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_ae4d04fb97d67f8720ba5c0079cd0e697"><div class="ttname"><a href="classSDLGraphicsProgram.html#ae4d04fb97d67f8720ba5c0079cd0e697">SDLGraphicsProgram::setBlendModeAlpha</a></div><div class="ttdeci">void setBlendModeAlpha()</div><div class="ttdoc">Sets renderer to alpha blend mode Set renderer to SDL_BLENDMODE_BLEND (transparency supported)</div><div class="ttdef"><b>Definition:</b> Engine.cpp:243</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_ae987598512cf5f05fb0374e7946f8143"><div class="ttname"><a href="classSDLGraphicsProgram.html#ae987598512cf5f05fb0374e7946f8143">SDLGraphicsProgram::setRenderColor</a></div><div class="ttdeci">void setRenderColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)</div><div class="ttdoc">Setter: sets render draw color by rgba input params.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:196</div></div>
+<div class="ttc" id="aclassSDLGraphicsProgram_html_afb653f6f329cb7ddfbb5332a5ea1bbda"><div class="ttname"><a href="classSDLGraphicsProgram.html#afb653f6f329cb7ddfbb5332a5ea1bbda">SDLGraphicsProgram::Render</a></div><div class="ttdeci">void Render()</div><div class="ttdoc">Calls Render() for all GameObjects in gameObjects vector.</div><div class="ttdef"><b>Definition:</b> Engine.cpp:211</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

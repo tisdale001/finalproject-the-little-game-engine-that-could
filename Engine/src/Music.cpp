@@ -1,25 +1,32 @@
 #include "Music.hpp"
+#include "SoundResourceManager.hpp"
 
+/** @brief Constructor
+ * 
+*/
 Music::Music() {
-    if(Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0)
-	{
-		printf("Music could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
-	}
+    
 }
 
+/** @brief Deconstructor
+ * 
+*/
 Music::~Music() {
-    Mix_Quit();
+
 }
 
+/** @brief Setter: sets musicFile with param fileName
+ * 
+ * Setter method that uses the SoundResourceManager to set music for musicFile.
+*/
 void Music::SetMusic(char* fileName) {
-    //Load Music effects
-	musicFile = Mix_LoadMUS(fileName);
-	if(musicFile == NULL)
-	{
-		printf("Failed to load music! SDL_mixer Error: %s\n", Mix_GetError());
-	}
+	musicFile = SoundResourceManager::instance().LoadMusicResource(fileName);
 }
 
+/** @brief Play music
+ * 
+ * Method plays music contained in musicFile. Performs null check.
+*/
 void Music::PlayMusic() {
     if(musicFile != NULL)
 	{
@@ -27,6 +34,10 @@ void Music::PlayMusic() {
 	}
 }
 
+/** @brief Pause music
+ * 
+ * Method pauses music contained in musicFile. Performs null check.
+*/
 void Music::PauseMusic() {
     if(musicFile != NULL)
 	{
@@ -34,6 +45,10 @@ void Music::PauseMusic() {
 	}
 }
 
+/** @brief Unpause music
+ * 
+ * Method unpauses music contained in musicFile. Performs null check.
+*/
 void Music::UnPauseMusic() {
     if(musicFile != NULL)
 	{
@@ -41,6 +56,10 @@ void Music::UnPauseMusic() {
 	}
 }
 
+/** @brief Stop music
+ * 
+ * Method stops music conatined in musicFile. Performs null check.
+*/
 void Music::StopMusic() {
     if(musicFile != NULL)
 	{

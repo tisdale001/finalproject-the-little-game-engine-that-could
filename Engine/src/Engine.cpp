@@ -10,6 +10,7 @@
 // Initialization function
 // Returns a true or false value based on successful completion of setup.
 // Takes in dimensions of window.
+
 /** @brief Constructor: sets up initial graphics window
  * 
  * Constructor. Takes screen width and height as parameters. Creates graphcis window and renderer and initializes "keys" to reveive keyboard input.
@@ -196,20 +197,49 @@ void SDLGraphicsProgram::setRenderColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
     SDL_SetRenderDrawColor(gRenderer, r, g, b, a);
 }
 
+/** @brief Adds GameObject to gameObjects vector
+ * 
+*/
 void SDLGraphicsProgram::addGameObject(GameObject* obj) {
     gameObjects.push_back(obj);
 }
 
+/** @brief Calls Render() for all GameObjects in gameObjects vector
+ * 
+ * Iterates through all GameObjects and calls Render() on each.
+*/
 void SDLGraphicsProgram::Render() {
     for (auto gameObject : gameObjects) {
         gameObject->Render(getSDLRenderer());
     }
 }
 
+/** @brief Getter: get time
+ * 
+ * Getter method that gets time in milliseconds by calling SDL_GetTicks().
+*/
 Uint32 SDLGraphicsProgram::getTimeMS() {
     return SDL_GetTicks();
 }
 
+/** @brief Getter: gets vector of booleans for param frame
+ * 
+ * Getter method that returns boolean vector that represents the input associated to frame number. Gets vector from inputRecord.
+*/
 std::vector<bool>& SDLGraphicsProgram::getInputAtFrame(int frame) {
     return inputRecord.at(frame);
+}
+
+/** @brief Sets renderer to default blend mode
+ * Set renderer to SDL_BLENDMODE_NONE (no transparency)
+*/
+void SDLGraphicsProgram::setBlendModeNone() {
+    SDL_SetRenderDrawBlendMode(gRenderer, SDL_BLENDMODE_NONE);
+}
+
+/** @brief Sets renderer to alpha blend mode
+ * Set renderer to SDL_BLENDMODE_BLEND (transparency supported)
+*/
+void SDLGraphicsProgram::setBlendModeAlpha() {
+    SDL_SetRenderDrawBlendMode(gRenderer, SDL_BLENDMODE_BLEND);
 }

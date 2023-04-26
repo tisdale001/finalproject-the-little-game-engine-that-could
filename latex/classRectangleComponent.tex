@@ -15,6 +15,8 @@ void \mbox{\hyperlink{classRectangleComponent_a372d4f7a40615cfea0f3ecb09b394a3d}
 \begin{DoxyCompactList}\small\item\em Renders rectangle according to camera offset. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRectangleComponent_a7f769958f900e4e3122c9a7c8554acef}{set\+Dimensions}} (int w, int h)
 \begin{DoxyCompactList}\small\item\em Setter\+: sets width and height. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRectangleComponent_a8db09367619b1d721a0483f3f92a043f}{set\+Color}} (int r, int g, int b, int a)
+\begin{DoxyCompactList}\small\item\em Setter\+: sets color values. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classRectangleComponent_ab7a7c3de25627516fc848994c26e6119}{get\+Width}} ()
 \begin{DoxyCompactList}\small\item\em Getter\+: returns width. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classRectangleComponent_aa89f546fde1cf4592a2e998bd657ab24}{get\+Height}} ()
@@ -26,7 +28,9 @@ int \mbox{\hyperlink{classRectangleComponent_a8fc8ae2e72ae7ad5501f0d87728d67ea}{
 int \mbox{\hyperlink{classRectangleComponent_a787df121cb515f58e80aad5baa891a2b}{get\+CenterX}} ()
 \begin{DoxyCompactList}\small\item\em Getter\+: returns x coordinate of center of rectangle. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classRectangleComponent_ab7a5a97a0de03be7648d06dce5f559fa}{get\+CenterY}} ()
-\begin{DoxyCompactList}\small\item\em Getter\+: returns y coordinate of center of rectangle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Getter\+: returns y coordinate of center of rectangle. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRectangleComponent_a71a3514f79830d645055be306655d0e7}{check\+Collision}} (\mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}} $\ast$r2)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structCollision}{Collision}} check for two rectangle components. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -43,7 +47,17 @@ Constructor\+: \mbox{\hyperlink{classTransform}{Transform}} component as paramet
 Constructor that takes in a pointer to pre-\/existing \mbox{\hyperlink{classTransform}{Transform}} component 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classRectangleComponent_a787df121cb515f58e80aad5baa891a2b}\label{classRectangleComponent_a787df121cb515f58e80aad5baa891a2b}} 
+\mbox{\Hypertarget{classRectangleComponent_a71a3514f79830d645055be306655d0e7}\label{classRectangleComponent_a71a3514f79830d645055be306655d0e7}} 
+\index{RectangleComponent@{RectangleComponent}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{checkCollision()}{checkCollision()}}
+{\footnotesize\ttfamily bool Rectangle\+Component\+::check\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}} $\ast$}]{r2 }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{structCollision}{Collision}} check for two rectangle components. 
+
+Return if this rectangle overlaps with rectangle r2 \mbox{\Hypertarget{classRectangleComponent_a787df121cb515f58e80aad5baa891a2b}\label{classRectangleComponent_a787df121cb515f58e80aad5baa891a2b}} 
 \index{RectangleComponent@{RectangleComponent}!getCenterX@{getCenterX}}
 \index{getCenterX@{getCenterX}!RectangleComponent@{RectangleComponent}}
 \doxysubsubsection{\texorpdfstring{getCenterX()}{getCenterX()}}
@@ -63,7 +77,7 @@ Getter method\+: returns x coordinate of center of rectangle based on \mbox{\hyp
 
 Getter\+: returns y coordinate of center of rectangle. 
 
-Getter method\+: returns x coordinate of center of rectangle based on \mbox{\hyperlink{classTransform}{Transform}} component\textquotesingle{}s y\+Pos. \mbox{\Hypertarget{classRectangleComponent_aa89f546fde1cf4592a2e998bd657ab24}\label{classRectangleComponent_aa89f546fde1cf4592a2e998bd657ab24}} 
+Getter method\+: returns y coordinate of center of rectangle based on \mbox{\hyperlink{classTransform}{Transform}} component\textquotesingle{}s y\+Pos. \mbox{\Hypertarget{classRectangleComponent_aa89f546fde1cf4592a2e998bd657ab24}\label{classRectangleComponent_aa89f546fde1cf4592a2e998bd657ab24}} 
 \index{RectangleComponent@{RectangleComponent}!getHeight@{getHeight}}
 \index{getHeight@{getHeight}!RectangleComponent@{RectangleComponent}}
 \doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
@@ -113,7 +127,17 @@ Getter method\+: returns y position (y\+Pos) from \mbox{\hyperlink{classTransfor
 
 Renders rectangle according to camera offset. 
 
-Renders rectangle according to camera offset according to params cam\+OffsetX, cam\+OffsetY \mbox{\Hypertarget{classRectangleComponent_a7f769958f900e4e3122c9a7c8554acef}\label{classRectangleComponent_a7f769958f900e4e3122c9a7c8554acef}} 
+Renders rectangle according to camera offset according to params cam\+OffsetX, cam\+OffsetY \mbox{\Hypertarget{classRectangleComponent_a8db09367619b1d721a0483f3f92a043f}\label{classRectangleComponent_a8db09367619b1d721a0483f3f92a043f}} 
+\index{RectangleComponent@{RectangleComponent}!setColor@{setColor}}
+\index{setColor@{setColor}!RectangleComponent@{RectangleComponent}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily void Rectangle\+Component\+::set\+Color (\begin{DoxyParamCaption}\item[{int}]{r,  }\item[{int}]{g,  }\item[{int}]{b,  }\item[{int}]{a }\end{DoxyParamCaption})}
+
+
+
+Setter\+: sets color values. 
+
+Setter method\+: sets color values \mbox{\Hypertarget{classRectangleComponent_a7f769958f900e4e3122c9a7c8554acef}\label{classRectangleComponent_a7f769958f900e4e3122c9a7c8554acef}} 
 \index{RectangleComponent@{RectangleComponent}!setDimensions@{setDimensions}}
 \index{setDimensions@{setDimensions}!RectangleComponent@{RectangleComponent}}
 \doxysubsubsection{\texorpdfstring{setDimensions()}{setDimensions()}}

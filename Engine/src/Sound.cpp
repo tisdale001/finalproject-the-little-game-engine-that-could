@@ -1,25 +1,32 @@
 #include "Sound.hpp"
+#include "SoundResourceManager.hpp"
 
+/** @brief Constructor
+ * 
+*/
 Sound::Sound() {
-    if(Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0)
-	{
-		printf("Sound could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
-	}
+    
 }
 
+/** @brief Deconstructor
+ * 
+*/
 Sound::~Sound() {
     Mix_Quit();
 }
 
+/** @brief Setter: sets soundFile according to param fileName
+ * 
+ * Setter method that uses the SoundResourceManager to set soundFile according to param fileName.
+*/
 void Sound::SetSound(char* fileName) {
-    //Load sound effects
-	soundFile = Mix_LoadWAV(fileName);
-	if(soundFile == NULL)
-	{
-		printf("Failed to load sound! SDL_mixer Error: %s\n", Mix_GetError());
-	}
+	soundFile = SoundResourceManager::instance().LoadSoundResource(fileName);
 }
 
+/** @brief Play sound
+ * 
+ * Method plays sound by calling Mix_PlayChannel(). Performs null check.
+*/
 void Sound::PlaySound() {
     if(soundFile != NULL)
 	{

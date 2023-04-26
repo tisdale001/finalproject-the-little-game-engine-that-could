@@ -1,0 +1,47 @@
+\hypertarget{classSoundResourceManager}{}\doxysection{Sound\+Resource\+Manager Class Reference}
+\label{classSoundResourceManager}\index{SoundResourceManager@{SoundResourceManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSoundResourceManager_a505f04a3c44f8133de1712d83338937a}\label{classSoundResourceManager_a505f04a3c44f8133de1712d83338937a}} 
+void \mbox{\hyperlink{classSoundResourceManager_a505f04a3c44f8133de1712d83338937a}{shut\+Down}} ()
+\begin{DoxyCompactList}\small\item\em Memory management. \end{DoxyCompactList}\item 
+Mix\+\_\+\+Chunk $\ast$ \mbox{\hyperlink{classSoundResourceManager_a32804529df02a767ee72b459f1b4aee3}{Load\+Sound\+Resource}} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Loads sound resource only once, returns resource. \end{DoxyCompactList}\item 
+Mix\+\_\+\+Music $\ast$ \mbox{\hyperlink{classSoundResourceManager_acc451868b7f6b2171ed8d7928c2bd563}{Load\+Music\+Resource}} (char $\ast$file\+Name)
+\begin{DoxyCompactList}\small\item\em Loads music resource only once, returns resource. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSoundResourceManager_acf5fd444ef13514766a662b2f7e4f1ff}\label{classSoundResourceManager_acf5fd444ef13514766a662b2f7e4f1ff}} 
+static \mbox{\hyperlink{classSoundResourceManager}{Sound\+Resource\+Manager}} \& \mbox{\hyperlink{classSoundResourceManager_acf5fd444ef13514766a662b2f7e4f1ff}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Returns instance of \mbox{\hyperlink{classSoundResourceManager}{Sound\+Resource\+Manager}}\+: Singleton pattern. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSoundResourceManager_acc451868b7f6b2171ed8d7928c2bd563}\label{classSoundResourceManager_acc451868b7f6b2171ed8d7928c2bd563}} 
+\index{SoundResourceManager@{SoundResourceManager}!LoadMusicResource@{LoadMusicResource}}
+\index{LoadMusicResource@{LoadMusicResource}!SoundResourceManager@{SoundResourceManager}}
+\doxysubsubsection{\texorpdfstring{LoadMusicResource()}{LoadMusicResource()}}
+{\footnotesize\ttfamily Mix\+\_\+\+Music $\ast$ Sound\+Resource\+Manager\+::\+Load\+Music\+Resource (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Loads music resource only once, returns resource. 
+
+Loads resource only once. Error messages if load fails. Returns loaded resource or the resource if it already exists. \mbox{\Hypertarget{classSoundResourceManager_a32804529df02a767ee72b459f1b4aee3}\label{classSoundResourceManager_a32804529df02a767ee72b459f1b4aee3}} 
+\index{SoundResourceManager@{SoundResourceManager}!LoadSoundResource@{LoadSoundResource}}
+\index{LoadSoundResource@{LoadSoundResource}!SoundResourceManager@{SoundResourceManager}}
+\doxysubsubsection{\texorpdfstring{LoadSoundResource()}{LoadSoundResource()}}
+{\footnotesize\ttfamily Mix\+\_\+\+Chunk $\ast$ Sound\+Resource\+Manager\+::\+Load\+Sound\+Resource (\begin{DoxyParamCaption}\item[{char $\ast$}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Loads sound resource only once, returns resource. 
+
+Loads resource only once. Error messages if load fails. Returns loaded resource or the resource if it already exists. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/Sound\+Resource\+Manager.\+hpp\item 
+Engine/src/Sound\+Resource\+Manager.\+cpp\end{DoxyCompactItemize}

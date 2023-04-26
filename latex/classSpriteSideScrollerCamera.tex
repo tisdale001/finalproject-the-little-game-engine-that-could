@@ -1,0 +1,65 @@
+\hypertarget{classSpriteSideScrollerCamera}{}\doxysection{Sprite\+Side\+Scroller\+Camera Class Reference}
+\label{classSpriteSideScrollerCamera}\index{SpriteSideScrollerCamera@{SpriteSideScrollerCamera}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSpriteSideScrollerCamera_a7eec97698c3781b91b39e08b0c1acefc}{Sprite\+Side\+Scroller\+Camera}} (int cam\+Width, int cam\+Height, int level\+Width, int level\+Height, \mbox{\hyperlink{classSprite}{Sprite}} $\ast$sp)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSpriteSideScrollerCamera_a7c175c38d7b51aebf34db9e3ba75d1cb}\label{classSpriteSideScrollerCamera_a7c175c38d7b51aebf34db9e3ba75d1cb}} 
+\mbox{\hyperlink{classSpriteSideScrollerCamera_a7c175c38d7b51aebf34db9e3ba75d1cb}{$\sim$\+Sprite\+Side\+Scroller\+Camera}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSpriteSideScrollerCamera_a5f8f916ef3d8e7840306c061a5b03cb1}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Update function that offsets camera x position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSpriteSideScrollerCamera_a0e22e60502f23b1d370ea7fcde1365b6}\label{classSpriteSideScrollerCamera_a0e22e60502f23b1d370ea7fcde1365b6}} 
+int {\bfseries x}
+\item 
+\mbox{\Hypertarget{classSpriteSideScrollerCamera_a1c11ea950fae819fa530b93374a1af5d}\label{classSpriteSideScrollerCamera_a1c11ea950fae819fa530b93374a1af5d}} 
+int {\bfseries y}
+\item 
+\mbox{\Hypertarget{classSpriteSideScrollerCamera_a8387a7068261201c9cd45a0d3b962c8b}\label{classSpriteSideScrollerCamera_a8387a7068261201c9cd45a0d3b962c8b}} 
+int {\bfseries camera\+Width}
+\item 
+\mbox{\Hypertarget{classSpriteSideScrollerCamera_a3183e4cf319f22be272e9ff52b393c23}\label{classSpriteSideScrollerCamera_a3183e4cf319f22be272e9ff52b393c23}} 
+int {\bfseries camera\+Height}
+\item 
+\mbox{\Hypertarget{classSpriteSideScrollerCamera_a3bc79dc96f5342ad6dec1133409772e9}\label{classSpriteSideScrollerCamera_a3bc79dc96f5342ad6dec1133409772e9}} 
+int {\bfseries level\+Width}
+\item 
+\mbox{\Hypertarget{classSpriteSideScrollerCamera_afba20b460291dc55d3e521bb4d05ed1c}\label{classSpriteSideScrollerCamera_afba20b460291dc55d3e521bb4d05ed1c}} 
+int {\bfseries level\+Height}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSpriteSideScrollerCamera_a7eec97698c3781b91b39e08b0c1acefc}\label{classSpriteSideScrollerCamera_a7eec97698c3781b91b39e08b0c1acefc}} 
+\index{SpriteSideScrollerCamera@{SpriteSideScrollerCamera}!SpriteSideScrollerCamera@{SpriteSideScrollerCamera}}
+\index{SpriteSideScrollerCamera@{SpriteSideScrollerCamera}!SpriteSideScrollerCamera@{SpriteSideScrollerCamera}}
+\doxysubsubsection{\texorpdfstring{SpriteSideScrollerCamera()}{SpriteSideScrollerCamera()}}
+{\footnotesize\ttfamily Sprite\+Side\+Scroller\+Camera\+::\+Sprite\+Side\+Scroller\+Camera (\begin{DoxyParamCaption}\item[{int}]{cam\+Width,  }\item[{int}]{cam\+Height,  }\item[{int}]{lvl\+Width,  }\item[{int}]{lvl\+Height,  }\item[{\mbox{\hyperlink{classSprite}{Sprite}} $\ast$}]{sp }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructor that takes in dimensions and, for now, a \mbox{\hyperlink{classRectangleComponent}{Rectangle\+Component}} as the main character 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpriteSideScrollerCamera_a5f8f916ef3d8e7840306c061a5b03cb1}\label{classSpriteSideScrollerCamera_a5f8f916ef3d8e7840306c061a5b03cb1}} 
+\index{SpriteSideScrollerCamera@{SpriteSideScrollerCamera}!Update@{Update}}
+\index{Update@{Update}!SpriteSideScrollerCamera@{SpriteSideScrollerCamera}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Sprite\+Side\+Scroller\+Camera\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update function that offsets camera x position. 
+
+Update function offsets camera x value according to target (main character). Uses std\+::clamp() to not pan off the level on either side. This creates the side scroller functionality of the camera. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/Sprite\+Side\+Scroller\+Camera.\+hpp\item 
+Engine/src/Sprite\+Side\+Scroller\+Camera.\+cpp\end{DoxyCompactItemize}

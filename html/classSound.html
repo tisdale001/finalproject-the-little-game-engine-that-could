@@ -71,13 +71,63 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1cd9f140d36f50d684ebbee0507398e8"><td class="memItemLeft" align="right" valign="top"><a id="a1cd9f140d36f50d684ebbee0507398e8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSound</b> (char *fileName)</td></tr>
+<tr class="memitem:a539c205cdf06fe2c621fd77c37bcfac9"><td class="memItemLeft" align="right" valign="top"><a id="a539c205cdf06fe2c621fd77c37bcfac9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSound.html#a539c205cdf06fe2c621fd77c37bcfac9">Sound</a> ()</td></tr>
+<tr class="memdesc:a539c205cdf06fe2c621fd77c37bcfac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
+<tr class="separator:a539c205cdf06fe2c621fd77c37bcfac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0907389078bf740be2a5763366ad3376"><td class="memItemLeft" align="right" valign="top"><a id="a0907389078bf740be2a5763366ad3376"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSound.html#a0907389078bf740be2a5763366ad3376">~Sound</a> ()</td></tr>
+<tr class="memdesc:a0907389078bf740be2a5763366ad3376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deconstructor. <br /></td></tr>
+<tr class="separator:a0907389078bf740be2a5763366ad3376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cd9f140d36f50d684ebbee0507398e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSound.html#a1cd9f140d36f50d684ebbee0507398e8">SetSound</a> (char *fileName)</td></tr>
+<tr class="memdesc:a1cd9f140d36f50d684ebbee0507398e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter: sets soundFile according to param fileName.  <a href="classSound.html#a1cd9f140d36f50d684ebbee0507398e8">More...</a><br /></td></tr>
 <tr class="separator:a1cd9f140d36f50d684ebbee0507398e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f9c91aa25f50fb3276e7d4b4af5cac1"><td class="memItemLeft" align="right" valign="top"><a id="a7f9c91aa25f50fb3276e7d4b4af5cac1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>PlaySound</b> ()</td></tr>
+<tr class="memitem:a7f9c91aa25f50fb3276e7d4b4af5cac1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSound.html#a7f9c91aa25f50fb3276e7d4b4af5cac1">PlaySound</a> ()</td></tr>
+<tr class="memdesc:a7f9c91aa25f50fb3276e7d4b4af5cac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Play sound.  <a href="classSound.html#a7f9c91aa25f50fb3276e7d4b4af5cac1">More...</a><br /></td></tr>
 <tr class="separator:a7f9c91aa25f50fb3276e7d4b4af5cac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7f9c91aa25f50fb3276e7d4b4af5cac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f9c91aa25f50fb3276e7d4b4af5cac1">&#9670;&nbsp;</a></span>PlaySound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sound::PlaySound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Play sound. </p>
+<p>Method plays sound by calling Mix_PlayChannel(). Performs null check. </p>
+
+</div>
+</div>
+<a id="a1cd9f140d36f50d684ebbee0507398e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cd9f140d36f50d684ebbee0507398e8">&#9670;&nbsp;</a></span>SetSound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sound::SetSound </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setter: sets soundFile according to param fileName. </p>
+<p>Setter method that uses the <a class="el" href="classSoundResourceManager.html">SoundResourceManager</a> to set soundFile according to param fileName. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Engine/include/<a class="el" href="Sound_8hpp_source.html">Sound.hpp</a></li>
 <li>Engine/src/Sound.cpp</li>

@@ -1,0 +1,202 @@
+\hypertarget{classSprite}{}\doxysection{Sprite Class Reference}
+\label{classSprite}\index{Sprite@{Sprite}}
+
+
+{\ttfamily \#include $<$Sprite.\+hpp$>$}
+
+
+
+Collaboration diagram for Sprite\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSprite_a2bfe8f8a73e557712035642d2b18a22a}{Sprite}} (\mbox{\hyperlink{classTransform}{Transform}} $\ast$\+\_\+transform, bool read\+Left\+To\+Right=true)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSprite_a8accab430f9d90ae5117b57d67e32b84}\label{classSprite_a8accab430f9d90ae5117b57d67e32b84}} 
+\mbox{\hyperlink{classSprite_a8accab430f9d90ae5117b57d67e32b84}{$\sim$\+Sprite}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSprite_afc761454b32195a380cb72f7f394448c}{set\+Position}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Setter\+: sets m\+PositionX and m\+PositionY. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSprite_abc29dd8b59c12e6493aee732c96b1150}{update}} (int x, int y, int frame)
+\begin{DoxyCompactList}\small\item\em Finds sprite image that corresponds to frame number. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSprite_a1114c639467b7cfc8368619794d7c35f}{render}} (std\+::uintptr\+\_\+t renderer\+Address, int cam\+OffsetX, int cam\+OffsetY)
+\begin{DoxyCompactList}\small\item\em Renders the desination rectangle (sprite image) adjusted for camera offset. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSprite_aa59ffc641e599ceafc73908cf3b270e9}{load\+Image}} (std\+::string file\+Path, std\+::uintptr\+\_\+t renderer\+Address)
+\begin{DoxyCompactList}\small\item\em Loads and creates sprite sheet from file\+Path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSprite_a5a897a2fb09e89ac18dd46cc8505705d}{load\+Image\+For\+Preview}} (std\+::string file\+Path, std\+::uintptr\+\_\+t renderer\+Address)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classSprite}{Sprite}} loader for previewing sprite animation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSprite_a74d328a2fdfc2cd088ffa2b69ad10096}{set\+Rectangle\+Dimensions}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Setter\+: sets width and height of destination rectangle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSprite_acb1351e8e30e2138bfc7cd8bca72f223}{set\+Sprite\+Sheet\+Dimensions}} (int frame\+Width, int frame\+Height, int num\+Sprites\+In\+Row, unsigned int total\+Sprites, unsigned int num\+Pixels\+To\+Trim\+From\+Width)
+\begin{DoxyCompactList}\small\item\em Setter\+: sets member variables. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSprite_aa3fb02a1a2803913aa66e977bcd5457a}{send}} ()
+\begin{DoxyCompactList}\small\item\em Returns 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSprite_a4d0a0c776c4cd240c0f7a0970d23f7b0}{receive}} (int val)
+\begin{DoxyCompactList}\small\item\em Adds val to m\+Position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSprite_a59e4c9fded13348aa7ad6e3588cc9397}\label{classSprite_a59e4c9fded13348aa7ad6e3588cc9397}} 
+void \mbox{\hyperlink{classSprite_a59e4c9fded13348aa7ad6e3588cc9397}{identify}} ()
+\begin{DoxyCompactList}\small\item\em Unused method. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSprite_aba3d4752461ec679fbf5de7ec4c34f61}\label{classSprite_aba3d4752461ec679fbf5de7ec4c34f61}} 
+int \mbox{\hyperlink{classSprite_aba3d4752461ec679fbf5de7ec4c34f61}{get\+Width}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns m\+Dest width. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSprite_a67b67082cfda90103d2d9eefea04cc4b}\label{classSprite_a67b67082cfda90103d2d9eefea04cc4b}} 
+int \mbox{\hyperlink{classSprite_a67b67082cfda90103d2d9eefea04cc4b}{get\+Height}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns m\+Dest height. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSprite_a03d6c82bddfd3d164ce8997482c57c85}\label{classSprite_a03d6c82bddfd3d164ce8997482c57c85}} 
+int \mbox{\hyperlink{classSprite_a03d6c82bddfd3d164ce8997482c57c85}{getX}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns x\+Pos from m\+Transform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSprite_a53ea8b27bcd0dab0627a2dceab2b9d98}\label{classSprite_a53ea8b27bcd0dab0627a2dceab2b9d98}} 
+int \mbox{\hyperlink{classSprite_a53ea8b27bcd0dab0627a2dceab2b9d98}{getY}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns y\+Pos from m\+Transform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSprite_a3c16830e7fed5aa227a5aa01f48d7c77}\label{classSprite_a3c16830e7fed5aa227a5aa01f48d7c77}} 
+int \mbox{\hyperlink{classSprite_a3c16830e7fed5aa227a5aa01f48d7c77}{get\+CenterX}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns x coordinate of center of rectangle, using x\+Pos value from m\+Transform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSprite_a095f223cb7109b61ed6b29e3048ec02e}\label{classSprite_a095f223cb7109b61ed6b29e3048ec02e}} 
+int \mbox{\hyperlink{classSprite_a095f223cb7109b61ed6b29e3048ec02e}{get\+CenterY}} ()
+\begin{DoxyCompactList}\small\item\em Getter\+: returns y coordinate of center of rectangle, using y\+Pos value from m\+Transform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSprite_a0ec419f0f8ad92bc2022c775c59055c6}\label{classSprite_a0ec419f0f8ad92bc2022c775c59055c6}} 
+void \mbox{\hyperlink{classSprite_a0ec419f0f8ad92bc2022c775c59055c6}{remove\+Sprite\+From\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Removes resources from manager. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSprite_a38969f966cf3264d58a2b7b736c92fd7}\label{classSprite_a38969f966cf3264d58a2b7b736c92fd7}} 
+void \mbox{\hyperlink{classSprite_a38969f966cf3264d58a2b7b736c92fd7}{shut\+Down\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Calls shut\+Down for items in manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSprite_a3d011fedb8996ba960ce5be42729eb75}\label{classSprite_a3d011fedb8996ba960ce5be42729eb75}} 
+\mbox{\hyperlink{classTransform}{Transform}} $\ast$ {\bfseries m\+Transform} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A small class to demonstrate loading sprites. \mbox{\hyperlink{classSprite}{Sprite}} sheets are often used for loading characters, environments, icons, or other images in a game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSprite_a2bfe8f8a73e557712035642d2b18a22a}\label{classSprite_a2bfe8f8a73e557712035642d2b18a22a}} 
+\index{Sprite@{Sprite}!Sprite@{Sprite}}
+\index{Sprite@{Sprite}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{Sprite()}{Sprite()}}
+{\footnotesize\ttfamily Sprite\+::\+Sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTransform}{Transform}} $\ast$}]{\+\_\+transform,  }\item[{bool}]{read\+Left\+To\+Right = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructor that takes in \mbox{\hyperlink{classTransform}{Transform}} pointer and read\+Left\+To\+Right (bool) as params. Read\+Left\+To\+Right param allows the sprite sheet to be read left-\/to-\/right or right-\/to-\/left to make it easy to create the necessary sprites and reverse sprites needed for side-\/scroller game creation. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSprite_aa59ffc641e599ceafc73908cf3b270e9}\label{classSprite_aa59ffc641e599ceafc73908cf3b270e9}} 
+\index{Sprite@{Sprite}!loadImage@{loadImage}}
+\index{loadImage@{loadImage}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{loadImage()}{loadImage()}}
+{\footnotesize\ttfamily void Sprite\+::load\+Image (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Path,  }\item[{std\+::uintptr\+\_\+t}]{renderer\+Address }\end{DoxyParamCaption})}
+
+
+
+Loads and creates sprite sheet from file\+Path. 
+
+Load a sprite
+
+Loads and creates sprite sheet, m\+Sprite\+Sheet, according to param file\+Path. \mbox{\Hypertarget{classSprite_a5a897a2fb09e89ac18dd46cc8505705d}\label{classSprite_a5a897a2fb09e89ac18dd46cc8505705d}} 
+\index{Sprite@{Sprite}!loadImageForPreview@{loadImageForPreview}}
+\index{loadImageForPreview@{loadImageForPreview}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{loadImageForPreview()}{loadImageForPreview()}}
+{\footnotesize\ttfamily void Sprite\+::load\+Image\+For\+Preview (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Path,  }\item[{std\+::uintptr\+\_\+t}]{renderer\+Address }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classSprite}{Sprite}} loader for previewing sprite animation. 
+
+Alternative way of loading a sprite mainly for preview purposes. \mbox{\Hypertarget{classSprite_a4d0a0c776c4cd240c0f7a0970d23f7b0}\label{classSprite_a4d0a0c776c4cd240c0f7a0970d23f7b0}} 
+\index{Sprite@{Sprite}!receive@{receive}}
+\index{receive@{receive}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{receive()}{receive()}}
+{\footnotesize\ttfamily void Sprite\+::receive (\begin{DoxyParamCaption}\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Adds val to m\+Position. 
+
+Receive component for getting information from other components. \mbox{\Hypertarget{classSprite_a1114c639467b7cfc8368619794d7c35f}\label{classSprite_a1114c639467b7cfc8368619794d7c35f}} 
+\index{Sprite@{Sprite}!render@{render}}
+\index{render@{render}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Sprite\+::render (\begin{DoxyParamCaption}\item[{std\+::uintptr\+\_\+t}]{renderer\+Address,  }\item[{int}]{cam\+OffsetX,  }\item[{int}]{cam\+OffsetY }\end{DoxyParamCaption})}
+
+
+
+Renders the desination rectangle (sprite image) adjusted for camera offset. 
+
+Renders the sprite to the screen.
+
+@params\+: renderer -\/ SDL\+\_\+\+Renderer
+
+Renders the m\+Dest rectangle (sprite image) adjusted for cam\+OffsetX and cam\+OffsetY. \mbox{\Hypertarget{classSprite_aa3fb02a1a2803913aa66e977bcd5457a}\label{classSprite_aa3fb02a1a2803913aa66e977bcd5457a}} 
+\index{Sprite@{Sprite}!send@{send}}
+\index{send@{send}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily int Sprite\+::send (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns 0. 
+
+Send function for communicating with other components. \mbox{\Hypertarget{classSprite_afc761454b32195a380cb72f7f394448c}\label{classSprite_afc761454b32195a380cb72f7f394448c}} 
+\index{Sprite@{Sprite}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Sprite\+::set\+Position (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Setter\+: sets m\+PositionX and m\+PositionY. 
+
+Sets the position of the sprite.
+
+@params\+: x -\/ x coordinate of sprite y -\/ y coordinate of sprite \mbox{\Hypertarget{classSprite_a74d328a2fdfc2cd088ffa2b69ad10096}\label{classSprite_a74d328a2fdfc2cd088ffa2b69ad10096}} 
+\index{Sprite@{Sprite}!setRectangleDimensions@{setRectangleDimensions}}
+\index{setRectangleDimensions@{setRectangleDimensions}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{setRectangleDimensions()}{setRectangleDimensions()}}
+{\footnotesize\ttfamily void Sprite\+::set\+Rectangle\+Dimensions (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Setter\+: sets width and height of destination rectangle. 
+
+Sets the dimensions of the rectangle the sprite is drawn on.
+
+@params\+: width -\/ the horizontal length of the sprite height -\/ the vertical lenght of the sprite
+
+Setter method that sets m\+Dest width and height as x and y, respectively \mbox{\Hypertarget{classSprite_acb1351e8e30e2138bfc7cd8bca72f223}\label{classSprite_acb1351e8e30e2138bfc7cd8bca72f223}} 
+\index{Sprite@{Sprite}!setSpriteSheetDimensions@{setSpriteSheetDimensions}}
+\index{setSpriteSheetDimensions@{setSpriteSheetDimensions}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{setSpriteSheetDimensions()}{setSpriteSheetDimensions()}}
+{\footnotesize\ttfamily void Sprite\+::set\+Sprite\+Sheet\+Dimensions (\begin{DoxyParamCaption}\item[{int}]{frame\+Width,  }\item[{int}]{frame\+Height,  }\item[{int}]{num\+Sprites\+In\+Row,  }\item[{unsigned int}]{total\+Sprites,  }\item[{unsigned int}]{num\+Pixels\+To\+Trim\+From\+Width }\end{DoxyParamCaption})}
+
+
+
+Setter\+: sets member variables. 
+
+Sets the dimesnions of the sprite surface. In other words, each frame of the animation should be dimensions frame\+Width x frame\+Height. Also records the number of rows and columns in the sprite sheet.
+
+Setter method that sets member variable values. Param m\+Src width is adjusted by num\+Pixels\+To\+Trim\+From\+Width. \mbox{\Hypertarget{classSprite_abc29dd8b59c12e6493aee732c96b1150}\label{classSprite_abc29dd8b59c12e6493aee732c96b1150}} 
+\index{Sprite@{Sprite}!update@{update}}
+\index{update@{update}!Sprite@{Sprite}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Sprite\+::update (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{frame }\end{DoxyParamCaption})}
+
+
+
+Finds sprite image that corresponds to frame number. 
+
+Sets the position of the sprite.
+
+@params\+: x -\/ x coordinate of sprite y -\/ y coordinate of sprite
+
+Finds sprite image that corresponds to frame number. Updates the image selected according to m\+Num\+Pixels\+To\+Trim\+From\+Width, which trims extra empty pixels from the width, and m\+Read\+Left\+To\+Right, which determines if the sprite sheet is read from left-\/to-\/right or right-\/to-\/left. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Engine/include/Sprite.\+hpp\item 
+Engine/src/Sprite.\+cpp\end{DoxyCompactItemize}

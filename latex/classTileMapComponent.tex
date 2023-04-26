@@ -9,18 +9,22 @@
 \begin{DoxyCompactList}\small\item\em Overloaded Constructor with rows, cols, and size as parameters. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classTileMapComponent_a3d8289074c6943aee6194df04a28cd5b}{$\sim$\+Tile\+Map\+Component}} ()
 \begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTileMapComponent_aeba410028aff796816480b85ab88e858}{Extend\+Tilemap}} (const std\+::string \&level\+Path)
+\begin{DoxyCompactList}\small\item\em extends the tilemap given a level \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTileMapComponent_a499b5deb3ae911b848b995244bf5ec8f}{Render}} (std\+::uintptr\+\_\+t renderer\+Address, int offsetX, int offsetY)
 \begin{DoxyCompactList}\small\item\em Renders all tiles according to camera offset. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structCollision}{Collision}} \mbox{\hyperlink{classTileMapComponent_a9827856ca055d728e0e53af5393de6f3}{check\+Collision}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$o)
 \begin{DoxyCompactList}\small\item\em Checks for collisions around \mbox{\hyperlink{classGameObject}{Game\+Object}}. Returns collision object. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classTileMapComponent_aa4e452228da006aaf64d287b8e098a71}{is\+On\+Ground}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$o)
-\begin{DoxyCompactList}\small\item\em Checks if rectangle is touching the top of a tile. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if sprite or rectangle is touching the top of a tile. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classTileMapComponent_af85dca41b00eeec160a16cf8e18dfa16}{is\+On\+Ceiling}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$o)
-\begin{DoxyCompactList}\small\item\em Checks if rectangle is touching the bottom of a tile. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if sprite or rectangle is touching the bottom of a tile. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classTileMapComponent_af679d9ce8c6987467bdba78a13d187ca}{is\+Touching\+Right\+Wall}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$o)
-\begin{DoxyCompactList}\small\item\em Checks if rectangle is touching tile to the right. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if sprite or rectangle is touching tile to the right. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classTileMapComponent_a1de729649331ec314f4a3952aecc5482}{is\+Touching\+Left\+Wall}} (\mbox{\hyperlink{classGameObject}{Game\+Object}} $\ast$o)
-\begin{DoxyCompactList}\small\item\em Checks if rectangle is touching tile to the left. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if sprite or rectangle is touching tile to the left. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTileMapComponent_a061cf7bcddd5b17058fed26812d5f757}{is\+Touching\+Type}} (\mbox{\hyperlink{structCollision}{Collision}} collision, int id)
+\begin{DoxyCompactList}\small\item\em Checks if a collision is touching a tile with the given type. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classTileMapComponent_a1b7d92af202884138302e707b3c17f26}\label{classTileMapComponent_a1b7d92af202884138302e707b3c17f26}} 
 int \mbox{\hyperlink{classTileMapComponent_a1b7d92af202884138302e707b3c17f26}{get\+Rows}} ()
 \begin{DoxyCompactList}\small\item\em Getter method\+: returns m\+Rows. \end{DoxyCompactList}\item 
@@ -91,7 +95,17 @@ Deconstructor\+: destroys tileset\+Texture and calls IMG\+\_\+\+Quit()
 
 Checks for collisions around \mbox{\hyperlink{classGameObject}{Game\+Object}}. Returns collision object. 
 
-Gets tiles on object\textquotesingle{}s left, right, top, and bottom edges. Iterate from left to right and top to bottom of tiles covered to check for collisions. Returns a \mbox{\hyperlink{structCollision}{Collision}} object. \mbox{\Hypertarget{classTileMapComponent_a6ad2d3d30f72e98899bc9a28e1aa94b2}\label{classTileMapComponent_a6ad2d3d30f72e98899bc9a28e1aa94b2}} 
+Gets tiles on object\textquotesingle{}s left, right, top, and bottom edges. Iterate from left to right and top to bottom of tiles covered to check for collisions. Returns a \mbox{\hyperlink{structCollision}{Collision}} object. \mbox{\Hypertarget{classTileMapComponent_aeba410028aff796816480b85ab88e858}\label{classTileMapComponent_aeba410028aff796816480b85ab88e858}} 
+\index{TileMapComponent@{TileMapComponent}!ExtendTilemap@{ExtendTilemap}}
+\index{ExtendTilemap@{ExtendTilemap}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{ExtendTilemap()}{ExtendTilemap()}}
+{\footnotesize\ttfamily void Tile\+Map\+Component\+::\+Extend\+Tilemap (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{level\+Path }\end{DoxyParamCaption})}
+
+
+
+extends the tilemap given a level 
+
+extends the current tilemap given a level\textquotesingle{}s file path, must be same height. \mbox{\Hypertarget{classTileMapComponent_a6ad2d3d30f72e98899bc9a28e1aa94b2}\label{classTileMapComponent_a6ad2d3d30f72e98899bc9a28e1aa94b2}} 
 \index{TileMapComponent@{TileMapComponent}!getTileIdx@{getTileIdx}}
 \index{getTileIdx@{getTileIdx}!TileMapComponent@{TileMapComponent}}
 \doxysubsubsection{\texorpdfstring{getTileIdx()}{getTileIdx()}}
@@ -109,9 +123,9 @@ Internal method. Returns index of tile in m\+Tiles by inputs row and col. \mbox{
 
 
 
-Checks if rectangle is touching the bottom of a tile. 
+Checks if sprite or rectangle is touching the bottom of a tile. 
 
-Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Rectangle is touching the bottom of a tile (ceiling). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} pointer as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_aa4e452228da006aaf64d287b8e098a71}\label{classTileMapComponent_aa4e452228da006aaf64d287b8e098a71}} 
+Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Sprite or m\+Rectangle is touching the bottom of a tile (ceiling). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} pointer as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_aa4e452228da006aaf64d287b8e098a71}\label{classTileMapComponent_aa4e452228da006aaf64d287b8e098a71}} 
 \index{TileMapComponent@{TileMapComponent}!isOnGround@{isOnGround}}
 \index{isOnGround@{isOnGround}!TileMapComponent@{TileMapComponent}}
 \doxysubsubsection{\texorpdfstring{isOnGround()}{isOnGround()}}
@@ -119,9 +133,9 @@ Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\
 
 
 
-Checks if rectangle is touching the top of a tile. 
+Checks if sprite or rectangle is touching the top of a tile. 
 
-Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Rectangle is touching the top of a tile (floor). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} pointer as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_a1de729649331ec314f4a3952aecc5482}\label{classTileMapComponent_a1de729649331ec314f4a3952aecc5482}} 
+Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Sprite or m\+Rectangle is touching the top of a tile (floor). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} pointer as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_a1de729649331ec314f4a3952aecc5482}\label{classTileMapComponent_a1de729649331ec314f4a3952aecc5482}} 
 \index{TileMapComponent@{TileMapComponent}!isTouchingLeftWall@{isTouchingLeftWall}}
 \index{isTouchingLeftWall@{isTouchingLeftWall}!TileMapComponent@{TileMapComponent}}
 \doxysubsubsection{\texorpdfstring{isTouchingLeftWall()}{isTouchingLeftWall()}}
@@ -129,9 +143,9 @@ Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\
 
 
 
-Checks if rectangle is touching tile to the left. 
+Checks if sprite or rectangle is touching tile to the left. 
 
-Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Rectangle is touching a tile to the left (left wall). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_af679d9ce8c6987467bdba78a13d187ca}\label{classTileMapComponent_af679d9ce8c6987467bdba78a13d187ca}} 
+Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Sprite or m\+Rectangle is touching a tile to the left (left wall). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_af679d9ce8c6987467bdba78a13d187ca}\label{classTileMapComponent_af679d9ce8c6987467bdba78a13d187ca}} 
 \index{TileMapComponent@{TileMapComponent}!isTouchingRightWall@{isTouchingRightWall}}
 \index{isTouchingRightWall@{isTouchingRightWall}!TileMapComponent@{TileMapComponent}}
 \doxysubsubsection{\texorpdfstring{isTouchingRightWall()}{isTouchingRightWall()}}
@@ -139,9 +153,19 @@ Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\
 
 
 
-Checks if rectangle is touching tile to the right. 
+Checks if sprite or rectangle is touching tile to the right. 
 
-Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Rectangle is touching a tile to the right (right wall). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_afd6ccbefa9a84a5c7952073a16db4b26}\label{classTileMapComponent_afd6ccbefa9a84a5c7952073a16db4b26}} 
+Checks if \mbox{\hyperlink{classGameObject}{Game\+Object}}\textquotesingle{}s m\+Sprite or m\+Rectangle is touching a tile to the right (right wall). Takes in \mbox{\hyperlink{classGameObject}{Game\+Object}} as parameter. Returns bool. \mbox{\Hypertarget{classTileMapComponent_a061cf7bcddd5b17058fed26812d5f757}\label{classTileMapComponent_a061cf7bcddd5b17058fed26812d5f757}} 
+\index{TileMapComponent@{TileMapComponent}!isTouchingType@{isTouchingType}}
+\index{isTouchingType@{isTouchingType}!TileMapComponent@{TileMapComponent}}
+\doxysubsubsection{\texorpdfstring{isTouchingType()}{isTouchingType()}}
+{\footnotesize\ttfamily bool Tile\+Map\+Component\+::is\+Touching\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structCollision}{Collision}}}]{collision,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Checks if a collision is touching a tile with the given type. 
+
+Checks if a collision is touching a tile with the given type. \mbox{\Hypertarget{classTileMapComponent_afd6ccbefa9a84a5c7952073a16db4b26}\label{classTileMapComponent_afd6ccbefa9a84a5c7952073a16db4b26}} 
 \index{TileMapComponent@{TileMapComponent}!isValidTile@{isValidTile}}
 \index{isValidTile@{isValidTile}!TileMapComponent@{TileMapComponent}}
 \doxysubsubsection{\texorpdfstring{isValidTile()}{isValidTile()}}

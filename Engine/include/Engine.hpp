@@ -1,9 +1,8 @@
-#ifndef SDLGRAPHICSPROGRAM // TODO: pragma once
-#define SDLGRAPHICSPROGRAM
+#pragma once
 
 #include <iostream>
 #include <string>
-#include <memory> // TODO: is this needed?
+#include <memory>
 #include <sstream>
 #include <fstream>
 #include <vector>
@@ -14,7 +13,6 @@
 #else // This works for Mac
     #include <SDL.h>
 #endif
-#include <glad/glad.h> // TODO: glad needed?
 
 class GameObject;
 
@@ -71,12 +69,16 @@ public:
     void setTitle(const std::string &title);
     // Add GameObject to gameObjects vector for auto update and render
     void addGameObject(GameObject* obj);
-    // TODO: Do we need a remove object?
     // Render each GameObject
     void Render();
     // Get time in milliseconds since SDL library initialization
     Uint32 getTimeMS();
+    // Return status of each input in Keys at frame
     std::vector<bool>& getInputAtFrame(int frame);
+    // Set to renderer to default blend mode - no transparency
+    void setBlendModeNone();
+    // Set to blend mode alpha - transparency
+    void setBlendModeAlpha();
 
 private:
     // Screen dimension constants
@@ -96,11 +98,3 @@ private:
     std::vector<std::vector<bool>> inputRecord;
     std::vector<GameObject*> gameObjects;
 };
-
-
-
-
-
-
-
-#endif

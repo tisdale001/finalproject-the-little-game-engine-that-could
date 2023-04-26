@@ -31,6 +31,8 @@ class TileMapComponent {
 
         ~TileMapComponent();
 
+        void ExtendTilemap(const std::string& levelPath);
+
         void Render(std::uintptr_t rendererAddress, int offsetX, int offsetY);
 
         Collision checkCollision(GameObject* o);

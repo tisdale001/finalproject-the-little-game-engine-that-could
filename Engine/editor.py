@@ -1,22 +1,10 @@
 import os
 
 import tkinter as tk
-from tkinter import ttk, Toplevel
+from tkinter import ttk, Toplevel, Label, Entry, StringVar
 from PIL import Image, ImageTk
 
-
-# Required
-# TODO: Add a row or column of predefined colors to select from
-# TODO: Erase tool? For now right click erases
-# TODO: Implement save/load level
-# TODO: Set row/col size of level
-# TODO: Cleanup UI/code
-
-# Nice to have
-# Set background image
-# Have collidable and non-collidable layers or tile type
-# Place images instead of colors
-# Selection tool for group of tiles? (Might require switching to canvas)
+from lib import engine
 
 
 class tileset:
@@ -31,7 +19,6 @@ class tileset:
         self.tileSize = tileSize
         self.tileNumList = tileNumList
         self.tilesetName = tilesetName
-        # tileDict = {int : pathName}
         self.tileDict = self.createTileDict()
     
     def createTileDict(self):
@@ -250,17 +237,6 @@ def saveLevel(window, rows, cols, tileSize, tileFrame, tilesetName):
 def enforceNumeric(input):
     return input.isdigit()
 
-# def getTileColor(input):
-#     """
-#     Does: switch statement to retrieve color name (for a tile)
-#     Input: input is int
-#     """
-#     switcher = {
-#         0: "#d9d9d9",
-#         1: "red",
-#     }
-#     return switcher.get(input, "#d9d9d9")
-
 def createWindow(pixelWidth, pixelHeight):
     geometry_str = str(pixelWidth) + "x" + str(pixelHeight)
     root = tk.Tk()
@@ -278,14 +254,68 @@ def placeTkLabelTile(label, xPos, yPos, tileSize, currentTile):
     label.bind("<Double-Button-3>", lambda e: multiEraseButton(e, currentTile))
 
     label.bind("<Enter>", lambda e: mouseEntered(e, currentTile))
-    # label.bind("<ButtonPress-1>", lambda e: setMouseDown(e, currentTile, not currentTile.getMouseDown()))
-    # label.bind("<Button-1>", lambda e: setTile(e, currentTile))
-    # label.bind("<ButtonRelease-1>", lambda e: setMouseDown(e, currentTile, 0))
-    # label.bind("<B1-Motion>", lambda e: setTile(e, currentTile))
-    # label.bind_all("<B1-Motion>", lambda e: mouseMovedOver(e, currentTile, label))
-    # label.bind("<ButtonRelease-3>", lambda e: backToPreviousTile(e, currentTile))
-    # label.bind("<Button-3>", lambda e: setMouseDown(e, currentTile, 0))
 
+class SpritePlayer():
+    def __init__(self, windowWidth, windowHeight):
+        self.sdl = engine.SDLGraphicsProgram(windowWidth, windowHeight)
+        self.windowWidth = windowWidth
+        self.windowHeight = windowHeight
+
+        self.transform = engine.Transform()
+
+        self.sprite = engine.Sprite(self.transform, True)
+
+        self.currentFrame = 0
+        self.maxFrame = 0
+        self.delay = 16
+
+    def setMaxFrame(self, mf):
+        self.maxFrame = mf
+        print("maxframe: ",self.maxFrame)
+
+    def setSpriteSheet(self, ss):
+        self.sprite.loadImageForPreview("Assets/spritesheets/"+ss, self.sdl.getSDLRenderer())
+        print("sheet: ", ss)
+
+    def setSpriteDisplaySize(self, wid, hei):
+        self.sprite.setRectangleDimensions(wid, hei)
+        print(wid, hei)
+
+    def setSpriteSheetInfo(self, sp_wid, sp_hei, spr, tns, ofst):
+        self.sprite.setSpriteSheetDimensions(sp_wid, sp_hei, spr, tns, ofst)
+        print(sp_wid, sp_hei, spr, tns, ofst)
+
+    def setDelay(self, delay):
+        self.delay = delay
+
+    def runloop(self):
+        inputs = self.sdl.getInput()
+        while not inputs[engine.QUIT_EVENT]:
+            self.update(inputs := self.sdl.getInput())
+            self.render()
+            self.sdl.delay(self.delay)
+    
+    def update(self, inputs):
+        if inputs[engine.ESCAPE_PRESSED]:
+            inputs[engine.QUIT_EVENT] = True
+
+        if self.currentFrame > self.maxFrame:
+            self.currentFrame = 0
+        else:
+            self.currentFrame += 1
+
+        self.sprite.update(0, 0, self.currentFrame)
+
+    def render(self):
+        self.sdl.clear(255, 255, 255, 255) # Set background to gray
+        self.sprite.render(self.sdl.getSDLRenderer(), 0, 0)
+        self.sdl.flip()
+
+    def remove(self):
+        self.sprite.removeFromResourceManager()
+
+    def shutDownManagers(self):
+        self.sprite.shutDownManager()
 
 def createEditor(root, grid, tileDict, currentTile, rows, cols, tileSize, tilesetName):
     """
@@ -396,18 +426,6 @@ def createEditor(root, grid, tileDict, currentTile, rows, cols, tileSize, tilese
     vScrollbar.pack(side="right", fill="y")
     canvas.pack(side="left", fill="both", expand=True)
 
-    vcmd = (root.register(enforceNumeric), "%P")
-    rowLabel = tk.Label(root, text="Rows")
-    rowLabel.pack(side=tk.LEFT)
-    rowEntry = tk.Entry(root, validate="key", validatecommand=vcmd, width=5)
-    rowEntry.insert(0, rows)
-    rowEntry.pack(side=tk.LEFT)
-    columnLabel = tk.Label(root, text="Columns")
-    columnLabel.pack(side=tk.LEFT)
-    columnEntry = tk.Entry(root, validate="key", validatecommand=vcmd, width=5)
-    columnEntry.insert(0, cols)
-    columnEntry.pack(side=tk.LEFT)
-
     def saveGrid():
         # this internal method creates and returns "grid" (from current level data)
         tiles = scrollable_frame.winfo_children()
@@ -420,30 +438,177 @@ def createEditor(root, grid, tileDict, currentTile, rows, cols, tileSize, tilese
             cur_row.append(int(str(tile.cget("textvariable"))))
         grid.append(cur_row)
         return grid
+    
+    def previewSprite():
+        new_window = tk.Toplevel()
+        new_window.title("Sprite Previewer")
+        new_window.geometry("640x480")
 
-    refreshButton = tk.Button(root, text="Refresh", command=lambda:createEditor(
+        spritesheetVar = StringVar(new_window)
+        spritesheetDropdown = None
+        spritesheets = os.listdir("Assets/spritesheets/")
+        if spritesheets:
+            spritesheetVar.set("Select spritesheet") # initial value
+            spritesheetDropdown = tk.OptionMenu(new_window, spritesheetVar, *spritesheets)
+            spritesheetDropdown.grid(row=7, column=1)
+
+        num_sprites_label = StringVar()
+        num_sprites_label.set("Total # of sprites: ")
+        sprites_label=Label(new_window, textvariable=num_sprites_label, height=4)
+        sprites_label.grid(row=0, column=0)
+
+        num_sprites_input=StringVar(None)
+        num_sprites_input=Entry(new_window,textvariable=num_sprites_input,width=5)
+        num_sprites_input.grid(row=0, column=1)
+
+        sprites_per_line_label = StringVar()
+        sprites_per_line_label.set("Sprites per row: ")
+        per_line_label=Label(new_window, textvariable=sprites_per_line_label, height=4)
+        per_line_label.grid(row=0, column=2)
+
+        per_line_input=StringVar(None)
+        per_line_input=Entry(new_window,textvariable=per_line_input,width=5)
+        per_line_input.grid(row=0, column=3)
+
+        sprite_w_label = StringVar()
+        sprite_w_label.set("Sprite Width: ")
+        sprite_width_label=Label(new_window, textvariable=sprite_w_label, height=4);
+        sprite_width_label.grid(row=1, column=0)
+
+        sprite_width_input = StringVar(None)
+        sprite_width_input = Entry(new_window,textvariable=sprite_width_input,width=5)
+        sprite_width_input.grid(row=1, column=1)
+
+        sprite_h_label = StringVar()
+        sprite_h_label.set("Sprite Height: ")
+        sprite_height_label=Label(new_window, textvariable=sprite_h_label, height=4);
+        sprite_height_label.grid(row=1, column=2)
+
+        sprite_height_input = StringVar(None)
+        sprite_height_input = Entry(new_window,textvariable=sprite_height_input,width=5)
+        sprite_height_input.grid(row=1, column=3)
+
+        off_label = StringVar()
+        off_label.set("Offset: ")
+        offset_label=Label(new_window, textvariable=off_label, height=4)
+        offset_label.grid(row=2, column=0)
+
+        offset_input = StringVar(None)
+        offset_input = Entry(new_window,textvariable=offset_input,width=4)
+        offset_input.grid(row=2, column=1)
+
+        del_label = StringVar()
+        del_label.set("Delay (ms): ")
+        delay_label=Label(new_window, textvariable=del_label, height=4)
+        delay_label.grid(row=2, column=2)
+
+        delay_input = StringVar(None)
+        delay_input = Entry(new_window, textvariable=delay_input, width=5)
+        delay_input.grid(row=2, column=3)
+
+        display_w_label = StringVar()
+        display_w_label.set("Display Width: ")
+        display_width_label=Label(new_window, textvariable=display_w_label, height=4);
+        display_width_label.grid(row=4, column=0)
+
+        display_width_input = StringVar(None)
+        display_width_input = Entry(new_window,textvariable=display_width_input,width=5)
+        display_width_input.grid(row=4, column=1)
+
+        display_h_label = StringVar()
+        display_h_label.set("Display Height: ")
+        display_height_label=Label(new_window, textvariable=display_h_label, height=4);
+        display_height_label.grid(row=4, column=2)
+
+        display_height_input = StringVar(None)
+        display_height_input = Entry(new_window,textvariable=display_height_input,width=5)
+        display_height_input.grid(row=4, column=3)
+    
+        def runSpritePreviewer():
+
+            display_height = display_height_input.get()
+            display_width = display_width_input.get()
+            offset = offset_input.get()
+            sprite_height = sprite_height_input.get()
+            sprite_width = sprite_width_input.get()
+            num_sp = num_sprites_input.get()
+            sprites_per_ln = per_line_input.get()
+            sheet = spritesheetVar.get()
+            current_delay = delay_input.get()
+
+            if display_height and display_width and offset and sprite_height and sprite_width and num_sp and sprites_per_ln and sheet and current_delay:
+
+                try:
+                    sprite_player = SpritePlayer(int(display_width), int(display_height))
+                    sprite_player.setSpriteSheet(sheet)
+                    sprite_player.setMaxFrame(int(num_sp))
+                    sprite_player.setSpriteDisplaySize(int(display_width), int(display_height))
+                    sprite_player.setSpriteSheetInfo(int(sprite_width), int(sprite_height), int(sprites_per_ln), int(num_sp), int(offset))
+                    sprite_player.setDelay(int(current_delay))
+
+                    sprite_player.runloop()
+                    sprite_player = None
+                except Exception:
+                    print("Something went wrong")
+
+        StartB = tk.Button(new_window, text ="Start", command=runSpritePreviewer)
+        StartB.grid(row=7, column=0)
+
+    # pack all buttons
+    btn_container1 = ttk.Frame(root, padding=10)
+    btn_container2 = ttk.Frame(root, padding=10)
+    btn_container3 = ttk.Frame(root, padding=10)
+    # btn_container.pack(side=tk.TOP)
+
+    vcmd = (root.register(enforceNumeric), "%P")
+    rowLabel = tk.Label(btn_container1, text="Rows", width=5)
+    rowLabel.pack(side=tk.LEFT)
+    # rowLabel.grid(row=0, column=0)
+    rowEntry = tk.Entry(btn_container1, validate="key", validatecommand=vcmd, width=5)
+    rowEntry.insert(0, rows)
+    rowEntry.pack(side=tk.LEFT)
+    # rowEntry.grid(row=0, column=1)
+    columnLabel = tk.Label(btn_container1, text="Columns", width=7)
+    columnLabel.pack(side=tk.LEFT)
+    # columnLabel.grid(row=0, column=2)
+    columnEntry = tk.Entry(btn_container1, validate="key", validatecommand=vcmd, width=5)
+    columnEntry.insert(0, cols)
+    columnEntry.pack(side=tk.LEFT)
+    # columnEntry.grid(row=0, column=3)
+    refreshButton = tk.Button(btn_container1, text="Refresh", width=5, command=lambda:createEditor(
         root=root, grid=saveGrid(), tileDict=tileDict, currentTile=currentTile, rows=int(rowEntry.get()), 
         cols=int(columnEntry.get()), tileSize=tileSize, tilesetName=tilesetName))
-    loadButton = tk.Button(root, text="Load", command=lambda:loadLevel(loadLevelVar.get()))
-    saveButton = tk.Button(root, text="Save", command=lambda:saveLevel(root, rows, cols, tileSize, scrollable_frame, tilesetName))
-    # window, rows, cols, tileSize, tileFrame
-
+    # refreshButton.grid(row=0, column=5)
     refreshButton.pack(side=tk.LEFT)
-    loadButton.pack(side=tk.LEFT)
+    
+    previewSpriteButton = tk.Button(btn_container3, text="Preview Sprite", command=previewSprite)
+    # previewSpriteButton.grid(row=3, column=2)
+    previewSpriteButton.pack(side=tk.LEFT)
+    saveButton = tk.Button(btn_container3, text="Save", command=lambda:saveLevel(root, rows, cols, tileSize, scrollable_frame, tilesetName))
+    # saveButton.grid(row=3, column=3)
     saveButton.pack(side=tk.LEFT)
-
+    
     loadLevelDropdown = None
     levelFiles = os.listdir(levelAssetsPath + tilesetName + "/")
     if levelFiles:
         loadLevelVar.set("Select level to load") # initial value
-        loadLevelDropdown = tk.OptionMenu(root, loadLevelVar, *levelFiles)
+        loadLevelDropdown = tk.OptionMenu(btn_container2, loadLevelVar, *levelFiles)
         loadLevelDropdown.pack(side=tk.LEFT)
+        # loadLevelDropdown.grid(row=1, column=2)
+    loadButton = tk.Button(btn_container2, text="Load", command=lambda:loadLevel(loadLevelVar.get()))
+    # loadButton.grid(row=1, column=3)
+    loadButton.pack(side=tk.LEFT)
+
+
+    btn_container1.pack(side=tk.TOP)
+    btn_container2.pack(side=tk.TOP)
+    btn_container3.pack(side=tk.TOP)
 
     # currentEditorMode = tk.Label(tileBarContainer, image='', borderwidth=2, relief="solid", textvariable='2')
 
 
 
-root = createWindow(1200, 800)
+root = createWindow(1000, 600)
 levelAssetsPath = "Assets/Levels/"
 loadLevelVar = tk.StringVar(root)
 tilemapImagePath = 'Assets/tilesets/mario-like-tileset-32x32.png'
@@ -452,10 +617,7 @@ tilesetCols = 16 # The number of columns displayed from tileset
 tileSize = 32
 pixelWidth = tilesetCols * tileSize
 pixelHeight = tilesetRows * tileSize
-# tileNumList = list(range(0, 49))
 tileNumList = list(range(0, tilesetRows*tilesetCols + 1))
-# pixelWidth = 512
-# pixelHeight = 512
 # tileNumList = [0, 1, 2, 7, 8, 9, 3, 4, 5, 6, 52, 53, 11, 12, 13, 14, 54, 55, 56, 57, 
 #                 16, 17, 18, 23, 24, 25, 19, 20, 21, 22, 10, 26, 27, 28, 29, 30, 0, 0, 0, 0,
 #                 32, 33, 34, 39, 40, 41, 35, 36, 37, 38]
@@ -464,17 +626,22 @@ tiles = tileset(tilemapImagePath, pixelWidth, pixelHeight, tileSize, tileNumList
 curTile = currentTile()
 
 def main():
+    print("Editor:")
+    print("Left click to place tile.")
+    print("Right click to erase tile.")
+    print("Left click tiles in tilesheet section to select which tile to place.")
+    print("Double-click left click to enter \"multi-place\" mode, which will place tiles in all tiles that the mouse moves over.")
+    print("Double-click right click to enter \"multi-erase\" mode, which will erase all tiles that the mouse moves over.")
+    print("Left click or right click to exit \"multi-place\" or \"multi-erase\" modes.")
 
     if not os.path.exists(levelAssetsPath + tilesetName + "/"):
         os.makedirs(levelAssetsPath + tilesetName + "/")
     
     numRows = 10
     numCols = 20
-    
 
     tileDict = tiles.getTileDict()
 
-    # root = createWindow(1200, 800)
     createEditor(root, None, tileDict, curTile, numRows, numCols, tileSize, tiles.getTilesetName())
 
     root.update()

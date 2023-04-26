@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['sdlgraphicsprogram_139',['SDLGraphicsProgram',['../classSDLGraphicsProgram.html#a976683178e086cd2a1a801fd9c501a7b',1,'SDLGraphicsProgram']]],
-  ['setdimensions_140',['setDimensions',['../classRectangleComponent.html#a7f769958f900e4e3122c9a7c8554acef',1,'RectangleComponent']]],
-  ['setposition_141',['setPosition',['../classTransform.html#a594289e128ba95dca9d67385ba55f6dd',1,'Transform']]],
-  ['setrendercolor_142',['setRenderColor',['../classSDLGraphicsProgram.html#ae987598512cf5f05fb0374e7946f8143',1,'SDLGraphicsProgram']]],
-  ['settile_143',['setTile',['../classTileMapComponent.html#afbf9599aeed89dac84fba702895d77a4',1,'TileMapComponent']]],
-  ['settitle_144',['setTitle',['../classSDLGraphicsProgram.html#aa61f0672d7f5ad701c2fb71b312064c8',1,'SDLGraphicsProgram']]],
-  ['sidescrollercamera_145',['SideScrollerCamera',['../classSideScrollerCamera.html#a993786fb4e2f20597426ce1ff024eeae',1,'SideScrollerCamera']]]
+  ['pausemusic_206',['PauseMusic',['../classMusic.html#a0b2f0aca2cef03b1e7cd49da32e02ec0',1,'Music']]],
+  ['physicscomponent_207',['PhysicsComponent',['../classPhysicsComponent.html#aeb544a2a04cde8f050c6a51ec436ec4e',1,'PhysicsComponent']]],
+  ['playmusic_208',['PlayMusic',['../classMusic.html#a63f07af5f02b5925c8ecfc6f63c0830c',1,'Music']]],
+  ['playsound_209',['PlaySound',['../classSound.html#a7f9c91aa25f50fb3276e7d4b4af5cac1',1,'Sound']]],
+  ['printtiles_210',['PrintTiles',['../classTileMapComponent.html#aaf36f19d3a127c6ac68eb612fe430735',1,'TileMapComponent']]]
 ];
