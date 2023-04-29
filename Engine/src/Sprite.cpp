@@ -46,7 +46,7 @@ void Sprite::update (int x, int y, int frame){
     }
     else {
         mSrc.y = floor(mCurrentFrame / mNumSpritesInRow) * mSrc.h;
-        mSrc.x = mTextureWidth - ((mCurrentFrame % mNumSpritesInRow) * (mSrc.w + mNumPixelsToTrimFromWidth) - mNumPixelsToTrimFromWidth);
+        mSrc.x = mTextureWidth - ((mCurrentFrame % mNumSpritesInRow + 1) * (mSrc.w + mNumPixelsToTrimFromWidth) - mNumPixelsToTrimFromWidth);
     }
     
 }
