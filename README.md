@@ -38,3 +38,10 @@ python3 gravity_guy.py
 
 ![Screenshot from 2023-09-23 21-20-56](https://github.com/tisdale001/finalproject-the-little-game-engine-that-could/assets/53150782/c4fd914b-b6ea-4f23-956d-a084a569d8dd)
 ***
+![Screenshot from 2023-09-23 21-33-55](https://github.com/tisdale001/finalproject-the-little-game-engine-that-could/assets/53150782/5e082c96-c197-48d2-ae0c-c7fb29fdf52b)
+
+***
+
+![Screenshot from 2023-09-23 21-37-03](https://github.com/tisdale001/finalproject-the-little-game-engine-that-could/assets/53150782/9ad00468-3ab3-4f63-89b3-155777fe4237)
+
+***
